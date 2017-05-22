@@ -35,5 +35,5 @@ app.factory("happyService", function($http) {
 		getEntry: getEntry
 	}
 
-});
 
+});
