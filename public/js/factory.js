@@ -1,18 +1,39 @@
 var app = angular.module('happyMod');
 
-app.factory("happyFactory", function($http) {
+app.factory("happyService", function($http) {
+	console.log("happyService has loaded");
+//	empty object for entry
+	var entry = {};
 
-  var obj = {};
-  var holder = "";
+	//sets number selected on rating page, adds it as property to entry object
+	function setRating(rating) {
+		entry.rating = rating;
+		console.log(entry)
+	};
 
-  obj.sendUserInput = function(userInput){
+	//returns entry object, including number rating
+	function getRating() {
+		return entry.rating;
+	};
 
-  }
+	//gets entry comment from entry page, adds it as property to entry object
+	function setEntry(comment) {
+		entry.comment = comment;
+		console.log(entry);
+	};
 
-  obj.getUserInput = function(response){
+	//returns entry object, including comment
+	function getEntry() {
+		return entry.comment;
+	}
+
+	//object to be returned with function properties
+	return {
+		setRating: setRating,
+		getRating: getRating,
+		setEntry: setEntry,
+		getEntry: getEntry
+	}
 
 
-  }
-
-  return obj;
 });

@@ -4,8 +4,8 @@ app.config(function($routeProvider){
 
   $routeProvider.when('/entry', {
 
-    templateUrl: "entry-view.html",
-    controller: "entryController"
+    templateUrl: "rating-view.html",
+    controller: "ratingController"
   })
 
   $routeProvider.when('/month', {
