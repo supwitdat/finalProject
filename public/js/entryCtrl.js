@@ -6,11 +6,10 @@ app.controller("entryController", function($scope, happyService) {
 	$scope.rating = happyService.getRating();
 	
 	$scope.setEntry = function(comment, mood) {
-		happyService.setEntry(comment);
-		
-		if (mood.angry === true) {
-			
-		}
+		happyService.setComment(comment);
+		happyService.setMood(mood);
+		console.log(mood);
 	}
+
 	
 });
