@@ -1,5 +1,18 @@
 var app = angular.module('happyMod');
 
-app.service("happyService", function($http) {
- return console.log("happyService has loaded");
+app.factory("happyFactory", function($http) {
+
+  var obj = {};
+  var holder = "";
+
+  obj.sendUserInput = function(userInput){
+
+  }
+
+  obj.getUserInput = function(response){
+
+
+  }
+
+  return obj;
 });
