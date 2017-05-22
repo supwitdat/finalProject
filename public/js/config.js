@@ -4,21 +4,23 @@ app.config(function($routeProvider){
 
   $routeProvider.when('/entry', {
 
-    templateUrl: "entry-view.html",
-    controller: "entryController"
-  })
-
-  $routeProvider.when('/month', {
+    templateUrl: "rating-view.html",
+    controller: "ratingController"
+  }).when('/month', {
 
     templateUrl: "month-view.html",
     controller: "monthController"
 
-  })
-
-  $routeProvider.when('/entry-detail', {
+  }).when('/entry-detail', {
 
     templateUrl: "entry-page-detail.html",
     controller: "entryController"
 
+  }).when('/login',{
+      templateUrl: 'login.html',
+      controller: "loginController"
+  })
+  .otherwise({
+    redirectTo: 'login'
   });
 });

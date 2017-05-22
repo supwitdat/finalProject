@@ -1,0 +1,29 @@
+
+<form ng-controller="loginController">
+
+  <div class="form-group">
+    <label for="userName">Username:</label>
+    <input type="text" class="form-control" id="userName" placeholder="Enter username">
+    <small id="usernameBlurb" class="form-text text-muted">Please create username.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="userEmail">Email:</label>
+    <input type="email" class="form-control" id="userEmail" placeholder="Enter email">
+    <small id="emailBlurb" class="form-text text-muted">Please enter your email.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="password1">Password</label>
+    <input type="password" class="form-control" id="password1" placeholder="Password">
+    <small id="passwordBlurb" class="form-text text-muted">Please create your password. Password must contain a number, an uppercase letter, and be a minimum of 8 characters in length.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="password2">Password</label>
+    <input type="password" class="form-control" id="password2" placeholder="Password">
+    <small id="passwordBlurb2" class="form-text text-muted">Please re-enter your password.</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
