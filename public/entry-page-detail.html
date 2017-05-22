@@ -1,17 +1,17 @@
-<div class="container entry-detail">
+<div class="container entry-detail" ng-controller="entryController">
   <div class="row">
 	<div class="col-sm-1 empty">
 	</div>
 	<div class="col-sm-4 text-center rating">
-		<h2>6</h2>
+		<h2>{{ rating }}</h2>
 	</div>
 	<div class="col-sm-6 mood">
 		<h3>Mood:</h3>
 		<div class="col-sm-6 mood-column">
-			<label class="checkbox"><input type="checkbox" value="">Anixous</label>
-			<label class="checkbox"><input type="checkbox" value="">Angry</label>
-			<label class="checkbox"><input type="checkbox" value="">Content</label>
-			<label class="checkbox"><input type="checkbox" value="">Calm</label>
+			<label class="checkbox"><input type="checkbox" value="anxious" ng-model="mood">Anixous</label>
+			<label class="checkbox"><input type="checkbox" value="angry">Angry</label>
+			<label class="checkbox"><input type="checkbox" value="content">Content</label>
+			<label class="checkbox"><input type="checkbox" value="calm">Calm</label>
 			<label class="checkbox"><input type="checkbox" value="">Depressed</label>
 			<label class="checkbox"><input type="checkbox" value="">Excited</label>
 		</div>
@@ -32,9 +32,18 @@
 	</div>
 	<div class="col-sm-10 form-group">
 		<label for="comment">Comment:</label>
-		<textarea class="form-control" rows="5" id="comment"></textarea>
+		<textarea class="form-control" rows="5" id="comment" ng-model="comment"></textarea>
 	</div>
 	<div class="col-sm-1 empty">
+	</div>
+  </div>
+  <div class="row">
+	<div class="col-sm-8 empty">
+	</div>
+	<div class="col-sm-2">
+	  <button type="submit" class="btn" ng-click="setEntry(comment, mood)">Submit</button>	  
+	</div>
+	<div class="col-sm-2 empty">
 	</div>
   </div>
 </div>
