@@ -17,8 +17,9 @@ app.factory("happyService", function($http) {
 	};
 
 	//gets entry comment from entry page, adds it as property to entry object
-	function setEntry(comment) {
+	function setEntry(comment, mood) {
 		entry.comment = comment;
+		entry.mood = mood;
 		console.log(entry);
 	};
 

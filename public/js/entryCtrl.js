@@ -7,7 +7,10 @@ app.controller("entryController", function($scope, happyService) {
 	
 	$scope.setEntry = function(comment, mood) {
 		happyService.setEntry(comment);
-		console.log(mood);
+		
+		if (mood.angry === true) {
+			
+		}
 	}
 	
 });
