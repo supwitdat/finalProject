@@ -8,7 +8,7 @@ app.factory("happyService", function($http) {
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
-		console.log(entry)
+		console.log(entry);
 	};
 
 	//returns entry object, including number rating
@@ -17,22 +17,28 @@ app.factory("happyService", function($http) {
 	};
 
 	//gets entry comment from entry page, adds it as property to entry object
-	function setEntry(comment, mood) {
+	function setComment(comment) {
 		entry.comment = comment;
-		entry.mood = mood;
 		console.log(entry);
 	};
+	
+//	gets entry mood from entry page, adds it as property to entry object
+	function setMood(mood) {
+		entry.mood = [];
+		entry.mood = mood;
+	};
 
-	//returns entry object, including comment
+	//returns entry object, including comment, mood, and rating
 	function getEntry() {
-		return entry.comment;
+		return entry;
 	}
 
 	//object to be returned with function properties
 	return {
 		setRating: setRating,
 		getRating: getRating,
-		setEntry: setEntry,
+		setComment: setComment,
+		setMood: setMood,
 		getEntry: getEntry
 	}
 
