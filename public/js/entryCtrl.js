@@ -9,7 +9,7 @@ app.controller("entryController", function($scope, happyService) {
 		happyService.setEntry(comment);
 
 		if (mood.angry === true) {
-		   console.log('');
+		   console.log();
 		}
 	}
 
