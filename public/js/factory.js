@@ -1,5 +1,12 @@
 var app = angular.module('happyMod');
 
-app.service("happyService", function($http) {
- return console.log("happyService has loaded");
+app.factory("happyService", function($http) {
+       this.getPost = function(itemId) {
+  return $http.get('/api/posts/'+ itemId).then(function(response){
+
+      return response;
+  })
+        // TODO Make the HTTP request to the server and return a promise.
+    };
+ return 
 });
