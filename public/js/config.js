@@ -6,19 +6,21 @@ app.config(function($routeProvider){
 
     templateUrl: "rating-view.html",
     controller: "ratingController"
-  })
-
-  $routeProvider.when('/month', {
+  }).when('/month', {
 
     templateUrl: "month-view.html",
     controller: "monthController"
 
-  })
-
-  $routeProvider.when('/entry-detail', {
+  }).when('/entry-detail', {
 
     templateUrl: "entry-page-detail.html",
     controller: "entryController"
 
+  }).when('/login',{
+      templateUrl: 'login.html',
+      controller: "loginController"
+  })
+  .otherwise({
+    redirectTo: 'login'
   });
 });
