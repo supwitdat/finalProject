@@ -11,17 +11,19 @@
   <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-  <body>
-   <h1>We da best group!</h1>
+  <body ng-app="happyMod">
+   <h1 ng-controller="entryController">We da best group!</h1>
+   <h2 ng-controller="monthController">We da best group!</h2>
 
 
 
      <script src="lib/angular.min.js" charset="utf-8"></script>
      <script src="lib/angular-route.min.js" charset="utf-8"></script>
      <script src="lib/ui-bootstrap-tpls-2.5.0.min.js" charset="utf-8"></script>
+     <script src="js/script.js" type="text/javascript"></script>
      <script src="js/controller1.js" type="text/javascript"></script>
      <script src="js/controller2.js" type="text/javascript"></script>
      <script src="js/factory.js" type="text/javascript"></script>
-     <script src="js/script.js" type="text/javascript"></script>
+     <!-- <script src="js/script.js" type="text/javascript"></script> -->
   </body>
 </html>
