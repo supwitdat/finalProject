@@ -7,6 +7,16 @@
 	</div>
 	<div class="col-sm-6 mood">
 		<h3>Mood:</h3>
+		<label ng-repeat="mood in moods">
+		  <input
+			type="checkbox"
+			name="selectedMoods[]"
+			value="{{mood}}"
+			ng-checked="selection.indexOf(mood) > -1"
+			ng-click="toggleSelection(mood)"
+		  > {{mood}}
+		</label>
+<!--
 		<div class="col-sm-6 mood-column">
 			<label class="checkbox"><input type="checkbox" value="anxious" ng-model="mood.anxious" >Anixous</label>
 			<label class="checkbox"><input type="checkbox" value="angry" ng-model="mood.angry">Angry</label>
@@ -23,6 +33,7 @@
 			<label class="checkbox"><input type="checkbox" value="pessimistic" ng-model="mood.pessimistic">Pessimistic</label>
 			<label class="checkbox"><input type="checkbox" value="restless" ng-model="mood.restless">Restless</label>
 		</div>
+-->
 	</div>
 	<div class="col-sm-1 empty">
 	</div>

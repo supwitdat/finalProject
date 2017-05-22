@@ -25,7 +25,7 @@ app.factory("happyService", function($http) {
 //	gets entry mood from entry page, adds it as property to entry object
 	function setMood(mood) {
 		entry.mood = [];
-		console.log(Object.keys(mood));
+		entry.mood = mood;
 	};
 
 	//returns entry object, including comment, mood, and rating

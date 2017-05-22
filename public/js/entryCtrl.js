@@ -2,17 +2,33 @@ var app = angular.module('happyMod');
 
 app.controller("entryController", function($scope, happyService) {
   console.log("entryController has loaded");
-
+	//displays rating for entry page
 	$scope.rating = happyService.getRating();
 
-	$scope.setEntry = function(comment, mood) {
-		happyService.setEntry(comment);
+	// Moods
+  	$scope.moods = ['anxious', 'angry', 'depressed', 'content'];
 
-		if (mood.angry === true) {
-		   console.log();
+  	// Selected Moods from list
+  	$scope.selection = [];
+
+  	// Toggle selection for a given mood
+  	$scope.toggleSelection = function toggleSelection(mood) {
+		var idx = $scope.selection.indexOf(mood);
+
+		// Is currently selected
+		if (idx > -1) {
+		  $scope.selection.splice(idx, 1);
+		} else {
+		  $scope.selection.push(mood);
 		}
-	}
+		console.log($scope.selection);
+  	};
 	
-	$scope.moods = ['', ' ']
+	//sends comment and mood selection info to entry object in factory
+	$scope.setEntry = function(comment, mood) {
+		happyService.setComment(comment);
+		mood = $scope.selection;
+		happyService.setMood(mood);
+	};
 
 });
