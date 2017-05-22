@@ -6,7 +6,7 @@ app.controller("entryController", function($scope, happyService) {
 	$scope.rating = happyService.getRating();
 
 	// Moods
-  	$scope.moods = ['anxious', 'angry', 'depressed', 'content'];
+  	$scope.moods = ['anxious', 'angry', 'content', 'calm', 'depressed', 'excited', 'grateful', 'hopeful', 'indifferent', 'lonely', 'pessimistic', 'restless'];
 
   	// Selected Moods from list
   	$scope.selection = [];

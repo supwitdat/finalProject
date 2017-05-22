@@ -6,34 +6,10 @@
 		<h2>{{ rating }}</h2>
 	</div>
 	<div class="col-sm-6 mood">
-		<h3>Mood:</h3>
-		<label ng-repeat="mood in moods">
-		  <input
-			type="checkbox"
-			name="selectedMoods[]"
-			value="{{mood}}"
-			ng-checked="selection.indexOf(mood) > -1"
-			ng-click="toggleSelection(mood)"
-		  > {{mood}}
+		<h3>Mood(s):</h3>
+		<label ng-repeat="mood in moods" class="checkbox">
+		  <input type="checkbox" name="selectedMoods[]" value="{{mood}}" ng-checked="selection.indexOf(mood) > -1" ng-click="toggleSelection(mood)"> {{mood}} 
 		</label>
-<!--
-		<div class="col-sm-6 mood-column">
-			<label class="checkbox"><input type="checkbox" value="anxious" ng-model="mood.anxious" >Anixous</label>
-			<label class="checkbox"><input type="checkbox" value="angry" ng-model="mood.angry">Angry</label>
-			<label class="checkbox"><input type="checkbox" value="content" ng-model="mood.content">Content</label>
-			<label class="checkbox"><input type="checkbox" value="calm" ng-model="mood.calm">Calm</label>
-			<label class="checkbox"><input type="checkbox" value="depressed" ng-model="mood.depressed">Depressed</label>
-			<label class="checkbox"><input type="checkbox" value="excited" ng-model="mood.excited" >Excited</label>
-		</div>
-		<div class="col-sm-6 mood-column">
-			<label class="checkbox"><input type="checkbox" value="grateful" ng-model="mood.grateful" >Grateful</label>
-			<label class="checkbox"><input type="checkbox" value="hopeful" nng-model="mood.hopeful">Hopeful</label>
-			<label class="checkbox"><input type="checkbox" value="indifferent" ng-model="moodindifferent" >Indifferent</label>
-			<label class="checkbox"><input type="checkbox" value="lonely" ng-model="mood.lonely" >Lonely</label>
-			<label class="checkbox"><input type="checkbox" value="pessimistic" ng-model="mood.pessimistic">Pessimistic</label>
-			<label class="checkbox"><input type="checkbox" value="restless" ng-model="mood.restless">Restless</label>
-		</div>
--->
 	</div>
 	<div class="col-sm-1 empty">
 	</div>
