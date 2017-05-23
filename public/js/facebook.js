@@ -26,8 +26,6 @@
   }
 
   window.fbAsyncInit = function() {
-      FB.login(function(response) {
-console.log(response);}, {scope: 'email'});
   FB.init({
     appId      : '1921667938101145',
     cookie     : true,  // enable cookies to allow the server to access 
