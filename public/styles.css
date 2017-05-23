@@ -2,3 +2,15 @@
 .stretchInput {
   box-sizing: border-box;
 }
+
+#startOverButton {
+  color: inherit;
+}
+
+/*CALENDER STYLING*/
+
+.test {
+	background-color: red;
+}
+
+/*END OF CALENDER STYLING*/

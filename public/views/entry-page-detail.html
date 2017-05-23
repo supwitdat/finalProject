@@ -8,7 +8,7 @@
 	<div class="col-sm-6 mood">
 		<h3>Mood(s):</h3>
 		<label ng-repeat="mood in moods" class="checkbox">
-		  <input type="checkbox" name="selectedMoods[]" value="{{mood}}" ng-checked="selection.indexOf(mood) > -1" ng-click="toggleSelection(mood)"> {{mood}} 
+		  <input type="checkbox" name="selectedMoods[]" value="{{mood}}" ng-checked="selection.indexOf(mood) > -1" ng-click="toggleSelection(mood)"> {{mood}}
 		</label>
 	</div>
 	<div class="col-sm-1 empty">
@@ -28,10 +28,12 @@
 	<div class="col-sm-8 empty">
 	</div>
 	<div class="col-sm-2">
-	  <button type="submit" class="btn" ng-click="setEntry(comment, mood)">Submit</button>	  
+	  <button type="submit" class="btn" ng-click="setEntry(comment, mood)">Submit</button>
 	</div>
+  <a href="#!/entry" id="startOverButton"><div class="col-sm-2">
+    <button type="submit" class="btn" ng-click="deleteRestart()">Start Over</button>
+  </div></a>
 	<div class="col-sm-2 empty">
 	</div>
   </div>
 </div>
-
