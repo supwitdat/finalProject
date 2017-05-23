@@ -1,4 +1,5 @@
-(function(){// This is called with the results from from FB.getLoginStatus().
+(function(){
+// This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -84,4 +85,4 @@ console.log(response);}, {scope: 'public_profile,email'});
 //  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=1921667938101145";
 //  fjs.parentNode.insertBefore(js, fjs);
 //}(document, 'script', 'facebook-jssdk'));
-}());
+})();
