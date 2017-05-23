@@ -26,6 +26,8 @@
   }
 
   window.fbAsyncInit = function() {
+      FB.login(function(response) {
+console.log(response);}, {scope: 'email,u'});
   FB.init({
     appId      : '1921667938101145',
     cookie     : true,  // enable cookies to allow the server to access 
@@ -61,8 +63,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-FB.login(function(response) {
-console.log(response)}, {scope: 'email'});
+
 
 
   // Here we run a very simple test of the Graph API after login is
@@ -70,6 +71,7 @@ console.log(response)}, {scope: 'email'});
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
+        
         console.log(response);
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
