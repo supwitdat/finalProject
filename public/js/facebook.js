@@ -61,6 +61,10 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
+FB.login(function(response) {
+console.log(response)}, {scope: 'email'});
+
+
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
