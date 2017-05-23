@@ -35,7 +35,7 @@
   })
       FB.login(function(response) {
 console.log(response)}, {scope: 'public_profile,email'});
-  }
+  };
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
@@ -52,9 +52,6 @@ console.log(response)}, {scope: 'public_profile,email'});
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
-
-  };
-
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
