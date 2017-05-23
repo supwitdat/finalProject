@@ -10,9 +10,9 @@ app.controller("monthController", function($scope, happyService) {
 	};
 	$scope.today();
 
-//	$scope.clear = function() {
-//		$scope.dt = null;
-//	};
+	$scope.clear = function() {
+		$scope.dt = null;
+	};
 
 	$scope.options = {
 		customClass: getDayClass,
