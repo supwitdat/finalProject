@@ -3,7 +3,19 @@
   box-sizing: border-box;
 }
 
-
 #startOverButton {
   color: inherit;
 }
+
+/*CALENDER STYLING*/
+.full button span {
+	background-color: limegreen;
+	border-radius: 32px;
+	color: black;
+}
+.partially button span {
+	background-color: orange;
+	border-radius: 32px;
+	color: black;
+}
+/*END OF CALENDER STYLING*/
