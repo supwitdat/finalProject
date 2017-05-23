@@ -14,4 +14,12 @@
 	border-radius: 32px;
 	color: black;
 }
+
+::dt.customClass {
+/*	background-color: red;*/
+}
+
+#calender .ng-binding {
+/*	color: red;*/
+}
 /*END OF CALENDER STYLING*/

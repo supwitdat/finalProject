@@ -9,9 +9,9 @@ app.controller("monthController", function($scope) {
 	};
 	$scope.today();
 
-	$scope.clear = function() {
-		$scope.dt = null;
-	};
+//	$scope.clear = function() {
+//		$scope.dt = null;
+//	};
 
 	$scope.options = {
 		customClass: getDayClass,
