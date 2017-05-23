@@ -1,0 +1,1 @@
+//var app = angular.module('mwl.calendar.docs', ['mwl.calendar', 'ui.bootstrap', 'ngAnimate']);
