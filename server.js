@@ -1,21 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var pg = require('pg');
-
+var pool = require("./pg-connection-pool");
 var app = express();
 // Serve files from public folder. That's where all of our HTML, CSS and Angular JS are.
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-//creates pool to access users database//
-var pool = new pg.Pool({
- user: "postgres",
- password: "GrandCircus",
- host: "localhost",
- port: 4554,
- database: "users",
- ssl: false
-});
+
 // GET /api/posts/::userid - retrieves an array of all post objects in the database by id.
 app.get('/api/posts/:userid', function(req, res) {
     var userid = req.params.userid;
