@@ -9,24 +9,46 @@ app.use(bodyParser.json());
 
 
 // GET /api/posts/::userid - retrieves an array of all post objects in the database by id.
-app.get('/api/posts/:userid', function(req, res) {
-    var userid = req.params.userid;
-    console.log(userid);
-    pool.query("SELECT * FROM posts WHERE userid = $1::int", [userid]).then(function(result) {
+app.get('/api/posts/', function(req, res) {
+ 
+    pool.query("SELECT * FROM posts").then(function(result) {
     res.send(result.rows);
 }).catch(function(err){
         console.log(err);
     });
 });
 // POST /api/posts/ - adds posts to the database. 
-app.post('/api/posts/new', function(req, res) {
+app.post('/api/posts/', function(req, res) {
     var newpost = req.body;
     console.log(newpost);
     var sql = 'INSERT INTO posts(rating, mood, comments, userid)' + 'values ($1::int, $2::text, $3::text, $4::int)';
-    var values = [3,'full','this is weird',1];
+    var values = [post.rating, post.mood, post.comment, post.userid];
     pool.query(sql, values).then(function(result) {
         res.status(201);
         res.send(result.rows);
+    });
+});
+
+
+// add user to database//
+
+app.post('/api/users/', function(req, res) {
+    var newUser = req.body;
+    console.log(newUser);
+    var sql = 'INSERT INTO users(username, email, password)' + 'values ($1::text, $2::text, $3::text)';
+    var values = [ newUser.name, newUser.email, newUser.password];
+    pool.query(sql, values).then(function(result) {
+        res.status(201);
+        res.send(result.rows);
+    });
+});
+
+app.get('/api/users/', function(req, res) {
+ 
+    pool.query("SELECT * FROM users").then(function(result) {
+    res.send(result.rows);
+}).catch(function(err){
+        console.log(err);
     });
 });
 //

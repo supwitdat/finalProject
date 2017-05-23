@@ -23,12 +23,17 @@ app.controller("entryController", function($scope, happyService) {
 		}
 		console.log($scope.selection);
   	};
-	
+
 	//sends comment and mood selection info to entry object in factory
 	$scope.setEntry = function(comment, mood) {
 		happyService.setComment(comment);
 		mood = $scope.selection;
 		happyService.setMood(mood);
 	};
+
+  $scope.deleteRestart = function() {
+      console.log('delete');
+      $scope.selection = [];
+  };
 
 });

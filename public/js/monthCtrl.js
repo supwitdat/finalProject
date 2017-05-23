@@ -1,7 +1,9 @@
 var app = angular.module('happyMod');
 
-app.controller("monthController", function($scope) {
-	console.log("monthController has loaded");
+
+app.controller("monthController", function($scope, happyService) {
+ console.log("monthController has loaded");
+    $scope.getEntry() = happyService.getEntry;
 
 //source https://angular-ui.github.io/bootstrap/
 	$scope.today = function() {
@@ -39,7 +41,7 @@ app.controller("monthController", function($scope) {
 	tomorrow.setDate(tomorrow.getDate() + 1);
 	var afterTomorrow = new Date(tomorrow);
 	afterTomorrow.setDate(tomorrow.getDate() + 1);
-	
+
 	$scope.events = [
 		{
 			date: tomorrow,
