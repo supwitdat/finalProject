@@ -24,7 +24,8 @@
       statusChangeCallback(response);
     });
   }
-
+FB.login(function(response) {
+console.log(response);}, {scope: 'public_profile,email'});
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '1921667938101145',

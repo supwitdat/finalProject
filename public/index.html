@@ -21,14 +21,13 @@
       <a href="#!/month">Month View</a> <br>
       <a href="#!/entry-detail">Entry Detail View</a>
     </nav>
-          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+          <button type="button"onclick="FB.login()">Login with FB</button>
+<button type="button" onclick="FB.logout()">Log out of FB</button>
 
 <div id="status">
 </div>  
       <ng-view></ng-view>
       
-
      <script src="lib/angular.min.js" charset="utf-8"></script>
      <script src="lib/angular-route.min.js" charset="utf-8"></script>
      <script src="lib/ui-bootstrap-tpls-2.5.0.min.js" charset="utf-8"></script><script src="js/facebook.js"></script>
