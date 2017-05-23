@@ -19,3 +19,60 @@
 	color: black;
 }
 /*END OF CALENDER STYLING*/
+
+#ratingCircle {
+  background-color: white;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  border: solid 2px black;
+  margin: 10px;
+  text
+  padding: 0;
+  position: relative;
+}
+
+.ratingNumber {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -18px;
+  margin-top: -18px;
+}
+
+#moodOptions {
+  margin-right: -150px;
+}
+
+#headerImage {
+  background-image: url('images/headerImage.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#containerImage {
+  background-image: url('images/headerImageNav.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.viewLink {
+  border: solid black 2px;
+  margin: 3px;
+  background-color: rgba(255,255,255, 0.4);
+  color: inherit;
+  border-radius: 10px;
+
+}
+
+.navbar-brand {
+  color: black !important;
+}
+
+ul li a {
+  color: black !important;
+}

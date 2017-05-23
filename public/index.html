@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Progress</title>
+    <title>Progress.</title>
   <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
@@ -12,33 +12,33 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body ng-app="happyMod">
-	  <div class="jumbotron">
+	  <div class="jumbotron" id="headerImage">
 		  <div class="row">
 			  <div class="col-sm-1 empty">
 			  </div>
 			  <div class="col-sm-3">
-			  	<h1>Progress</h1>
+			  	<h1>Progress.</h1>
 			  </div>
 			  <div class="col-sm-1 empty">
 			  </div>
 		  </div>
 	  </div>
 	  <nav class="navbar navbar-default">
-  		<div class="container-fluid">
+  		<div class="container-fluid" id="containerImage">
     		<div class="navbar-header">
-      			<a class="navbar-brand" href="#">Progress</a>
+      			<a class="navbar-brand" href="#">Progress.</a>
     		</div>
     		<ul class="nav navbar-nav">
-      			<li><a href="#!/login">Login</a></li>
-      			<li><a href="#!/entry">New Entry</a></li>
-      			<li><a href="#!/month">Overview</a></li>
+      			<li class="viewLink"><a href="#!/login">Login</a></li>
+      			<li class="viewLink"><a href="#!/entry">New Entry</a></li>
+      			<li class="viewLink"><a href="#!/month">Overview</a></li>
     		</ul>
   		</div>
 	  </nav>
 <div id="status">
-</div>  
+</div>
       <ng-view></ng-view>
-      
+
 
      <script src="lib/angular.min.js" charset="utf-8"></script>
      <script src="lib/angular-route.min.js" charset="utf-8"></script>
