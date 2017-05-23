@@ -4,6 +4,7 @@ app.factory("happyService", function($http) {
 	console.log("happyService has loaded");
 //	empty object for entry
 	var entry = {};
+	var days = [];
 
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
@@ -31,21 +32,26 @@ app.factory("happyService", function($http) {
 	//returns entry object, including comment, mood, and rating
 	function getEntry() {
 		return entry;
+	};
+	
+	//adds entries to days array
+	function setDays() {
+		days.push(entry);
+	}
+	
+	function getDays() {
+		return days;
 	}
     
-
-    
-    
-    
-    
-
 	//object to be returned with function properties
 	return {
 		setRating: setRating,
 		getRating: getRating,
 		setComment: setComment,
 		setMood: setMood,
-		getEntry: getEntry
+		getEntry: getEntry,
+		setDays: setDays,
+		getDays: getDays
 	}
 
 
