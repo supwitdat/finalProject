@@ -1,4 +1,3 @@
-(function(){
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -70,8 +69,6 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-        
-        console.log(response.email);
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
@@ -84,4 +81,3 @@
 //  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=1921667938101145";
 //  fjs.parentNode.insertBefore(js, fjs);
 //}(document, 'script', 'facebook-jssdk'));
-})();
