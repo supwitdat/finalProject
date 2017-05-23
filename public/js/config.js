@@ -4,20 +4,20 @@ app.config(function($routeProvider){
 
   $routeProvider.when('/entry', {
 
-    templateUrl: "rating-view.html",
+    templateUrl: "/views/rating-view.html",
     controller: "ratingController"
   }).when('/month', {
 
-    templateUrl: "month-view.html",
+    templateUrl: "/views/month-view.html",
     controller: "monthController"
 
   }).when('/entry-detail', {
 
-    templateUrl: "entry-page-detail.html",
+    templateUrl: "/views/entry-page-detail.html", 
     controller: "entryController"
 
   }).when('/login',{
-      templateUrl: 'login.html',
+      templateUrl: '/views/login.html',
       controller: "loginController"
   })
   .otherwise({

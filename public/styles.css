@@ -8,16 +8,11 @@
 }
 
 /*CALENDER STYLING*/
-.full button span {
-	background-color: limegreen;
-	border-radius: 32px;
-	color: black;
+
+.test {
+	background-color: red;
 }
-.partially button span {
-	background-color: orange;
-	border-radius: 32px;
-	color: black;
-}
+
 /*END OF CALENDER STYLING*/
 
 #ratingCircle {

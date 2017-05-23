@@ -30,17 +30,31 @@ app.factory("happyService", function($http) {
 
 	//returns entry object, including comment, mood, and rating
 	function getEntry() {
-		return entry;
+        return $http.post('/api/posts/').then(function(response) {
+            console.log(response);
+			return response;
+		})
 	}
     
-
+ function addUser(user) {
+        // POST /api/user
     
+		return $http.post('/api/users/', user).then(function(response) {
+			return response;
+		})
+    };
     
-    
-    
+    function userPromise (){
+ var promise = $http.get('/api/users/').then(function(response){
+    return response.data;
+ });
+        return promise;
+    };
 
 	//object to be returned with function properties
 	return {
+        userPromise:userPromise,
+        addUser:addUser,
 		setRating: setRating,
 		getRating: getRating,
 		setComment: setComment,

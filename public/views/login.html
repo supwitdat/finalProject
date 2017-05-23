@@ -4,33 +4,38 @@
 <div class="col-sm-1"></div>
   <div class="col-sm-4">
       <h1>New User</h1>
-        <form ng-controller="loginController" name="newUserLogin" novalidate>
-
+        <form ng-controller="loginController" name="newUserLogin" novalidate ng-submit="addUser(user)" ng-init="getUsers()">
+            
                 <small id="usernameBlurb" class="form-text text-muted">Please create username:</small>
                 <div class="form-group form-inline">
                   <!-- <label for="userName">Username:</label> -->
-                  <input type="text" class="form-control stretchInput" id="userName" placeholder="Enter username" name="userName" ng-model="userName" required>
+                  <input type="text" class="form-control stretchInput" id="userName" placeholder="Enter username" name="userName" ng-model="user.name" required ng-focus="getUsers()">
                 </div>
 
 
                 <small id="emailBlurb" class="form-text text-muted">Please enter your email:</small>
                 <div class="form-group form-inline">
                   <!-- <label for="userEmail">Email:</label> -->
-                  <input type="email" class="form-control" id="userEmail" placeholder="Enter email" name="userEmail" ng-model="userEmail"  required>
+                  <input type="email" class="form-control" id="userEmail" placeholder="Enter email" name="userEmail" ng-model="user.email"  required>
                 </div>
 
                 <small id="passwordBlurb" class="form-text text-muted">Create Password:</small>
                 <div class="form-group form-inline">
                   <!-- <label for="password1">Password</label> -->
-                  <input type="password" class="form-control" id="password1" placeholder="Password" name="userPassword" ng-model="userPassword"  required>
+                  <input type="password" class="form-control" id="password1" placeholder="Password" name="userPassword" ng-model="user.password"  required>
                 </div>
 
                 <div class="form-group form-inline">
                   <!-- <label for="password2">Password</label> -->
-                  <input type="password" class="form-control" id="password2" placeholder=" Confirm Password" name="userPassword2" ng-model="userPassword2"   required>
+                  <input type="password" class="form-control" id="password2" placeholder=" Confirm Password" name="userPassword2" ng-model="user.password2"   required>
                 </div>
                 <small id="passwordBlurb" class="form-text text-muted"> Passwords must contain a number, an uppercase letter, and be a minimum of 8 characters in length.</small>
 
+            <p ng-show="signupForm.password.$error.maxlength" class="help-block">Password is too long. Remove characters.</p>
+  <p ng-show="signupForm.password.$error.minlength" class="help-block">Password is too short. Add more characters.</p>
+  <p ng-show="signupForm.password.$error.pattern">Your password must be between 4 and 12 characters and needs to include at least 1 number</p>
+  <p ng-show="user.password !== user.password2" class="help-block">The passwords do not match.</p>
+            
               <br/>
                 <button type="submit" class="btn btn-primary" ng-disabled="newUserLogin.userName.$invalid
                 || newUserLogin.userEmail.$invalid
@@ -71,4 +76,5 @@
   <div class="col-sm-1"></div>
 
 </div>
+
 </div>
