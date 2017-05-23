@@ -66,15 +66,32 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-        console.log(response.email);
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+function testAPI() {
+    FB.login(
+        function(response) {
+            if (response.authResponse) {
+               console.log('Welcome!  Fetching your information.... ');
+               FB.api('/me', function(response) {
+                   console.log('Good to see you, ' + response.email + '.');
+                   alert('Good to see you, ' + response.email + '.');
+               });
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        },
+        {scope:'email'}
+        );
+}
+
+
+//  function testAPI() {
+//    console.log('Welcome!  Fetching your information.... ');
+//    FB.api('/me', function(response) {
+//      console.log('Successful login for: ' + response.name);
+//      document.getElementById('status').innerHTML =
+//        'Thanks for logging in, ' + response.name + '!';
+//    });
+//  }
 //(function(d, s, id) {
 //  var js, fjs = d.getElementsByTagName(s)[0];
 //  if (d.getElementById(id)) return;
