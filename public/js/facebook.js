@@ -25,8 +25,7 @@
       statusChangeCallback(response);
     });
   }
-FB.login(function(response) {
-console.log(response);}, {scope: 'public_profile,email'});
+
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '1921667938101145',
@@ -72,7 +71,7 @@ console.log(response);}, {scope: 'public_profile,email'});
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
         
-        console.log(response);
+        console.log(response.email);
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
