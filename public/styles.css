@@ -2,3 +2,8 @@
 .stretchInput {
   box-sizing: border-box;
 }
+
+
+#startOverButton {
+  color: inherit;
+}
