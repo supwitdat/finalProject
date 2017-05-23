@@ -1,0 +1,6 @@
+CREATE TABLE users( id SERIAL UNIQUE PRIMARY KEY, 
+                   firstname VARCHAR(20), lastname VARCHAR(20), email VARCHAR(20), 
+                   username VARCHAR(16), password VARCHAR(16));
+INSERT INTO users(firstname, lastname, email, username) VALUES ('john','doe', 'johndoe@johndoe.doe','johndoe');
+
+CREATE TABLE posts(userid SMALLINT, rating SMALLINT, mood VARCHAR (14), comment TEXT, FOREIGN KEY (userid) REFERENCES users(id));

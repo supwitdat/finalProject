@@ -32,6 +32,12 @@ app.factory("happyService", function($http) {
 	function getEntry() {
 		return entry;
 	}
+    
+
+    
+    
+    
+    
 
 	//object to be returned with function properties
 	return {
