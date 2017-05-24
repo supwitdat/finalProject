@@ -8,16 +8,17 @@
   <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
   <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-  <body ng-app="happyMod">
+  <body ng-app="happyMod" class="indexBody">
 	  <div class="jumbotron" id="headerImage">
 		  <div class="row">
 			  <div class="col-sm-1 empty">
 			  </div>
 			  <div class="col-sm-3">
-			  	<h1>Progress.</h1>
+			  	<h1 class="progressTitle">Progress.</h1>
 			  </div>
 			  <div class="col-sm-1 empty">
 			  </div>
@@ -29,11 +30,13 @@
     		<div class="navbar-header">
       			<a class="navbar-brand" href="#">Progress.</a>
     		</div>
+        <center>
     		<ul class="nav navbar-nav">
       			<li class="viewLink"><a href="#!/login">Login</a></li>
       			<li class="viewLink"><a href="#!/entry">New Entry</a></li>
       			<li class="viewLink"><a href="#!/month">Overview</a></li>
     		</ul>
+      </center>
   		</div>
 	  </nav>
 <div id="status">
@@ -44,7 +47,7 @@
      <script src="lib/angular-route.min.js" charset="utf-8"></script>
      <script src="lib/ui-bootstrap-tpls-2.5.0.min.js" charset="utf-8"></script><script src="js/facebook.js"></script>
      <script src="js/module.js" type="text/javascript"></script>
-	 <script src="datepicker.js" type="text/javascript"></script>
+	   <script src="datepicker.js" type="text/javascript"></script>
      <script src="js/config.js" type="text/javascript"></script>
      <script src="js/entryCtrl.js" type="text/javascript"></script>
      <script src="js/monthCtrl.js" type="text/javascript"></script>
