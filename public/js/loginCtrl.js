@@ -1,12 +1,16 @@
 var app = angular.module('happyMod');
 
 app.controller("loginController", function($scope, happyService,$location) {
+    $scope.user ={};
+    
+    $scope.getUserInfo() = happyService.getUserInfo;
     
     
-    $scope.addUser = function(user) {
+    
+    
+    $scope.addUser = function($scope.user) {
         //adds login form values to an object//
         $scope.user = user;
-        console.log($scope.user);
         // this uses a promise located in our factory to  get all users in the database, then a foreach loop is ran on the array of users and if they match, it prompts user that the username is taken. if not taken, the registration goes through//
 happyService.userPromise().then(function(data){
     

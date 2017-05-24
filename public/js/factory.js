@@ -4,7 +4,7 @@ app.factory("happyService", function($http) {
 	console.log("happyService has loaded");
 //	empty object for entry
 	var entry = {};
-    var nuUser = {}
+  
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
