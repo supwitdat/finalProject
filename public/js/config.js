@@ -21,6 +21,6 @@ app.config(function($routeProvider){
       controller: "loginController"
   })
   .otherwise({
-    redirectTo: 'login'
+    redirectTo: '/views/login.html'
   });
 });
