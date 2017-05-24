@@ -16,6 +16,7 @@
 /*END OF CALENDER STYLING*/
 
 .rating {
+  background-color: #99ff33;
   width: 10%;
   height: 10%;
   border-radius: 50%;
@@ -34,7 +35,8 @@
   margin-left: -18px;
   margin-top: -18px;
   font-family: 'Fredericka the Great', cursive;
-    color: black !important;
+  color: black !important;
+  font-size: 42px;
 }
 
 #moodOptions {
@@ -105,3 +107,7 @@ ul li a {
 .indexBody {
   border: double black 10px;
 }
+/*
+div.row {
+  background-image: url('images/headerImageNav.jpg');
+}*/
