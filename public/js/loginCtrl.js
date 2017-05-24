@@ -1,6 +1,8 @@
 var app = angular.module('happyMod');
 
 app.controller("loginController", function($scope, happyService,$location) {
+    
+    
     $scope.addUser = function(user) {
         //adds login form values to an object//
         $scope.user = user;
@@ -23,7 +25,7 @@ happyService.userPromise().then(function(data){
         happyService.addUser(user).then(function(data){
                  //this bit here gets the person who we just made, and grabs their ID to be posted to the page.//
             happyService.thisUser(data.config.data.name).then(function(data){
-                     console.log(data.data.id) });
+                    happyService.getID(data.data.id); });
                    $location.path('/entry');
 
             });

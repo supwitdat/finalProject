@@ -4,7 +4,7 @@ app.factory("happyService", function($http) {
 	console.log("happyService has loaded");
 //	empty object for entry
 	var entry = {};
-
+    var nuUser = {}
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
@@ -29,12 +29,18 @@ app.factory("happyService", function($http) {
 	};
 
 	//returns entry object, including comment, mood, and rating
-function getEntry() {
-        return $http.post('/api/posts/').then(function(response) {
+function getEntry(userID) {
+        return $http.get('/api/posts/',userID ).then(function(response) {
             console.log(response);
 			return response;
 		})
 	}
+    
+    function postEntry(entry){
+        return $http.post('/api/posts/', post).then(function(response){
+            return response;
+        });
+    };
     
     
  function addUser(user) {
@@ -59,8 +65,25 @@ return response;
         });
         return thisPromise;
     };
+    
+    
+    function getID (id){
+         var userID = id;
+        return userID;
+    }
+    
+    function getUserInfo(info){
+        nuUser = info;
+    }
+    function returnUserInfo(){
+        return nuUser;
+    }
+    
+    
+    
 	//object to be returned with function properties
 	return {
+        getID:getID,
         thisUser:thisUser,
         userPromise:userPromise,
         addUser:addUser,
