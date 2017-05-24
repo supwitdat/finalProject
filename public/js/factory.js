@@ -6,6 +6,7 @@ app.factory("happyService", function($http) {
 	var entry = {};
     var holder={};
     var loginInfo={};
+    var id =0;
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
@@ -48,6 +49,7 @@ function getEntry(userID) {
         // POST /api/user
     
 		return $http.post('/api/users/', user).then(function(response) {
+            console.log(response);
 			return response;
 		})
     };
@@ -61,17 +63,22 @@ function getEntry(userID) {
 
   
     function thisUser (username){
-        var thisPromise = $http.get('/api/users/'+ username).then(function(response){
+        var thisPromise = $http.get('/api/users/username/'+ username).then(function(response){
 return response;
         });
         return thisPromise;
     };
     
     
-    function getID (id){
+     function myID(id){
          var userID = id;
+         console.log(userID);
         return userID;
     }  
+    
+    function getID (){
+        return id;
+    };  
     
     function setUser (userObj){
          holder = userObj;
@@ -101,14 +108,18 @@ return response;
         return $http.get('/api/users/username/'+username).then(function(response){
             console.log(response);
             if (response.data.username === loginInfo.username && response.data.password === loginInfo.password){
-                console.log('logged in');
+                alert('Logged in as '+ response.data.username)
+               return id = response.data.id;
             } else {
                 alert('Login credentials do not match')
             }
         })
     }
+    
+    
 	//object to be returned with function properties
 	return {
+        myID:myID,
         userLogin:userLogin,
         getLogin:getLogin,
         setLogin:setLogin,
