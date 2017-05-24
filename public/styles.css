@@ -71,3 +71,100 @@
 }
 */
 /*END OF CALENDER STYLING*/
+
+.rating {
+  background-color: #99ff33;
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  border: solid 2px black;
+  margin: 10px auto;
+  padding: 50px;
+  position: relative;
+}
+
+.ratingNumber {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -18px;
+  margin-top: -18px;
+  font-family: 'Fredericka the Great', cursive;
+  color: black !important;
+  font-size: 42px;
+}
+
+#moodOptions {
+  margin-right: -150px;
+}
+
+#headerImage {
+  background-image: url('images/headerImage.jpg');
+  background-position: right top;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+}
+
+#containerImage {
+  background-image: url('images/headerImageNav.jpg');
+  background-position: top left;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+}
+
+.viewLink {
+  border: solid black 2px;
+  margin: 3px;
+  background-color: rgba(255,255,255, 0.3);
+  color: inherit;
+  border-radius: 10px;
+  max-width: 115px;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 16px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.navbar-brand {
+  color: black !important;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 24px !important;
+  text-align: center;
+  padding-left: 37%;
+
+}
+
+ul li a {
+  color: black !important;
+}
+
+.progressTitle {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 75px !important;
+  color: black !important;
+
+}
+
+.col-sm {
+  float: none;
+  margin: 0 auto;
+}
+
+
+.circleDiv {
+  padding-left: 100px;
+}
+
+#circleOne  {
+  background-color: #d9ffb3;
+
+}
+
+.indexBody {
+  border: double black 10px;
+}
+/*
+div.row {
+  background-image: url('images/headerImageNav.jpg');
+}*/

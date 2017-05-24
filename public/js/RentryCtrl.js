@@ -28,8 +28,6 @@ app.controller("entryController", function($scope, happyService) {
 		happyService.setComment(comment);
 		mood = $scope.selection;
 		happyService.setMood(mood);
-		happyService.setDay();
-		happyService.setDays();
 	};
 
   $scope.deleteRestart = function() {
