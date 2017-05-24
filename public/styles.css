@@ -9,8 +9,65 @@
 
 /*CALENDER STYLING*/
 
-.test {
-	background-color: red;
+.day {
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
 }
 
+.day.one {
+	background-color: aqua;
+	color: white;
+}
+
+.day.two {
+	background-color: aquamarine;
+}
+
+.day.three {
+	background-color: blue;
+}
+
+.day.four {
+	background-color: blueviolet;
+}
+
+.day.five {
+	background-color: cadetblue;
+}
+
+.day.six {
+	background-color: cornflowerblue;
+}
+
+.day.seven {
+	background-color: cyan;
+}
+
+.day.eight {
+	background-color: darkcyan;
+}
+
+.day.nine {
+	background-color: darkslateblue;
+}
+
+.day.ten {
+	background-color: deepskyblue;
+}
+
+.day.none {
+	background-color: black;
+}
+
+/*
+.entry {
+	display: none;
+}
+
+.day:hover.entry {
+	display: block;
+}
+*/
 /*END OF CALENDER STYLING*/

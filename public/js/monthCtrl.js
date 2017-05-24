@@ -5,6 +5,8 @@ app.controller("monthController", function($scope, happyService) {
  	console.log("monthController has loaded");
 
 	$scope.days = happyService.getDays();
-
-	console.log($scope.days);
+	
+	$scope.showEntries = function(day) {
+		$scope.activeDay = day;	
+	}
 });
