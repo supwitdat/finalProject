@@ -34,7 +34,6 @@ app.post('/api/posts/', function(req, res) {
 
 app.post('/api/users/', function(req, res) {
     var newUser = req.body;
-    console.log(newUser);
     var sql = 'INSERT INTO users(username, email, password)' + 'values ($1::text, $2::text, $3::text)';
     var values = [ newUser.name, newUser.email, newUser.password];
     pool.query(sql, values).then(function(result) {
@@ -42,25 +41,37 @@ app.post('/api/users/', function(req, res) {
         res.send(result.rows);
     });
 });
-
+//get all users//
 app.get('/api/users/', function(req, res) {
- 
-    pool.query("SELECT * FROM users").then(function(result) {
+  pool.query("SELECT * FROM users").then(function(result) {
     res.send(result.rows);
 }).catch(function(err){
         console.log(err);
     });
 });
-//
-//// DELETE /api/items/{ID} - delete an item from the database. The item is
-//// selected via the {ID} part of the URL.
-//// TODO Handle this URL with appropriate Database interaction.
-//app.delete('/api/items/:id', function(req, res) {
-//    var id = req.params.id; // <-- This gets the :id part of the URL
-//    pool.query("DELETE FROM ShoppingCart WHERE id = $1::int", [id]).then(function() {
-//        res.send("DELETED");
-//    });
-//});
+
+//get id from user where the username is what was just typed in//
+app.get('/api/users/:username', function(req, res) {
+    var  name = req.params.username;
+    pool.query("SELECT id FROM users WHERE username = $1::text", [name]).then(function(result) {
+        if (result.rowCount === 0) {
+            res.status(404); 
+            res.send("NOT FOUND");
+        } else {
+            res.send(result.rows[0]);
+        }
+    }).catch(errorCallback(res));
+});
+
+
+
+function errorCallback(res) {
+	return function(err) {
+		console.log(err);
+		res.status(500);
+		res.send('ERROR');
+	}
+}
 //
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
