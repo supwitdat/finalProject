@@ -1,13 +1,24 @@
-<div ng-app="ui.bootstrap">
-    <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-	<h4>Inline</h4>
-    <div style="display:inline-block; min-height:290px;">
-      <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
-    </div>
-
-    <hr />
-    <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
-<!--    <button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button>-->
-<!--    <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>-->
-<!--    <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>-->
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-1 empty">
+			</div>
+			<div class="col-sm-10">
+<!--	ng-repeat to display each day in the array	-->
+				<div ng-repeat="day in days track by $index" ng-class=day.cls ng-mouseover=showEntry(day) class="text-center col-sm-1 day">
+				</div>
+<!--	ng-repeat to display each entry in each day	-->
+<!--	TODO make this info only display on hover	-->
+			<div ng-repeat="entry in activeDay track by $index" ng-show="activeDay" class="entry">
+				<p class="rating">{{ entry.rating }}</p>
+				<p class="comment">{{ entry.comment }}</p>
+<!--	ng-repead to display each mood for each entry	-->
+				<p ng-repeat="mood in entry.moods" class="mood">{{ mood }}</p>
+			</div>
+			</div>
+			<div class="col-sm-1 empty">
+			</div>
+		</div>
+	</div>
 </div>
+

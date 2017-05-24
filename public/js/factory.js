@@ -2,15 +2,18 @@ var app = angular.module('happyMod');
 
 app.factory("happyService", function($http) {
 	console.log("happyService has loaded");
-//	empty object for entry
+
 	var entry = {};
     var holder={};
     var loginInfo={};
     var id =0;
+	var day = [];
+	var days = [];
+    var nuUser = {}
+	
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
-		console.log(entry);
 	};
 
 	//returns entry object, including number rating
@@ -21,47 +24,88 @@ app.factory("happyService", function($http) {
 	//gets entry comment from entry page, adds it as property to entry object
 	function setComment(comment) {
 		entry.comment = comment;
-		console.log(entry);
 	};
 	
-//	gets entry mood from entry page, adds it as property to entry object
+	//gets entry mood from entry page, adds it as property to entry object
 	function setMood(mood) {
-		entry.mood = [];
-		entry.mood = mood;
+		entry.moods = [];
+		entry.moods = mood;
 	};
 
 	//returns entry object, including comment, mood, and rating
-function getEntry(userID) {
-        return $http.get('/api/posts/',userID ).then(function(response) {
+
+	function getEntry(userID) {
+        return $http.get('/api/posts/'+userID ).then(function(response) {
             console.log(response);
 			return response;
 		})
 	}
     
-    function postEntry(entry){
-        return $http.post('/api/posts/', entry).then(function(response){
+	function postEntry(entry){
+        return $http.post('/api/posts/'+entry).then(function(response){
             return response;
         });
     };
+	
+	//adds entries to day array
+	//TODO associate entry with a day, based on date input
+	function setDay() {
+		day.push(entry);
+		//get average rating for day
+		var dayTotal = 0;
+		var dayAvg = 0;
+		day.forEach(function(entry) {
+			dayTotal += entry.rating;
+		})
+		dayAvg = dayTotal/day.length;
+		//add class to day based on average rating
+		day.rating = dayAvg;
+		if (day.rating === 1) {
+			day.cls = 'one';
+		} else if (day.rating === 2) {
+			day.cls = 'two'; 
+		} else if (day.rating === 3) {
+			day.cls = 'three'
+		} else if (day.rating === 4) {
+			day.cls = 'four';
+		} else if (day.rating === 5) {
+			day.cls = 'five';
+		} else if (day.rating === 6) {
+			day.cls = 'six';
+		} else if (day.rating === 7) {
+			day.cls = 'seven';
+		} else if (day.rating === 8) {
+			day.cls = 'eight';
+		} else if (day.rating === 9) {
+			day.cls = 'nine';
+		} else if (day.rating === 10) {
+			day.cls = 'ten';
+		} else {
+			day.cls = 'none';
+		}
+	}
+	
+	//adds day to days array
+	function setDays() {
+		days.push(day);
+		console.log(day);
+	}
+	
+	//get days array to access entries and days
+	function getDays() {
+		return days;
+		console.log(days);
+	}
     
-    
- function addUser(user) {
-        // POST /api/user
-    
+//User Info	
+	function addUser(user) {
+		// POST /api/user
+
 		return $http.post('/api/users/', user).then(function(response) {
             console.log(response);
 			return response;
 		})
-    };
-    
-    function userPromise (){
- var promise = $http.get('/api/users/').then(function(response){
-    return response.data;
- });
-        return promise;
-    };
-
-  
+	};  
     function thisUser (username){
         var thisPromise = $http.get('/api/users/username/'+ username).then(function(response){
 return response;
@@ -69,10 +113,8 @@ return response;
         return thisPromise;
     };
     
-    
      function myID(id){
          var userID = id;
-         console.log(userID);
         return userID;
     }  
     
@@ -91,18 +133,12 @@ return response;
     
     function setLogin(existing){
         loginInfo = existing;
-        console.log(loginInfo,'the info for login');
     }
     
     function getLogin(){
         return loginInfo;
     }
     
-//    function getPassword(password){
-//        return $http.get('/api/users/password/', password).then(function(response){
-//            return response;
-//        })
-//    }
     function userLogin(username){
         console.log(username);
         return $http.get('/api/users/username/'+username).then(function(response){
@@ -115,7 +151,12 @@ return response;
             }
         })
     }
-    
+function userPromise (){
+		var promise = $http.get('/api/users/').then(function(response){
+			return response.data;
+		});
+		return promise;
+	};
     
 	//object to be returned with function properties
 	return {
@@ -133,8 +174,9 @@ return response;
 		getRating: getRating,
 		setComment: setComment,
 		setMood: setMood,
-		getEntry: getEntry
+		getEntry: getEntry,
+		setDay: setDay,
+		setDays: setDays,
+		getDays: getDays
 	}
-
-
 });
