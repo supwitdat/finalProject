@@ -8,10 +8,10 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 
-// GET /api/posts/::userid - retrieves an array of all post objects in the database by id.
-app.get('/api/posts/', function(req, res) {
- 
-    pool.query("SELECT * FROM posts").then(function(result) {
+// GET /api/posts/ - retrieves an array of all post objects in the database.
+app.get('/api/posts/:id', function(req, res) {
+ var id = req.params.id;
+    pool.query("SELECT * FROM posts WHERE id = $1::int",[id]).then(function(result) {
     res.send(result.rows);
 }).catch(function(err){
         console.log(err);
@@ -19,10 +19,10 @@ app.get('/api/posts/', function(req, res) {
 });
 // POST /api/posts/ - adds posts to the database. 
 app.post('/api/posts/', function(req, res) {
-    var newpost = req.body;
+    var newPost = req.body;
     console.log(newpost);
     var sql = 'INSERT INTO posts(rating, mood, comments, userid)' + 'values ($1::int, $2::text, $3::text, $4::int)';
-    var values = [post.rating, post.mood, post.comment, post.userid];
+    var values = [newPost.rating, newPost.mood, newPost.comment];
     pool.query(sql, values).then(function(result) {
         res.status(201);
         res.send(result.rows);
@@ -60,18 +60,9 @@ app.get('/api/users/:username', function(req, res) {
         } else {
             res.send(result.rows[0]);
         }
-    }).catch(errorCallback(res));
-});
+    })
 
 
-
-function errorCallback(res) {
-	return function(err) {
-		console.log(err);
-		res.status(500);
-		res.send('ERROR');
-	}
-}
 //
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
