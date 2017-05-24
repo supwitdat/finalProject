@@ -15,6 +15,7 @@ happyService.userPromise().then(function(data){
                 if (index.username === $scope.user.name){
  
                     return match = true; } 
+
                 });
                 if (match === true){
                      alert('Username Taken');         
@@ -32,3 +33,4 @@ happyService.userPromise().then(function(data){
   
     }
     });
+
