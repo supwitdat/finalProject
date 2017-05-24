@@ -1,10 +1,10 @@
 <div class="container-fluid">
 <div class="row">
-	          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 <div class="col-sm-1"></div>
   <div class="col-sm-4">
       <h1>New User</h1>
-        <form ng-controller="loginController" name="newUserLogin" novalidate ng-submit="addUser(user)" ng-init="getUsers()">
+        <form name="newUserLogin" novalidate ng-submit="addUser(user)" ng-init="getUsers()">
             
                 <small id="usernameBlurb" class="form-text text-muted">Please create username:</small>
                 <div class="form-group form-inline">
@@ -52,7 +52,7 @@
 
   <div class="col-sm-4">
     <h1>Login:</h1>
-        <form ng-controller="loginController" name="userLogin" novalidate>
+        <form name="userLogin" novalidate>
 
             <small id="usernameBlurb2" class="form-text text-muted">Enter your username:</small>
             <div class="form-group form-inline">
