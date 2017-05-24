@@ -4,7 +4,8 @@ app.factory("happyService", function($http) {
 	console.log("happyService has loaded");
 //	empty object for entry
 	var entry = {};
-  
+    var holder={};
+    var loginInfo={};
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
@@ -37,7 +38,7 @@ function getEntry(userID) {
 	}
     
     function postEntry(entry){
-        return $http.post('/api/posts/', post).then(function(response){
+        return $http.post('/api/posts/', entry).then(function(response){
             return response;
         });
     };
@@ -70,19 +71,49 @@ return response;
     function getID (id){
          var userID = id;
         return userID;
+    }  
+    
+    function setUser (userObj){
+         holder = userObj;
+     };
+    
+    
+    function getUser(){
+        return holder;
     }
     
-    function getUserInfo(info){
-        nuUser = info;
-    }
-    function returnUserInfo(){
-        return nuUser;
+    function setLogin(existing){
+        loginInfo = existing;
+        console.log(loginInfo,'the info for login');
     }
     
+    function getLogin(){
+        return loginInfo;
+    }
     
-    
+//    function getPassword(password){
+//        return $http.get('/api/users/password/', password).then(function(response){
+//            return response;
+//        })
+//    }
+    function userLogin(username){
+        console.log(username);
+        return $http.get('/api/users/username/'+username).then(function(response){
+            console.log(response);
+            if (response.data.username === loginInfo.username && response.data.password === loginInfo.password){
+                console.log('logged in');
+            } else {
+                alert('Login credentials do not match')
+            }
+        })
+    }
 	//object to be returned with function properties
 	return {
+        userLogin:userLogin,
+        getLogin:getLogin,
+        setLogin:setLogin,
+        getUser:getUser,
+        setUser:setUser,
         getID:getID,
         thisUser:thisUser,
         userPromise:userPromise,

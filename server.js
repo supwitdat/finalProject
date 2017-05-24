@@ -51,20 +51,39 @@ app.get('/api/users/', function(req, res) {
 });
 
 //get id from user where the username is what was just typed in//
-app.get('/api/users/:username', function(req, res) {
+app.get('/api/users/username/:username', function(req, res) {
     var  name = req.params.username;
-    pool.query("SELECT id FROM users WHERE username = $1::text", [name]).then(function(result) {
+    pool.query("SELECT * FROM users WHERE username = $1::text", [name]).then(function(result) {
         if (result.rowCount === 0) {
             res.status(404); 
             res.send("NOT FOUND");
         } else {
             res.send(result.rows[0]);
         }
-    })
+    });
+    
+});
+
+app.get('/api/users/password/:password', function(req,res){
+    var password = req.params.password;
+    pool.query("SELECT password FROM users WHERE password = $1::text",[password]).then(function(result){
+        if(result.rowCount === 0){
+            res.status(404);
+            res.send("NOT FOUND");
+        } else {
+            res.send(result.rows[0]);
+        }
+    });
+});
+
+
+
+
+
 
 
 //
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
   console.log('JSON Server is running on ' + port);
-});
+})

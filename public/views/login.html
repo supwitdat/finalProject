@@ -4,7 +4,7 @@
 <div class="col-sm-1"></div>
   <div class="col-sm-4">
       <h1>New User</h1>
-        <form name="newUserLogin" novalidate ng-submit="addUser(user)" ng-init="getUsers()">
+        <form name="newUserLogin" novalidate ng-submit="addUser(user)" >
             
                 <small id="usernameBlurb" class="form-text text-muted">Please create username:</small>
                 <div class="form-group form-inline">
@@ -52,18 +52,18 @@
 
   <div class="col-sm-4">
     <h1>Login:</h1>
-        <form name="userLogin" novalidate>
+        <form name="userLogin" novalidate ng-submit="login()">
 
             <small id="usernameBlurb2" class="form-text text-muted">Enter your username:</small>
             <div class="form-group form-inline">
               <!-- <label for="userName">Username:</label> -->
-              <input type="text" class="form-control" id="existingUserName" placeholder="Enter username" name="existingUserName" ng-model="existingUserName" required>
+              <input type="text" class="form-control" id="existingUserName" placeholder="Enter username" name="existingUserName" ng-model="existing.username" required>
             </div>
 
             <small id="passwordBlurb2" class="form-text text-muted">Enter Password:</small>
             <div class="form-group form-inline">
               <!-- <label for="password1">Password</label> -->
-              <input type="password" class="form-control" id="existingUserPassword" placeholder="Enter Password" name="existingUserPassword" ng-model="existingUserPassword"  required>
+              <input type="password" class="form-control" id="existingUserPassword" placeholder="Enter Password" name="existingUserPassword" ng-model="existing.password"  required>
             </div>
 
 
