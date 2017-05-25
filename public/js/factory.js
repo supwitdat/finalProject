@@ -28,8 +28,10 @@ app.factory("happyService", function($http) {
 	
 	//gets entry mood from entry page, adds it as property to entry object
 	function setMood(mood) {
-		entry.moods = [];
-		entry.moods = mood;
+		entry.mood = [];
+		entry.mood = mood;
+        entry.mood = entry.mood.toString();
+        console.log(entry);
 	};
 
 	//returns entry object, including comment, mood, and rating
@@ -40,12 +42,16 @@ app.factory("happyService", function($http) {
 			return response;
 		})
 	}
-    
-	function postEntry(entry){
-        return $http.post('/api/posts/'+entry).then(function(response){
-            return response;
-        });
-    };
+            
+	function postEntry(){
+        $http({
+           method:'POST',
+           url:'/api/posts/entry/',
+           data:{rating:entry.rating, mood:entry.mood, comment:entry.comment, userid:id}
+       }).then(function(response){
+           console.log(response.data);
+       });
+        };
 	
 	//adds entries to day array
 	//TODO associate entry with a day, based on date input
@@ -93,7 +99,7 @@ app.factory("happyService", function($http) {
 	
 	//get days array to access entries and days
 	function getDays() {
-		return days;
+		return days; 
 		console.log(days);
 	}
     
@@ -157,9 +163,11 @@ function userPromise (){
 		});
 		return promise;
 	};
+
     
 	//object to be returned with function properties
 	return {
+        postEntry:postEntry,
         myID:myID,
         userLogin:userLogin,
         getLogin:getLogin,

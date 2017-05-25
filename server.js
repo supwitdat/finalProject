@@ -9,20 +9,18 @@ app.use(bodyParser.json());
 
 
 // GET /api/posts/ - retrieves an array of all post objects in the database.
-app.get('/api/posts/:id', function(req, res) {
- var id = req.params.id;
-    pool.query("SELECT * FROM posts WHERE id = $1::int",[id]).then(function(result) {
+app.get('/api/posts/', function(req, res) {
+    pool.query("SELECT * FROM posts").then(function(result) {
     res.send(result.rows);
 }).catch(function(err){
         console.log(err);
     });
 });
 // POST /api/posts/ - adds posts to the database. 
-app.post('/api/posts/', function(req, res) {
+app.post('/api/posts/entry/', function(req, res) {
     var newPost = req.body;
-    console.log(newpost);
-    var sql = 'INSERT INTO posts(rating, mood, comments, userid)' + 'values ($1::int, $2::text, $3::text, $4::int)';
-    var values = [newPost.rating, newPost.mood, newPost.comment];
+    var sql = 'INSERT INTO posts(rating, mood, comment, userid)' + 'values ($1::int, $2::text, $3::text, $4::int)';
+    var values = [newPost.rating, newPost.mood, newPost.comment, newPost.userid ];
     pool.query(sql, values).then(function(result) {
         res.status(201);
         res.send(result.rows);

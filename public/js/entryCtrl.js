@@ -30,6 +30,7 @@ app.controller("entryController", function($scope, happyService) {
 		happyService.setMood(mood);
 		happyService.setDay();
 		happyService.setDays();
+        happyService.postEntry();
 	};
 
   $scope.deleteRestart = function() {
