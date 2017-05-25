@@ -6,7 +6,8 @@ app.controller("monthController", function($scope, happyService) {
 
 	$scope.days = happyService.getDays();
 	
-	$scope.showEntries = function(day) {
+	$scope.showEntry = function(day) {
 		$scope.activeDay = day;	
 	}
+	
 });
