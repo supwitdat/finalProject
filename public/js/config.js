@@ -13,14 +13,17 @@ app.config(function($routeProvider){
 
   }).when('/entry-detail', {
 
-    templateUrl: "/views/entry-page-detail.html", 
+    templateUrl: "/views/entry-page-detail.html",
     controller: "entryController"
 
   }).when('/login',{
       templateUrl: '/views/login.html',
       controller: "loginController"
+
+  }).when('/', {
+      templateUrl: 'views/splash.html'
   })
   .otherwise({
-    redirectTo: '/views/login.html'
+    redirectTo: 'views/splash.html'
   });
 });
