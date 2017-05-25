@@ -9,25 +9,45 @@ app.use(bodyParser.json());
 
 
 // GET /api/posts/ - retrieves an array of all post objects in the database.
-app.get('/api/posts/:id', function(req, res) {
- var id = req.params.id;
-    pool.query("SELECT * FROM posts WHERE id = $1::int",[id]).then(function(result) {
+app.get('/api/posts/', function(req, res) {
+    pool.query("SELECT * FROM posts").then(function(result) {
     res.send(result.rows);
 }).catch(function(err){
         console.log(err);
     });
 });
 // POST /api/posts/ - adds posts to the database. 
-app.post('/api/posts/', function(req, res) {
+app.post('/api/posts/entry/', function(req, res) {
     var newPost = req.body;
-    console.log(newpost);
-    var sql = 'INSERT INTO posts(rating, mood, comments, userid)' + 'values ($1::int, $2::text, $3::text, $4::int)';
-    var values = [newPost.rating, newPost.mood, newPost.comment];
+    var sql = 'INSERT INTO posts(rating, mood, comment, userid)' + 'values ($1::int, $2::text, $3::text, $4::int)';
+    var values = [newPost.rating, newPost.mood, newPost.comment, newPost.userid ];
     pool.query(sql, values).then(function(result) {
         res.status(201);
         res.send(result.rows);
     });
 });
+//get posts by id//
+app.get('/api/posts/:userid', function(req, res) {
+    var id = req.params.userid;
+    pool.query("SELECT * FROM posts WHERE userid = $1::int", [id]).then(function(result) {
+        if (result.rowCount === 0) {
+            res.status(404); 
+            res.send("NOT FOUND");
+        } else {
+            res.send(result.rows);
+        }
+    }).catch(errorCallback(res));
+});
+
+
+
+function errorCallback(res) {
+	return function(err) {
+		console.log(err);
+		res.status(500);
+		res.send('ERROR');
+	}
+}
 
 
 // add user to database//
@@ -51,20 +71,39 @@ app.get('/api/users/', function(req, res) {
 });
 
 //get id from user where the username is what was just typed in//
-app.get('/api/users/:username', function(req, res) {
+app.get('/api/users/username/:username', function(req, res) {
     var  name = req.params.username;
-    pool.query("SELECT id FROM users WHERE username = $1::text", [name]).then(function(result) {
+    pool.query("SELECT * FROM users WHERE username = $1::text", [name]).then(function(result) {
         if (result.rowCount === 0) {
             res.status(404); 
             res.send("NOT FOUND");
         } else {
             res.send(result.rows[0]);
         }
-    })
+    });
+    
+});
+
+app.get('/api/users/password/:password', function(req,res){
+    var password = req.params.password;
+    pool.query("SELECT password FROM users WHERE password = $1::text",[password]).then(function(result){
+        if(result.rowCount === 0){
+            res.status(404);
+            res.send("NOT FOUND");
+        } else {
+            res.send(result.rows[0]);
+        }
+    });
+});
+
+
+
+
+
 
 
 //
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
   console.log('JSON Server is running on ' + port);
-});
+})

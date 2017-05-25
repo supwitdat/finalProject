@@ -1,24 +1,28 @@
-<div>
+<div ng-init="getEntries();">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-1 empty">
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-6">
 <!--	ng-repeat to display each day in the array	-->
-				<div ng-repeat="day in days track by $index" ng-class=day.cls ng-mouseover=showEntry(day) class="text-center col-sm-1 day">
+				<div ng-repeat="day in days track by $index" ng-class=day.cls ng-mouseover=showEntry(day) ng-mouseleave=hideEntry(day) class="day">
 				</div>
+			</div>
+			<div class="col-sm-4">
 <!--	ng-repeat to display each entry in each day	-->
 <!--	TODO make this info only display on hover	-->
-			<div ng-repeat="entry in activeDay track by $index" ng-show="activeDay" class="entry">
-				<p class="rating">{{ entry.rating }}</p>
-				<p class="comment">{{ entry.comment }}</p>
-<!--	ng-repead to display each mood for each entry	-->
-				<p ng-repeat="mood in entry.moods" class="mood">{{ mood }}</p>
-			</div>
+				<div ng-repeat="entry in activeDay track by $index" ng-show="activeDay" class="entry">
+					<p class="overview-rating">{{ entry.rating }}</p>
+					<p class="overview-comment">{{ entry.comment }}</p>
+					<p>{{ entry.mood }}</p>
+<!--	ng-repeat to display each mood for each entry	-->
+<!--					<p ng-repeat="mood in mood" class="overview-mood">{{ entry.mood1 }}</p>-->
+				</div>
 			</div>
 			<div class="col-sm-1 empty">
 			</div>
 		</div>
+		
 	</div>
 </div>
 
