@@ -172,13 +172,8 @@ function userPromise (){
     
 function getPosts(){
     return $http.get('/api/posts/'+id).then(function(response){
-        for(i=0;i<response.data.length;i++){
-            if (response.data[i].date === response.data[i].date){
-                allPosts = response.data[i];
-                console.log(allPosts);
-            }
-        }
-        allPosts = response.data
+        
+    allPosts = response.data
       console.log(allPosts);
         return response });
     };
