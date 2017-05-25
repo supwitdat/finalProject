@@ -2,7 +2,7 @@ var app = angular.module('happyMod');
 
 app.factory("happyService", function($http) {
 	console.log("happyService has loaded");
-
+    var nuUser = {}
 	var entry = {};
     var holder={};
     var loginInfo={};
@@ -11,9 +11,11 @@ app.factory("happyService", function($http) {
 	var days = [];
     var allPosts=[];
     var today = []
+
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
+		console.log(days);
 	};
 
 	//returns entry object, including number rating
@@ -32,9 +34,13 @@ app.factory("happyService", function($http) {
 		entry.mood = mood;
         entry.mood = entry.mood.toString();
         console.log(entry);
+
 	};
 
 	//returns entry object, including comment, mood, and rating
+//	function getEntry() {
+//		return entry;
+//	}
 
 	function getEntry(userID) {
         return $http.get('/api/posts/'+userID ).then(function(response) {
@@ -66,25 +72,25 @@ app.factory("happyService", function($http) {
 		dayAvg = dayTotal/day.length;
 		//add class to day based on average rating
 		day.rating = dayAvg;
-		if (day.rating === 1) {
+		if (day.rating < 1.5) {
 			day.cls = 'one';
-		} else if (day.rating === 2) {
+		} else if (day.rating >= 1.5 && day.rating < 2.5 ) {
 			day.cls = 'two'; 
-		} else if (day.rating === 3) {
+		} else if (day.rating >= 2.5 && day.rating < 3.5 ) {
 			day.cls = 'three'
-		} else if (day.rating === 4) {
+		} else if (day.rating >= 3.5 && day.rating < 4.5 ) {
 			day.cls = 'four';
-		} else if (day.rating === 5) {
+		} else if (day.rating >= 4.5 && day.rating < 5.5 ) {
 			day.cls = 'five';
-		} else if (day.rating === 6) {
+		} else if (day.rating >= 5.5 && day.rating < 6.5 ) {
 			day.cls = 'six';
-		} else if (day.rating === 7) {
+		} else if (day.rating >= 6.5 && day.rating < 7.5 ) {
 			day.cls = 'seven';
-		} else if (day.rating === 8) {
+		} else if (day.rating >= 7.5 && day.rating < 8.5 ) {
 			day.cls = 'eight';
-		} else if (day.rating === 9) {
+		} else if (day.rating >= 8.5 && day.rating < 9.5 ) {
 			day.cls = 'nine';
-		} else if (day.rating === 10) {
+		} else if (day.rating > 9.5) {
 			day.cls = 'ten';
 		} else {
 			day.cls = 'none';
