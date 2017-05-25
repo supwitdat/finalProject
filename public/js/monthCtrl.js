@@ -57,8 +57,68 @@ app.controller("monthController", function($scope, happyService) {
 
   console.log($scope.daySeperate);
 
+
+    //GET AVERAGE OF DAYS
+
+    var test = [ [{rating: 8}, {rating: 8}], [{rating: 10}]]
+
+
+    var average = 0;
+
+    $scope.daySeperate.forEach(function(day){
+
+      var total = 0;
+      var length = 0;
+          day.forEach(function(entry){
+              total += entry.rating;
+              length = day.length;
+        });
+        console.log(total);
+        average = (total/length).toFixed(2);
+        console.log(average);
+        day.average = average;
+
+    });
+
+
+
   });
 
+    
+   switch(day.cls){
+       case day.average >= 1.5 && day.average < 2.5:
+			day.cls = 'one';
+           break;
+		case day.average >= 1.5 && day.average < 2.5:
+			day.cls = 'two'; 
+           break;
+        case day.average >= 2.5 && day.average < 3.5: 
+			day.cls = 'three';
+           break;
+        case day.average >= 3.5 && day.average < 4.5: 
+			day.cls = 'four';
+           break;
+        case day.average >= 4.5 && day.average < 5.5: 
+			day.cls = 'five';
+           break;
+        case day.average >= 5.5 && day.average < 6.5: 
+			day.cls = 'six';
+           break;
+        case day.average >= 6.5 && day.average < 7.5: 
+			day.cls = 'seven';
+           break;
+        case day.average >= 7.5 && day.average < 8.5:
+			day.cls = 'eight';
+           break;
+        case day.average >= 8.5 && day.average < 9.5:
+			day.cls = 'nine';
+           break;
+        case day.average > 9.5:
+			day.cls = 'ten';
+           break;
+        default: day.cls = 'none';
+		}
 
+    
 
 });
