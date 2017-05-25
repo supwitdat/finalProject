@@ -5,7 +5,7 @@
 			</div>
 			<div class="col-sm-6">
 <!--	ng-repeat to display each day in the array	-->
-				<div ng-repeat="day in days track by $index" ng-class=day.cls ng-click=showEntry(day) class="day">
+				<div ng-repeat="day in days track by $index" ng-class=day.cls ng-mouseover=showEntry(day) ng-mouseleave=hideEntry(day) class="day">
 				</div>
 			</div>
 			<div class="col-sm-4">

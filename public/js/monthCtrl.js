@@ -9,6 +9,10 @@ app.controller("monthController", function($scope, happyService) {
 	$scope.showEntry = function(day) {
 		$scope.activeDay = day;	
 	}
+	
+	$scope.hideEntry = function() {
+		$scope.activeDay = "";
+	}
     
     $scope.getPosts = happyService.getPosts();
 
