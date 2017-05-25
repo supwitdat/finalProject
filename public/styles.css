@@ -11,9 +11,11 @@
 
 .day {
 	border: 1px solid black;
-	width: 50px;
+	margin: 0 auto;
+	padding: 0;
+	width: 14%;
 	height: 50px;
-	border-radius: 10px;
+	border-radius: 2px;
 	display: inline-block;
 }
 
@@ -62,16 +64,38 @@
 	background-color: black;
 }
 
-/*
-.entry {
+.entries {
+	border: 1px solid black;
+}
+
+/*END OF CALENDER STYLING*/
+
+/*ENTRY DETAIL PAGE STYLING*/
+
+.entry-detail .rating {
+
+}
+
+/*Mood selection*/
+
+.mood {
+	display: inline-block;
+	padding: 1%;
+}
+
+#moodOptions .mood-checkbox + .mood-label {
+	font-weight: normal;
+}
+
+#moodOptions input[type=checkbox]:checked + label {
+	font-weight: bold;
+}
+
+input[type=checkbox] {
 	display: none;
 }
 
-.day:hover.entry {
-	display: block;
-}
-*/
-/*END OF CALENDER STYLING*/
+/*END OF ENTRY DETAIL PAGE STYLING*/
 
 .rating {
   background-color: #99ff33;
