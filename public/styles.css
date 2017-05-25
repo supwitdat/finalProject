@@ -168,3 +168,31 @@ ul li a {
 div.row {
   background-image: url('images/headerImageNav.jpg');
 }*/
+
+.splashImg {
+  background-image: url('images/progressSplash.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.splashHeader {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 120px;
+  text-align: center;
+  margin-top: -10px;
+}
+
+.splashInfo {
+  font-family: 'Josefin Slab', serif;
+  font-size: 28px;
+  text-align: center;
+  background-color: rgba(255,255,255, 0.6);
+  margin: 50px;
+  margin-top: -30px;
+}
+
+.progressTeam {
+  font-family: 'Fredericka the Great', cursive;
+}
