@@ -5,7 +5,7 @@ app.controller("monthController", function($scope, happyService) {
  	console.log("monthController has loaded");
 
 	$scope.showEntry = function(day) {
-		happyService.getPosts()
+		happyService.getPosts();
 		$scope.activeDay = day;
 	}
 
@@ -57,8 +57,32 @@ app.controller("monthController", function($scope, happyService) {
 
   console.log($scope.daySeperate);
 
-  });
 
+    //GET AVERAGE OF DAYS
+
+    var test = [ [{rating: 8}, {rating: 8}], [{rating: 10}]]
+
+
+    var average = 0;
+
+    $scope.daySeperate.forEach(function(day){
+
+      var total = 0;
+      var length = 0;
+          day.forEach(function(entry){
+              total += entry.rating;
+              length = day.length;
+        });
+        console.log(total);
+        average = (total/length).toFixed(2);
+        console.log(average);
+        day.average = average;
+
+    });
+
+
+
+  });
 
 
 });
