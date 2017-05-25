@@ -66,6 +66,8 @@
 
 .entries {
 	border: 1px solid black;
+	height: 250px;
+	overflow: scroll;
 }
 
 /*END OF CALENDER STYLING*/

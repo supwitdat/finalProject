@@ -4,10 +4,8 @@ var app = angular.module('happyMod');
 app.controller("monthController", function($scope, happyService) {
  	console.log("monthController has loaded");
 
-	
-	$scope.days = happyService.getDays();
-
 	$scope.showEntry = function(day) {
+		happyService.getPosts()
 		$scope.activeDay = day;
 	}
 
@@ -15,40 +13,39 @@ app.controller("monthController", function($scope, happyService) {
 		$scope.activeDay = "";
 	}
 
-  happyService.getPosts().then(function(posts) {
+  	happyService.getPosts().then(function(posts) {
 
 
     var duplicates = [];
     $scope.daySeperate = [];
 
     //creates duplicates array using posts dates
-   posts.data.forEach(function(i){
+   	posts.data.forEach(function(i){
          duplicates.push(i.date);
     });
 
+	// creates noDuplicates Array using filter and onlyUnique Function
+	var noDuplicates = duplicates.filter(onlyUnique);
 
-  // creates noDuplicates Array using filter and onlyUnique Function
-  var noDuplicates = duplicates.filter(onlyUnique);
-
-  function onlyUnique(value, index, self) {
-          return self.indexOf(value) === index;
-      }
+	function onlyUnique(value, index, self) {
+		return self.indexOf(value) === index;
+	}
 
 
-  //Outer forEach using noDuplicate array
-  noDuplicates.forEach(function(i){
-    console.log(i);
-    var date = i;
-    var oneDay = [];
+	//Outer forEach using noDuplicate array
+	noDuplicates.forEach(function(i){
+		console.log(i);
+		var date = i;
+		var oneDay = [];
 
-    if(i !== date){
-      date = i;
-  }
+		if(i !== date){
+			date = i;
+		}
 
   //Inner forEach using getPosts array
         posts.data.forEach(function(j){
 
-           if(j.date === date){
+        if(j.date === date){
              oneDay.push(j);
            }
         });
