@@ -9,8 +9,8 @@ app.factory("happyService", function($http) {
     var id =0;
 	var day = [];
 	var days = [];
-    var nuUser = {}
-	
+    var allPosts=[];
+    var today = []
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
@@ -163,10 +163,26 @@ function userPromise (){
 		});
 		return promise;
 	};
+    
+function getPosts(){
+    return $http.get('/api/posts/'+id).then(function(response){
+        for(i=0;i<response.data.length;i++){
+            if (response.data[i].date === response.data[i].date){
+                allPosts = response.data[i];
+                console.log(allPosts);
+            }
+        }
+        allPosts = response.data
+      console.log(allPosts);
+        return response });
+    };
+
+   
 
     
 	//object to be returned with function properties
 	return {
+        getPosts:getPosts,
         postEntry:postEntry,
         myID:myID,
         userLogin:userLogin,

@@ -26,6 +26,28 @@ app.post('/api/posts/entry/', function(req, res) {
         res.send(result.rows);
     });
 });
+//get posts by id//
+app.get('/api/posts/:userid', function(req, res) {
+    var id = req.params.userid;
+    pool.query("SELECT * FROM posts WHERE userid = $1::int", [id]).then(function(result) {
+        if (result.rowCount === 0) {
+            res.status(404); 
+            res.send("NOT FOUND");
+        } else {
+            res.send(result.rows);
+        }
+    }).catch(errorCallback(res));
+});
+
+
+
+function errorCallback(res) {
+	return function(err) {
+		console.log(err);
+		res.status(500);
+		res.send('ERROR');
+	}
+}
 
 
 // add user to database//
