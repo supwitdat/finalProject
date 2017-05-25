@@ -1,4 +1,4 @@
-<div>
+<div ng-init="getEntries();">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-1 empty">
@@ -14,9 +14,9 @@
 				<div ng-repeat="entry in activeDay track by $index" ng-show="activeDay" class="entry">
 					<p class="overview-rating">{{ entry.rating }}</p>
 					<p class="overview-comment">{{ entry.comment }}</p>
-					<p>This is working, sort of</p>
-<!--	ng-repead to display each mood for each entry	-->
-					<p ng-repeat="mood in entry.moods" class="overview-mood">{{ mood }}</p>
+					<p>{{ entry.mood }}</p>
+<!--	ng-repeat to display each mood for each entry	-->
+<!--					<p ng-repeat="mood in mood" class="overview-mood">{{ entry.mood1 }}</p>-->
 				</div>
 			</div>
 			<div class="col-sm-1 empty">
