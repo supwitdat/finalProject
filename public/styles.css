@@ -305,3 +305,10 @@ div.row {
 	  font-family: 'Fredericka the Great', cursive;
 	  letter-spacing: 2px;
 	}
+
+.foot {
+	text-align: center;
+	background-color: #2f302c;
+	border: solid gray 2px;
+	font-family: 'Josefin Slab', serif;
+}
