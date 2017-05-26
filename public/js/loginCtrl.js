@@ -5,6 +5,20 @@ app.controller("loginController", function($scope, happyService,$location) {
     $scope.user ={};
     $scope.existing ={};
 
+//LIMITING NAV ACCESS BASED ON LOGIN
+
+      $scope.access = happyService.getID();
+       console.log($scope.access + ' access id');
+
+       $scope.hasAccess = function(){
+         if ($scope.access < 1){
+            console.log('access clicked');
+            alert('please login');
+            $location.path('/login');
+         }
+       };
+//------
+
     $scope.addUser = function(user) {
         console.log($scope.user);
         //adds login form values to an object//
