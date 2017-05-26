@@ -3,14 +3,6 @@ body {
 	color: white;
 }
 
-/*
-
-
-.stretchInput {
-  box-sizing: border-box;
-}
-*/
-
 /*RATINGS PAGE*/
 
 #rating1 {
@@ -87,11 +79,15 @@ input[type=checkbox] {
 /*CALENDER STYLING*/
 
 .day {
-	border: 1px solid black;
-	width: 50px;
+	border: 1px solid #BEBEBD;
+	width: 14%;
 	height: 50px;
 	border-radius: 10px;
 	display: inline-block;
+}
+
+.day-average {
+	margin-top: 25%;
 }
 
 .day.one {
@@ -145,9 +141,13 @@ input[type=checkbox] {
 
 .entries {
 	border: 2px solid #BEBEBD;
+	height: 250px;
 	overflow: scroll;
+	color: black;
+/*
 	font-family: 'Josefin Slab', serif;
   	font-size: 24px;
+*/
 }
 
 /*END OF CALENDER STYLING*/

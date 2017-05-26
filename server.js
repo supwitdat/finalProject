@@ -29,7 +29,7 @@ app.post('/api/posts/entry/', function(req, res) {
 //get posts by id//
 app.get('/api/posts/:userid', function(req, res) {
     var id = req.params.userid;
-    pool.query("SELECT * FROM posts WHERE userid = $1::int", [id]).then(function(result) {
+    pool.query("SELECT * FROM posts WHERE userid = $1::int ORDER BY date DESC", [id]).then(function(result) {
         if (result.rowCount === 0) {
             res.status(404); 
             res.send("NOT FOUND");
