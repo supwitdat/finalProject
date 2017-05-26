@@ -238,9 +238,9 @@ ul li a {
 
 }
 
-.indexBody {
+/*.indexBody {
   border: double black 10px;
-}
+}*/
 /*
 div.row {
   background-image: url('images/headerImageNav.jpg');
@@ -267,7 +267,7 @@ div.row {
   text-align: center;
   background-color: rgba(255,255,255, 0.6);
   margin: 50px;
-  margin-top: -30px;
+  /*margin-top*/
 }
 
 .progressTeam {
@@ -290,3 +290,18 @@ div.row {
   letter-spacing: 2px;
 }
 
+.btn-block {
+	  border-radius: 6px;
+	  border: solid black 2px;
+	  padding-left: 20px;
+	  padding-right: 20px;
+	  padding-top: 0px;
+	  padding-bottom: 0px;
+	  max-width: 400px;
+	  background-image: url('images/headerImageNav.jpg');
+	  color: black !important;
+	  font-size: 28px;
+	  text-decoration: none;
+	  font-family: 'Fredericka the Great', cursive;
+	  letter-spacing: 2px;
+	}
