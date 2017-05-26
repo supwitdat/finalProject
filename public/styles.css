@@ -1,6 +1,83 @@
+body {
+	background-color: #272824;
+	color: white;
+}
+
+/*
+
 
 .stretchInput {
   box-sizing: border-box;
+}
+*/
+
+/*RATINGS PAGE*/
+
+#rating1 {
+	background-color: #1A162A;
+}
+
+#rating2 {
+	background-color: #313658;
+}
+
+#rating3 {
+	background-color: #475b77;
+}
+
+#rating4 {
+	background-color: #50707F;
+}
+
+#rating5 {
+	background-color: #5f8596;
+}
+
+#rating6 {
+	background-color: #79b4b5;
+	color: black;
+}
+
+#rating7{
+	background-color: #5CA9AA;
+	color: black;
+}
+
+#rating8 {
+	background-color: #73CDD1;
+	color: black;
+}
+
+#rating9 {
+	background-color: #80E9ED;
+	color: black;
+}
+
+#rating10 {
+	background-color: #49E7ED;
+	color: black;
+}
+
+/*ENTRY DETAIL PAGE*/
+#rating-detail {
+	color: #272824;
+}
+
+.mood {
+	display: inline-block;
+	padding: 1%;
+}
+
+#moodOptions .mood-checkbox + .mood-label {
+	font-weight: normal;
+}
+
+#moodOptions input[type=checkbox]:checked + label {
+	font-weight: bold;
+}
+
+input[type=checkbox] {
+	display: none;
 }
 
 #startOverButton {
@@ -18,59 +95,61 @@
 }
 
 .day.one {
-	background-color: aqua;
-	color: white;
+	background-color: #1A162A;
 }
 
 .day.two {
-	background-color: aquamarine;
+	background-color: #313658;
 }
 
 .day.three {
-	background-color: blue;
+	background-color: #475b77;
 }
 
 .day.four {
-	background-color: blueviolet;
+	background-color: #50707F;
 }
 
 .day.five {
-	background-color: cadetblue;
+	background-color: #5f8596;
 }
 
 .day.six {
-	background-color: cornflowerblue;
+	background-color: #79b4b5;
+	color: black;
 }
 
 .day.seven {
-	background-color: cyan;
+	background-color: #5CA9AA;
+	color: black;
 }
 
 .day.eight {
-	background-color: darkcyan;
+	background-color: #73CDD1;
+	color: black;
 }
 
 .day.nine {
-	background-color: darkslateblue;
+	background-color: #80E9ED;
+	color: black;
 }
 
 .day.ten {
-	background-color: deepskyblue;
+	background-color: #49E7ED;
+	color: black;
 }
 
 .day.none {
 	background-color: black;
 }
 
-/*
-.entry {
-	display: none;
+.entries {
+	border: 2px solid #BEBEBD;
+	overflow: scroll;
+	font-family: 'Josefin Slab', serif;
+  	font-size: 24px;
 }
 
-.day:hover.entry {
-	display: block;
-}
-*/
 /*END OF CALENDER STYLING*/
 
 .rating {
@@ -97,9 +176,6 @@
   font-size: 42px;
 }
 
-#moodOptions {
-  margin-right: -150px;
-}
 
 #headerImage {
   background-image: url('images/headerImage.jpg');
@@ -214,7 +290,3 @@ div.row {
   letter-spacing: 2px;
 }
 
-.monthPara {
-  font-family: 'Josefin Slab', serif;
-  font-size: 24px;
-}
