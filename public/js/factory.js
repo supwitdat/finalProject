@@ -149,6 +149,10 @@ app.factory("happyService", function($http) {
 			return daysSeperate;
 		});
 	}
+	
+	function getDays() {
+		return daysSeperate;
+	}
 	    
 ///////// USER INFORMATION AND LOGIN /////////////
 	function addUser(user) {
@@ -231,5 +235,6 @@ function userPromise (){
 		setMood: setMood,
 		getEntry: getEntry,
 		setDays: setDays,
+		getDays: getDays
 	}
 });
