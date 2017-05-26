@@ -212,18 +212,25 @@ input[type=checkbox] {
   background-color: rgba(255,255,255, 0.3);
   color: inherit;
   border-radius: 10px;
-  max-width: 115px;
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 16px;
+  max-width: 150px;
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
   box-shadow: 2px 2px 2px black;
+}
+
+.viewLinkBrand{
+	max-width: 115px;
+	font-family: 'Fredericka the Great', cursive;
+	font-size: 16px;
+	margin-right: 80%;
 }
 
 .navbar-brand {
   color: black !important;
   font-family: 'Fredericka the Great', cursive;
-  font-size: 24px !important;
+  font-size: 30px;
   text-align: center;
-  padding-left: 37%;
+  /*padding-left: 37%;*/
 
 }
 
@@ -280,7 +287,7 @@ div.row {
   font-family: 'Josefin Slab', serif;
   font-size: 28px;
   text-align: center;
-  background-color: rgba(255,255,255, 0.6);
+  background-color: rgba(255,255,255, 0.4);
   margin: 50px;
   /*margin-top*/
 }
@@ -320,4 +327,3 @@ div.row {
 	  font-family: 'Fredericka the Great', cursive;
 	  letter-spacing: 2px;
 	}
-
