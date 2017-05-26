@@ -12,9 +12,11 @@
 		<div class="col-sm-8 mood" id="moodOptions">
 			
 		<h4>What are you feeling?</h4>
-		<div ng-repeat="mood in moods" class="mood">
-			<input type="checkbox" class="checkbox-inline mood-checkbox" id={{mood}} ng-checked="selection.indexOf(mood) > -1" ng-click="toggleSelection(mood)">
-			<label for={{mood}} class="mood-label">{{mood}}</label>
+		<div ng-repeat="mood in moods" class="moods">
+			<div class="mood">
+				<input type="checkbox" class="checkbox-inline mood-checkbox" id={{mood}} ng-checked="selection.indexOf(mood) > -1" ng-click="toggleSelection(mood)">
+				<label for={{mood}} class="mood-label">{{mood}}</label>
+			</div>
 		</div>
 	    </div>  
 	  </div>
