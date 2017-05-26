@@ -2,6 +2,7 @@ body {
 	background-color: #272824;
 	color: white;
 	min-height: 100%;
+	font-size: 18px;
 }
 
 #content {
@@ -20,58 +21,15 @@ body {
 
 /*RATINGS PAGE*/
 
-#rating1 {
-	background-color: #1A162A;
-}
-
-#rating2 {
-	background-color: #313658;
-}
-
-#rating3 {
-	background-color: #475b77;
-}
-
-#rating4 {
-	background-color: #50707F;
-}
-
-#rating5 {
-	background-color: #5f8596;
-}
-
-#rating6 {
-	background-color: #79b4b5;
-	color: black;
-}
-
-#rating7{
-	background-color: #5CA9AA;
-	color: black;
-}
-
-#rating8 {
-	background-color: #73CDD1;
-	color: black;
-}
-
-#rating9 {
-	background-color: #80E9ED;
-	color: black;
-}
-
-#rating10 {
-	background-color: #49E7ED;
-	color: black;
-}
 
 /*ENTRY DETAIL PAGE*/
 #rating-detail {
 	color: #272824;
 }
 
-.mood {
+.moods {
 	display: inline-block;
+	font-variant: small-caps;
 	padding: 1%;
 }
 
@@ -79,8 +37,13 @@ body {
 	font-weight: normal;
 }
 
+.mood label:hover {
+	color:  #0CE889;
+}
+
 #moodOptions input[type=checkbox]:checked + label {
 	font-weight: bold;
+	color: #0CE889;
 }
 
 input[type=checkbox] {
@@ -102,56 +65,51 @@ input[type=checkbox] {
 }
 
 .day-average {
-	margin-top: 25%;
+	margin-top: 15%;
 }
 
-.day.one {
-	background-color: #1A162A;
+.one {
+	background-color: #113C48;
 }
 
-.day.two {
-	background-color: #313658;
+.two {
+	background-color: #1A5D70;
 }
 
-.day.three {
-	background-color: #475b77;
+.three {
+	background-color: #007772;	
 }
 
-.day.four {
-	background-color: #50707F;
+.four {
+	background-color: #00AAA3;
 }
 
-.day.five {
-	background-color: #5f8596;
+.five {
+	background-color: #0FD6CF;
 }
 
-.day.six {
-	background-color: #79b4b5;
-	color: black;
+.six {
+	background-color: #0CE889;
 }
 
-.day.seven {
-	background-color: #5CA9AA;
-	color: black;
+.seven {
+	background-color: #00FF2D;
 }
 
-.day.eight {
-	background-color: #73CDD1;
-	color: black;
+.eight {
+	background-color: #3BFF00;
 }
 
-.day.nine {
-	background-color: #80E9ED;
-	color: black;
+.nine {
+	background-color: #C2FF0B;
 }
 
-.day.ten {
-	background-color: #49E7ED;
-	color: black;
+.ten {
+	background-color: #FFE100;
 }
 
-.day.none {
-	background-color: black;
+.none {
+	background-color: transparent;
 }
 
 .entries {
@@ -168,11 +126,10 @@ input[type=checkbox] {
 /*END OF CALENDER STYLING*/
 
 .rating {
-  background-color: #99ff33;
   width: 10%;
   height: 10%;
   border-radius: 50%;
-  border: solid 2px black;
+  border: solid 2px #BEBEBD;
   margin: 10px auto;
   padding: 50px;
   position: relative;
@@ -186,8 +143,12 @@ input[type=checkbox] {
   top: 50%;
   margin-left: -18px;
   margin-top: -18px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+/*
   font-family: 'Fredericka the Great', cursive;
   color: black !important;
+*/
+	color: white;
   font-size: 42px;
 }
 
