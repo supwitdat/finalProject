@@ -7,10 +7,11 @@ app.factory("happyService", function($http) {
     var holder={};
     var loginInfo={};
     var id =0;
-	var day = [];
-	var days = [];
+//	var day = [];
+//	var days = [];
     var allPosts=[];
-    var today = []
+    var today = [];
+	var daysSeperate = [];
 
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
@@ -38,10 +39,6 @@ app.factory("happyService", function($http) {
 	};
 
 	//returns entry object, including comment, mood, and rating
-//	function getEntry() {
-//		return entry;
-//	}
-
 	function getEntry(userID) {
         return $http.get('/api/posts/'+userID ).then(function(response) {
             console.log(response);
@@ -59,57 +56,101 @@ app.factory("happyService", function($http) {
        });
         };
 	
-	//adds entries to day array
-	//TODO associate entry with a day, based on date input
-	function setDay() {
-		day.push(entry);
-		//get average rating for day
-		var dayTotal = 0;
-		var dayAvg = 0;
-		day.forEach(function(entry) {
-			dayTotal += entry.rating;
-		})
-		dayAvg = dayTotal/day.length;
-		//add class to day based on average rating
-		day.rating = dayAvg;
-		if (day.rating < 1.5) {
-			day.cls = 'one';
-		} else if (day.rating >= 1.5 && day.rating < 2.5 ) {
-			day.cls = 'two'; 
-		} else if (day.rating >= 2.5 && day.rating < 3.5 ) {
-			day.cls = 'three'
-		} else if (day.rating >= 3.5 && day.rating < 4.5 ) {
-			day.cls = 'four';
-		} else if (day.rating >= 4.5 && day.rating < 5.5 ) {
-			day.cls = 'five';
-		} else if (day.rating >= 5.5 && day.rating < 6.5 ) {
-			day.cls = 'six';
-		} else if (day.rating >= 6.5 && day.rating < 7.5 ) {
-			day.cls = 'seven';
-		} else if (day.rating >= 7.5 && day.rating < 8.5 ) {
-			day.cls = 'eight';
-		} else if (day.rating >= 8.5 && day.rating < 9.5 ) {
-			day.cls = 'nine';
-		} else if (day.rating > 9.5) {
-			day.cls = 'ten';
-		} else {
-			day.cls = 'none';
-		}
-	}
+	//get posts from database
+	function getPosts(){
+    	return $http.get('/api/posts/'+id).then(function(response){
+    		allPosts = response.data;
+      		console.log(allPosts);
+			//return response
+			return allPosts; 
+		});
+    };
 	
-	//adds day to days array
-	function setDays() {
-		days.push(day);
-		console.log(day);
+	function setDays(){
+
+		getPosts().then(function() {
+			daysSeperate = [];
+			var duplicates = [];
+//			var daysSeperate = [];
+
+			//creates duplicates array using posts dates
+			allPosts.forEach(function(i) {
+				duplicates.push(i.date);
+			});
+
+			//creates noDuplicates Array using filter and onlyUnique Function
+			var noDuplicates = duplicates.filter(onlyUnique);
+
+			function onlyUnique(value, index, self) {
+				return self.indexOf(value) === index;
+			}
+
+			//outer forEach using noDuplicate array
+			noDuplicates.forEach(function(i) {
+				console.log(i);
+				var date = i; 
+				var oneDay = [];
+
+				if(i !== date) {
+					date = i;
+				}
+
+				//inner forEach using getPosts array
+				allPosts.forEach(function(j) {
+					if(j.date === date) {
+						oneDay.push(j);
+					}
+				});
+			daysSeperate.push(oneDay);	
+
+			});
+
+			console.log(daysSeperate);
+			
+			//Get Average of Days
+			var average = 0;
+			
+			daysSeperate.forEach(function(day) {
+				var total = 0;
+				
+				day.forEach(function(entry) {
+					total += entry.rating;
+				});
+				average = (total/day.length).toFixed(2);
+				console.log(average);
+				day.average = average;
+				
+				//Add Class to each day
+				
+				if (day.average < 1.5) {
+					day.cls = "one";
+				} else if (day.average >= 1.5 && day.average < 2.5) {
+					day.cls = "two";
+				} else if (day.average >= 2.5 && day.average < 3.5) {
+					day.cls = "three";
+				} else if (day.average >= 3.5 && day.average < 4.5) {
+					day.cls = "four";
+				} else if (day.average >= 4.5 && day.average < 5.5) {
+					day.cls = "five";
+				} else if (day.average >= 5.5 && day.average < 6.5) {
+					day.cls = "six";
+				} else if (day.average >= 6.5 && day.average < 7.5) {
+					day.cls = "seven";
+				} else if (day.average >= 7.5 && day.average < 8.5) {
+					day.cls = "eight";
+				} else if (day.average >= 8.5 && day.average < 9.5) {
+					day.cls = "nine";
+				} else if (day.average >= 9.5) {
+					day.cls = "ten";
+				} else {
+					day.cls = "none";
+				}
+			});
+			return daysSeperate;
+		});
 	}
-	
-	//get days array to access entries and days
-	function getDays() {
-		return days; 
-		console.log(days);
-	}
-    
-//User Info	
+	    
+///////// USER INFORMATION AND LOGIN /////////////
 	function addUser(user) {
 		// POST /api/user
 
@@ -170,17 +211,6 @@ function userPromise (){
 		return promise;
 	};
     
-function getPosts(){
-    return $http.get('/api/posts/'+id).then(function(response){
-        
-    allPosts = response.data
-      console.log(allPosts);
-        return response });
-    };
-
-   
-
-    
 	//object to be returned with function properties
 	return {
         getPosts:getPosts,
@@ -200,8 +230,6 @@ function getPosts(){
 		setComment: setComment,
 		setMood: setMood,
 		getEntry: getEntry,
-		setDay: setDay,
 		setDays: setDays,
-		getDays: getDays
 	}
 });

@@ -1,30 +1,8 @@
-<div ng-init="getEntries();">
-<!--
+<div ng-init="setDays()">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8">
-				<div ng-repeat="day in days track by $index" ng-class=day.cls ng-mouseclick=showEntry(day)  class="day">
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="entries">
-					<div ng-repeat="entry in activeDay track by $index" ng-show="activeDay" class="entry">
-						<p class="overview-rating">{{ entry.rating }}</p>
-						<p class="overview-comment">{{ entry.comment }}</p>
-						<p>{{ entry.mood }}</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-1 empty">
-			</div>
-		</div>
--->
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8">
-				<div ng-repeat="day in daySeperate track by $index" ng-class=day.cls class="day" ng-click=showEntry(day)>
+				<div ng-repeat="day in days track by $index" ng-class=day.cls class="day" ng-click=showEntry(day)>
 				</div>
 			</div>
 			<div class="col-sm-4">
