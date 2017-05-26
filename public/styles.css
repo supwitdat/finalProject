@@ -1,12 +1,23 @@
 body {
 	background-color: #272824;
 	color: white;
+	min-height: 100%;
 }
 
-.jumbotron {
-	margin: 0;
-	height: 25%;
+#content {
+/*	min-height: 100%;*/
+/*	padding-bottom: 50px;*/
+	min-height: calc(100vh - 100px);
 }
+
+.foot {
+	text-align: center;
+	background-color: #2f302c;
+	border: solid gray 2px;
+	font-family: 'Josefin Slab', serif;
+	height: 100px;
+}
+
 /*RATINGS PAGE*/
 
 #rating1 {
@@ -310,9 +321,3 @@ div.row {
 	  letter-spacing: 2px;
 	}
 
-.foot {
-	text-align: center;
-	background-color: #2f302c;
-	border: solid gray 2px;
-	font-family: 'Josefin Slab', serif;
-}

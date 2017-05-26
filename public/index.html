@@ -14,37 +14,25 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body ng-app="happyMod" class="indexBody">
-<!--
-	  <div class="jumbotron" id="headerImage">
-		  <div class="row">
-			  <div class="col-sm-1 empty">
-			  </div>
-			  <div class="col-sm-3">
-			  	<h1 class="progressTitle">progress.</h1>
-			  </div>
-			  <div class="col-sm-1 empty">
-			  </div>
-		  </div>
+	<div id="content">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid" id="containerImage">
+			<div class="navbar-header">
+			<a class="navbar-brand" href="#">progress.</a>
+			</div>
+			<center>
+			<ul class="nav navbar-nav">
+			<li class="viewLink"><a href="#!/login">Login</a></li>
+			<li class="viewLink"><a href="#!/entry">New Entry</a></li>
+			<li class="viewLink"><a href="#!/month">Overview</a></li>
+			</ul>
+			</center>
+			</div>
+		</nav>
+		<div id="status">
+		</div>
+		<ng-view></ng-view>
 	  </div>
--->
-
-	  <nav class="navbar navbar-default">
-  		<div class="container-fluid" id="containerImage">
-    		<div class="navbar-header">
-      			<a class="navbar-brand" href="#">progress.</a>
-    		</div>
-        <center>
-    		<ul class="nav navbar-nav">
-      			<li class="viewLink"><a href="#!/login">Login</a></li>
-      			<li class="viewLink"><a href="#!/entry">New Entry</a></li>
-      			<li class="viewLink"><a href="#!/month">Overview</a></li>
-    		</ul>
-      </center>
-  		</div>
-	  </nav>
-<div id="status">
-</div>
-      <ng-view></ng-view>
 
   <footer></footer>
 
