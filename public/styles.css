@@ -3,6 +3,10 @@ body {
 	color: white;
 }
 
+.jumbotron {
+	margin: 0;
+	height: 25%;
+}
 /*RATINGS PAGE*/
 
 #rating1 {
@@ -141,7 +145,7 @@ input[type=checkbox] {
 
 .entries {
 	border: 2px solid #BEBEBD;
-	height: 250px;
+	max-height: 300px;
 	overflow: scroll;
 	color: black;
 /*
