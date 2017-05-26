@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>progress.</title>
-  <!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
-  <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
-  </head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>progress.</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+		<!-- Our CSS -->
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
   <body ng-app="happyMod" class="indexBody">
 	<div id="content">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid" id="containerImage">
-			<div class="navbar-header">
-			<!-- <a class="navbar-brand" href="#">progress.</a> -->
-			</div>
-			<center>
-			<ul class="nav navbar-nav">
-      <li class="viewLinkBrand"><a class="navbar-brand" href="#">progress.</a></li>
-			<li class="viewLink"><a href="#!/login">Login</a></li>
-			<li class="viewLink"><a href="#!/entry">New Entry</a></li>
-			<li class="viewLink"><a href="#!/month">Overview</a></li>
-			</ul>
-			</center>
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>             
+					</button>
+					<a class="navbar-brand" href="#">progress.</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="#!/entry">New Entry</a></li>
+						<li><a href="#!/month">Month</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div id="status"></div>
+						</li>
+						<li><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</ul>
+				</div>
+
 			</div>
 		</nav>
-		<div id="status">
-		</div>
+				
+		
 		<ng-view></ng-view>
+		
 	  </div>
 
-  <footer></footer>
+  	<footer></footer>
 
      <script src="lib/angular.min.js" charset="utf-8"></script>
      <script src="lib/angular-route.min.js" charset="utf-8"></script>

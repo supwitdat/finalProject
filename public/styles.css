@@ -1,13 +1,10 @@
 body {
-	background-color: #272824;
-	color: white;
 	min-height: 100%;
 	font-size: 18px;
 }
 
 #content {
-/*	min-height: 100%;*/
-/*	padding-bottom: 50px;*/
+	/* makes fotter sticky	*/
 	min-height: calc(100vh - 100px);
 }
 
@@ -15,58 +12,22 @@ body {
 	text-align: center;
 	background-color: #2f302c;
 	border: solid gray 2px;
-	font-family: 'Josefin Slab', serif;
 	height: 100px;
 }
 
-/*RATINGS PAGE*/
-
-
-/*ENTRY DETAIL PAGE*/
-#rating-detail {
-	color: #272824;
+.navbar {
+	background-color: #0FD6CF;
 }
 
-.moods {
-	display: inline-block;
-	font-variant: small-caps;
-	padding: 1%;
+navbar-brand {
+	color: 
 }
 
-#moodOptions .mood-checkbox + .mood-label {
-	font-weight: normal;
+.navbar li {
+	color: #BEBEBD;
 }
 
-.mood label:hover {
-	color:  #0CE889;
-}
-
-#moodOptions input[type=checkbox]:checked + label {
-	font-weight: bold;
-	color: #0CE889;
-}
-
-input[type=checkbox] {
-	display: none;
-}
-
-#startOverButton {
-  color: inherit;
-}
-
-/*CALENDER STYLING*/
-
-.day {
-	border: 1px solid #BEBEBD;
-	width: 14%;
-	height: 50px;
-	border-radius: 10px;
-	display: inline-block;
-}
-
-.day-average {
-	margin-top: 15%;
-}
+/*RATING COLOR SCALE*/
 
 .one {
 	background-color: #113C48;
@@ -112,25 +73,45 @@ input[type=checkbox] {
 	background-color: transparent;
 }
 
-.entries {
-	border: 2px solid #BEBEBD;
-	max-height: 300px;
-	overflow: scroll;
-	color: black;
-/*
-	font-family: 'Josefin Slab', serif;
-  	font-size: 24px;
-*/
+
+/*FOOTER*/
+
+.foot {
+	background-color: #2f302c;
+	color: #BEBEBD;
+	height: 100px;
 }
 
-/*END OF CALENDER STYLING*/
+.foot a {
+	text-decoration: none;
+	color: #BEBEBD;
+}
+
+/*SPLASH PAGE*/
+
+.splashHeader {
+  font-family: 'Fredericka the Great', sans-serif;
+  font-size: 500%;
+  text-align: center;
+  margin-top: -10px;
+}
+
+.splashInfo {
+  text-align: center;
+  background-color: rgba(255,255,255, 0.6);
+  margin: 50px;
+  margin-top
+}
+
+
+/*RATINGS PAGE*/
 
 .rating {
   width: 10%;
   height: 10%;
-  border-radius: 50%;
+  border-radius: 15%;
   border: solid 2px #BEBEBD;
-  margin: 10px auto;
+  margin: auto;
   padding: 50px;
   position: relative;
 }
@@ -143,148 +124,57 @@ input[type=checkbox] {
   top: 50%;
   margin-left: -18px;
   margin-top: -18px;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-/*
-  font-family: 'Fredericka the Great', cursive;
-  color: black !important;
-*/
-	color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #BEBEBD;
   font-size: 42px;
 }
 
-
-#headerImage {
-  background-image: url('images/headerImage.jpg');
-  background-position: right top;
-  /*background-attachment: fixed;*/
-  background-size: cover;
+/*ENTRY DETAIL PAGE*/
+#rating-detail {
+	color: #272824;
 }
 
-#containerImage {
-  background-image: url('images/headerImageNav.jpg');
-  background-position: top left;
-  /*background-attachment: fixed;*/
-  background-size: cover;
+.moods {
+	display: inline-block;
+	font-variant: small-caps;
+	padding: 1%;
 }
 
-.viewLink {
-  border: solid black 2px;
-  margin: 3px;
-  background-color: rgba(255,255,255, 0.3);
-  color: inherit;
-  border-radius: 10px;
-  max-width: 150px;
-  font-family: 'Josefin Slab', serif;
-  font-size: 20px;
-  box-shadow: 2px 2px 2px black;
+#moodOptions .mood-checkbox + .mood-label {
+	font-weight: normal;
 }
 
-.viewLinkBrand{
-	max-width: 115px;
-	font-family: 'Fredericka the Great', cursive;
-	font-size: 16px;
-	margin-right: 80%;
+.mood label:hover {
+	color:  #0CE889;
 }
 
-.navbar-brand {
-  color: black !important;
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 30px;
-  text-align: center;
-  /*padding-left: 37%;*/
-
+#moodOptions input[type=checkbox]:checked + label {
+	font-weight: bold;
+	color: #0CE889;
 }
 
-ul li a {
-  color: black !important;
+input[type=checkbox] {
+	display: none;
 }
 
-.progressTitle {
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 75px !important;
-  color: black !important;
+/*OVERVIEW STYLING*/
 
+.day {
+	border: 1px solid #BEBEBD;
+	width: 14%;
+	height: 50px;
+	border-radius: 10px;
+	display: inline-block;
 }
 
-.col-sm {
-  float: none;
-  margin: 0 auto;
+.day-average {
+	margin-top: 15%;
 }
 
-
-.circleDiv {
-  padding-left: 100px;
+.entries {
+	border: 2px solid #BEBEBD;
+	max-height: 300px;
+	overflow: scroll;
+	color: black;
 }
 
-#circleOne  {
-  background-color: #d9ffb3;
-
-}
-
-/*.indexBody {
-  border: double black 10px;
-}*/
-/*
-div.row {
-  background-image: url('images/headerImageNav.jpg');
-}*/
-
-.splashImg {
-  background-image: url('images/progressSplash.jpg');
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.splashHeader {
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 500%;
-  text-align: center;
-  margin-top: -10px;
-}
-
-.splashInfo {
-  font-family: 'Josefin Slab', serif;
-  font-size: 28px;
-  text-align: center;
-  background-color: rgba(255,255,255, 0.4);
-  margin: 50px;
-  /*margin-top*/
-}
-
-.progressTeam {
-  font-family: 'Fredericka the Great', cursive;
-}
-
-.getStarted {
-  border-radius: 4px;
-  border: solid black 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  max-width: 300px;
-  background-image: url('images/headerImageNav.jpg');
-  color: black !important;
-  font-size: 28px;
-  text-decoration: none;
-  font-family: 'Fredericka the Great', cursive;
-  letter-spacing: 2px;
-}
-
-.btn-block {
-	  border-radius: 6px;
-	  border: solid black 2px;
-	  padding-left: 20px;
-	  padding-right: 20px;
-	  padding-top: 0px;
-	  padding-bottom: 0px;
-	  max-width: 400px;
-	  background-image: url('images/headerImageNav.jpg');
-	  color: black !important;
-	  font-size: 28px;
-	  text-decoration: none;
-	  font-family: 'Fredericka the Great', cursive;
-	  letter-spacing: 2px;
-	}
