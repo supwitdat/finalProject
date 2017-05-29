@@ -4,6 +4,11 @@ app.controller("entryController", function($scope, happyService) {
   console.log("entryController has loaded");
 	//displays rating for entry page
 	$scope.rating = happyService.getRating();
+	
+	//set class for number
+	$scope.cls = happyService.getEntryClass();
+	
+	
 	// Moods
   	$scope.moods = ['anxious', 'angry', 'content', 'calm', 'depressed', 'excited', 'grateful', 'hopeful', 'indifferent', 'lonely', 'pessimistic', 'restless'];
 

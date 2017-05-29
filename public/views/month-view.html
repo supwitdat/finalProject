@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8">
-				
+
 				<div ng-repeat="day in days track by $index" ng-class=day.cls class="day text-center" ng-click=showEntry(day)>
 					<p class="day-average">{{day.average}}</p>
 				</div>

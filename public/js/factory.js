@@ -16,12 +16,40 @@ app.factory("happyService", function($http) {
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
 		entry.rating = rating;
-		console.log(days);
+		//add class to each entry so the color appears on entry detail page
+		if (entry.rating === 1) {
+			entry.cls = "one";
+		} else if (entry.rating === 2) {
+			entry.cls = "two";
+		} else if (entry.rating === 3) {
+			entry.cls = "three";
+		} else if (entry.rating === 4) {
+			entry.cls = "four";
+		} else if (entry.rating === 5) {
+			entry.cls = "five";
+		} else if (entry.rating === 6) {
+			entry.cls = "six";
+		} else if (entry.rating === 7) {
+			entry.cls = "seven";
+		} else if (entry.rating === 8) {
+			entry.cls = "eight";
+		} else if (entry.rating === 9) {
+			entry.cls = "nine";
+		} else if (entry.rating === 10) {
+			entry.cls = "ten";
+		} else {
+			entry.cls = "none";
+		}
 	};
 
 	//returns entry object, including number rating
 	function getRating() {
 		return entry.rating;
+	};
+	
+	//returns entry object, including number class
+	function getEntryClass() {
+		return entry.cls;
 	};
 
 	//gets entry comment from entry page, adds it as property to entry object
@@ -231,6 +259,7 @@ function userPromise (){
         addUser:addUser,
 		setRating: setRating,
 		getRating: getRating,
+		getEntryClass: getEntryClass,
 		setComment: setComment,
 		setMood: setMood,
 		getEntry: getEntry,
