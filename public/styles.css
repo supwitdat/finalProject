@@ -15,17 +15,9 @@ body {
 	height: 100px;
 }
 
-.navbar {
-	background-color: #0FD6CF;
-}
+/*NAVIGATION*/
 
-navbar-brand {
-	color: 
-}
 
-.navbar li {
-	color: #BEBEBD;
-}
 
 /*RATING COLOR SCALE*/
 
@@ -177,4 +169,5 @@ input[type=checkbox] {
 	overflow: scroll;
 	color: black;
 }
+
 

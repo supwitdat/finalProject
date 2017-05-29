@@ -16,6 +16,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		happyService.getPosts();
 		//assigns day clicked as the active day
 		$scope.activeDay = day;
+		console.log(day);
 	}
 
 });

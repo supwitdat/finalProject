@@ -8,9 +8,9 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="well well-lg entries">
+				<div class="entries">
 					<h4>Entries</h4>
-					<div ng-repeat="entry in activeDay track by $index">
+					<div ng-repeat="entry in activeDay track by $index" ng-class=entry.cls>
 						<h5 class="entry-title">{{entry.date | date }}</h5>
 						<p class="rating-display"><strong>Rating:</strong> {{entry.rating}}</p>
 						<p class="comment-display"><strong>Comment:</strong> {{entry.comment}}</p>
