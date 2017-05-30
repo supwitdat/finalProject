@@ -155,7 +155,11 @@ app.controller("monthController", function($scope, happyService, $timeout) {
   $scope.viewArray = [];
 
     function getDayAvg(selectedDay) {
+
       $scope.viewArray= [];
+
+
+		console.log($scope.days);
 
         for(i=0; i < $scope.days.length; i++){
             if(selectedDay.substring(0,10) === $scope.days[i].date.substring(0,10)){
