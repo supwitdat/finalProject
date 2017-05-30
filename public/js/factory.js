@@ -200,6 +200,29 @@ app.factory("happyService", function($http) {
 	function getDays() {
 		return daysSeperate;
 	}
+	
+	function setDisplayPosts(selectedDay) {
+		var days = getDays();
+		var day = {posts: []};
+		for(i=0; i < days.length; i++){
+			if(selectedDay.substring(0,10) === days[i].date.substring(0,10)){
+				day.newAvg = days[i].average;
+
+				days[i].forEach(function(post){
+
+					var postObj = {};
+					postObj.mood = post.mood;
+					postObj.comment = post.comment;
+					postObj.rating = post.rating;
+					postObj.date = post.date;
+					day.posts.push(postObj);
+
+				});
+
+			}
+		}
+		return day;
+	}
 
 ///////// USER INFORMATION AND LOGIN /////////////
 	function addUser(user) {
@@ -283,6 +306,7 @@ function userPromise (){
 		setMood: setMood,
 		getEntry: getEntry,
 		setDays: setDays,
-		getDays: getDays
+		getDays: getDays,
+		setDisplayPosts: setDisplayPosts
 	}
 });
