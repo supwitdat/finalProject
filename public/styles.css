@@ -1,9 +1,7 @@
-
-
 body {
 	min-height: 100%;
 	font-size: 18px;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 #content {
@@ -199,6 +197,10 @@ navbar-brand {
 	display: inline-block;
 	font-variant: small-caps;
 	padding: 1%;
+}
+
+.mood-label {
+	text-decoration: underline;
 }
 
 #moodOptions .mood-checkbox + .mood-label {
