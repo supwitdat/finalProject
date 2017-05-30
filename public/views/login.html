@@ -2,10 +2,11 @@
 <div class="row">
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 <div class="col-sm-1"></div>
+<div class="newUserForm">
   <div class="col-sm-4">
       <h1>New User</h1>
         <form name="newUserLogin" novalidate ng-submit="addUser(user)" >
-            
+
                 <small id="usernameBlurb" class="form-text text-muted">Please create username:</small>
                 <div class="form-group form-inline">
                   <!-- <label for="userName">Username:</label> -->
@@ -35,14 +36,15 @@
   <p ng-show="signupForm.password.$error.minlength" class="help-block">Password is too short. Add more characters.</p>
   <p ng-show="signupForm.password.$error.pattern">Your password must be between 4 and 12 characters and needs to include at least 1 number</p>
   <p ng-show="user.password !== user.password2" class="help-block">The passwords do not match.</p>
-            
+
               <br/>
-                <button type="submit" class="btn btn-primary" ng-disabled="newUserLogin.userName.$invalid
+                <button type="submit" class="btn btn-info" ng-disabled="newUserLogin.userName.$invalid
                 || newUserLogin.userEmail.$invalid
                 || newUserLogin.userPassword.$invalid
                 || newUserLogin.userPassword2.$invalid">Create Account</button>
         </form>
     </div>
+  </div>
 
   <div class="col-sm-1"></div>
 
@@ -67,7 +69,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary" ng-disabled="userLogin.existingUserName.$invalid
+            <button type="submit" class="btn btn-info" ng-disabled="userLogin.existingUserName.$invalid
             || userLogin.existingUserPassword.$invalid">Login</button>
 
       </form>

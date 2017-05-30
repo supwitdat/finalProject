@@ -3,23 +3,27 @@
 <div ng-init="setDays()">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-8">
-				
+<!--			<div class="col-sm-1 empty"></div>-->
+			<div class="col-sm-7">
+
+				<h4>Daily Averages</h4>
 				<div ng-repeat="day in days track by $index" ng-class=day.cls class="day text-center" ng-click=showEntry(day)>
+					<p class="day-date">{{day.date | date:'MM/dd'}}</p>
 					<p class="day-average">{{day.average}}</p>
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class="well well-lg entries">
-					<h4>Entries</h4>
-					<div ng-repeat="entry in activeDay track by $index">
-						<h5 class="entry-title">{{entry.date | date }}</h5>
+			<div class="col-sm-5">
+				<div class="entries">
+					<h4 class="text-center">Daily Entries</h4>
+					<div ng-repeat="entry in activeDay track by $index" ng-class=entry.cls class="entry">
+						<h4 class="entry-title">{{entry.date | date }}</h4>
 						<p class="rating-display"><strong>Rating:</strong> {{entry.rating}}</p>
 						<p class="comment-display"><strong>Comment:</strong> {{entry.comment}}</p>
 						<p class="moods-display"><strong>Moods:</strong> {{entry.mood}}</p>
 					</div>
 				</div>
 			</div>
+<!--			<div class="col-sm-1 empty"></div>-->
 		</div>
 	</div>
 

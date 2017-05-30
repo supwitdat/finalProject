@@ -1,181 +1,132 @@
+
+
 body {
-	background-color: #272824;
-	color: white;
 	min-height: 100%;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 #content {
-/*	min-height: 100%;*/
-/*	padding-bottom: 50px;*/
+	/* makes fotter sticky	*/
 	min-height: calc(100vh - 100px);
+}
+
+.progress {
+	font-family: 'Fredericka the Great', serif;
+	background-color: transparent;
 }
 
 .foot {
 	text-align: center;
 	background-color: #2f302c;
 	border: solid gray 2px;
-	font-family: 'Josefin Slab', serif;
 	height: 100px;
 }
 
+/*
+.card {
+	border: solid 2px black;
+	padding: 2%;
+}
+*/
+/*NAVIGATION*/
+
+
+
+/*RATING COLOR SCALE*/
+
+.one {
+	background-color: #113C48;
+}
+
+.two {
+	background-color: #1A5D70;
+}
+
+.three {
+	background-color: #007772;	
+}
+
+.four {
+	background-color: #00AAA3;
+}
+
+.five {
+	background-color: #0FD6CF;
+}
+
+.six {
+	background-color: #0CE889;
+}
+
+.seven {
+	background-color: #00FF2D;
+}
+
+.eight {
+	background-color: #3BFF00;
+}
+
+.nine {
+	background-color: #C2FF0B;
+}
+
+.ten {
+	background-color: #FFE100;
+}
+
+.none {
+	background-color: transparent;
+}
+
+
+/*FOOTER*/
+
+.foot {
+	background-color: #2f302c;
+	color: #BEBEBD;
+	height: 100px;
+}
+
+.foot a {
+	text-decoration: none;
+	color: #BEBEBD;
+}
+ 
+/*SPLASH PAGE*/
+
+.splashHeader {
+  font-family: 'Fredericka the Great', sans-serif;
+  font-size: 500%;
+  text-align: center;
+  margin-top: -10px;
+}
+
+.splashInfo {
+  text-align: center;
+  background-color: rgba(255,255,255, 0.6);
+/*  background-image: url(images/progressSplash.jpg);*/
+  margin: 50px;
+  margin-top
+}
+
+
 /*RATINGS PAGE*/
 
-#rating1 {
-	background-color: #1A162A;
-}
-
-#rating2 {
-	background-color: #313658;
-}
-
-#rating3 {
-	background-color: #475b77;
-}
-
-#rating4 {
-	background-color: #50707F;
-}
-
-#rating5 {
-	background-color: #5f8596;
-}
-
-#rating6 {
-	background-color: #79b4b5;
-	color: black;
-}
-
-#rating7{
-	background-color: #5CA9AA;
-	color: black;
-}
-
-#rating8 {
-	background-color: #73CDD1;
-	color: black;
-}
-
-#rating9 {
-	background-color: #80E9ED;
-	color: black;
-}
-
-#rating10 {
-	background-color: #49E7ED;
-	color: black;
-}
-
-/*ENTRY DETAIL PAGE*/
-#rating-detail {
-	color: #272824;
-}
-
-.mood {
-	display: inline-block;
-	padding: 1%;
-}
-
-#moodOptions .mood-checkbox + .mood-label {
-	font-weight: normal;
-}
-
-#moodOptions input[type=checkbox]:checked + label {
-	font-weight: bold;
-}
-
-input[type=checkbox] {
-	display: none;
-}
-
-#startOverButton {
-  color: inherit;
-}
-
-/*CALENDER STYLING*/
-
-.day {
-	border: 1px solid #BEBEBD;
-	width: 14%;
-	height: 50px;
-	border-radius: 10px;
-	display: inline-block;
-}
-
-.day-average {
-	margin-top: 25%;
-}
-
-.day.one {
-	background-color: #1A162A;
-}
-
-.day.two {
-	background-color: #313658;
-}
-
-.day.three {
-	background-color: #475b77;
-}
-
-.day.four {
-	background-color: #50707F;
-}
-
-.day.five {
-	background-color: #5f8596;
-}
-
-.day.six {
-	background-color: #79b4b5;
-	color: black;
-}
-
-.day.seven {
-	background-color: #5CA9AA;
-	color: black;
-}
-
-.day.eight {
-	background-color: #73CDD1;
-	color: black;
-}
-
-.day.nine {
-	background-color: #80E9ED;
-	color: black;
-}
-
-.day.ten {
-	background-color: #49E7ED;
-	color: black;
-}
-
-.day.none {
-	background-color: black;
-}
-
-.entries {
-	border: 2px solid #BEBEBD;
-	max-height: 300px;
-	overflow: scroll;
-	color: black;
-/*
-	font-family: 'Josefin Slab', serif;
-  	font-size: 24px;
-*/
-}
-
-/*END OF CALENDER STYLING*/
-
 .rating {
-  background-color: #99ff33;
   width: 10%;
   height: 10%;
-  border-radius: 50%;
-  border: solid 2px black;
-  margin: 10px auto;
+  border-radius: 15%;
+  border: solid 2px #BEBEBD;
+  margin: 10% auto;
   padding: 50px;
   position: relative;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.rating:hover {
+  box-shadow: none;
+  transition: 1s;
 }
 
 .ratingNumber {
@@ -186,140 +137,90 @@ input[type=checkbox] {
   top: 50%;
   margin-left: -18px;
   margin-top: -18px;
-  font-family: 'Fredericka the Great', cursive;
-  color: black !important;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #BEBEBD;
   font-size: 42px;
 }
 
-
-#headerImage {
-  background-image: url('images/headerImage.jpg');
-  background-position: right top;
-  /*background-attachment: fixed;*/
-  background-size: cover;
+/*ENTRY DETAIL PAGE*/
+.entry-detail .rating {
+	box-shadow: none;
 }
 
-#containerImage {
-  background-image: url('images/headerImageNav.jpg');
-  background-position: top left;
-  /*background-attachment: fixed;*/
-  background-size: cover;
+.moods {
+	display: inline-block;
+	font-variant: small-caps;
+	padding: 1%;
 }
 
-.viewLink {
-  border: solid black 2px;
-  margin: 3px;
-  background-color: rgba(255,255,255, 0.3);
-  color: inherit;
-  border-radius: 10px;
-  max-width: 115px;
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 16px;
-  box-shadow: 2px 2px 2px black;
+#moodOptions .mood-checkbox + .mood-label {
+	font-weight: normal;
 }
 
-.navbar-brand {
-  color: black !important;
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 24px !important;
-  text-align: center;
-  padding-left: 37%;
-
+.mood label:hover {
+	color:  #0CE889;
 }
 
-ul li a {
-  color: black !important;
+#moodOptions input[type=checkbox]:checked + label {
+	font-weight: bold;
+	color: #0CE889;
 }
 
-.progressTitle {
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 75px !important;
-  color: black !important;
-
+input[type=checkbox] {
+	display: none;
 }
 
-.col-sm {
-  float: none;
-  margin: 0 auto;
+/*OVERVIEW STYLING*/
+
+.day {
+	color: white;
+	font-size: 16px;
+	border: 1px solid #BEBEBD;
+	width: 14%;
+	height: 50px;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 1%;
+    box-shadow: 5px 5px 2px grey;
 }
 
-
-.circleDiv {
-  padding-left: 100px;
+.day:hover {
+    box-shadow: none;
+	transition: 1s;
 }
 
-#circleOne  {
-  background-color: #d9ffb3;
-
+.day p {
+	padding-top: 20%;
 }
 
-/*.indexBody {
-  border: double black 10px;
-}*/
-/*
-div.row {
-  background-image: url('images/headerImageNav.jpg');
-}*/
-
-.splashImg {
-  background-image: url('images/progressSplash.jpg');
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+.day .day-average {
+	display: none;
 }
 
-.splashHeader {
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 500%;
-  text-align: center;
-  margin-top: -10px;
+.day:hover .day-average {
+	display: inline-block;
+	padding-top: 20%; 
 }
 
-.splashInfo {
-  font-family: 'Josefin Slab', serif;
-  font-size: 28px;
-  text-align: center;
-  background-color: rgba(255,255,255, 0.6);
-  margin: 50px;
-  /*margin-top*/
+.day:hover .day-date {
+	display: none;
+	transition: 1s;
 }
 
-.progressTeam {
-  font-family: 'Fredericka the Great', cursive;
+.entries {
+	border: 2px solid #BEBEBD;
+	max-height: 500px;
+	overflow: scroll;
+	color: black;
+	margin: 2%;
+    box-shadow: 5px 5px 2px grey;
 }
 
-.getStarted {
-  border-radius: 4px;
-  border: solid black 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  max-width: 300px;
-  background-image: url('images/headerImageNav.jpg');
-  color: black !important;
-  font-size: 28px;
-  text-decoration: none;
-  font-family: 'Fredericka the Great', cursive;
-  letter-spacing: 2px;
+.entry {
+	border: 2px solid #BEBEBD;
+	margin: 2%;
 }
 
-.btn-block {
-	  border-radius: 6px;
-	  border: solid black 2px;
-	  padding-left: 20px;
-	  padding-right: 20px;
-	  padding-top: 0px;
-	  padding-bottom: 0px;
-	  max-width: 400px;
-	  background-image: url('images/headerImageNav.jpg');
-	  color: black !important;
-	  font-size: 28px;
-	  text-decoration: none;
-	  font-family: 'Fredericka the Great', cursive;
-	  letter-spacing: 2px;
-	}
 
 
 

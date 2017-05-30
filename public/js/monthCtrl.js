@@ -211,7 +211,7 @@ $scope.createCalendar = function(){
 		//makes sure that the entries include all recent posts
 		happyService.getPosts();
 		//assigns day clicked as the active day
-		$scope.activeDay = day;
-        
+		$scope.activeDay = day;        
+
 	}
 });
