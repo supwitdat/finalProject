@@ -10,11 +10,13 @@ body {
 	/* makes fotter sticky	*/
 	min-height: calc(100vh - 100px);
 }
-/*
+
 .progress {
 	font-family: 'Fredericka the Great', serif;
-<<<<<<< HEAD
-}*/
+	background-color: transparent;
+	box-shadow: none;
+	background-image: none;
+}
 
 .logo{
 	font-family: 'Fredericka the Great', serif;
@@ -22,13 +24,32 @@ body {
 
 .foot {
 	text-align: center;
-	background-color: #2f302c;
+	background-color: #272727;
 	border: solid gray 2px;
 	height: 100px;
+	border-radius: 10px;
+}
+
+.card {
+	border: 2px solid #BEBEBD;
+	box-shadow: 5px 5px 2px grey;
+	padding: 2% auto;
+	margin: 2% auto;
+}
+
+
+/*color key*/
+.color-key img {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .gradient {
-	/* IE10+ */
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 30px;
+	
+	/* IE10+ */ 
 	background-image: -ms-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 
 	/* Mozilla Firefox */
@@ -44,12 +65,6 @@ body {
 	background-image: -webkit-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 }
 
-/*
-.card {
-	border: solid 2px black;
-	padding: 2%;
-}
-*/
 /*NAVIGATION*/
 
 navbar-brand {
@@ -137,15 +152,24 @@ navbar-brand {
 
 /*RATINGS PAGE*/
 
+/*
+.rating-selection {
+	border: 2px solid #BEBEBD;
+	box-shadow: 5px 5px 2px grey;
+	padding: 1%;
+	margin: 1%;
+}
+*/
+
 .rating {
   width: 10%;
   height: 10%;
   border-radius: 15%;
   border: solid 2px #BEBEBD;
-  margin: 10% auto;
+  margin: 15% auto;
   padding: 50px;
   position: relative;
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 5px 5px 2px grey;
 }
 
 .rating:hover {
@@ -161,8 +185,8 @@ navbar-brand {
   top: 50%;
   margin-left: -18px;
   margin-top: -18px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  color: #BEBEBD;
+  text-shadow: 1px 1px black;
+  color: white;
   font-size: 42px;
 }
 
@@ -196,7 +220,19 @@ input[type=checkbox] {
 
 /*OVERVIEW STYLING*/
 
+.overview {
+/*	border: 2px solid #BEBEBD;*/
+	max-height: 500px;
+	overflow: scroll;
+/*
+    box-shadow: 5px 5px 2px grey;
+	padding: 2%;
+	margin: 2% auto;
+*/
+}
+
 .day {
+	text-shadow: 1px 1px black;
 	color: white;
 	font-size: 16px;
 	border: 1px solid #BEBEBD;
@@ -232,12 +268,15 @@ input[type=checkbox] {
 }
 
 .entries {
-	border: 2px solid #BEBEBD;
+/*	border: 2px solid #BEBEBD;*/
 	max-height: 500px;
 	overflow: scroll;
 	color: black;
-	margin: 2%;
+/*
+	margin: 2% auto;
     box-shadow: 5px 5px 2px grey;
+	padding: 2%;
+*/
 }
 
 
@@ -249,6 +288,9 @@ input[disabled='disabled']{
 .entry {
 	border: 2px solid #BEBEBD;
 	margin: 2%;
+	padding: 2%;
+  	text-shadow: 1px 1px black;
+	color: white;
 }
 
 hr{
@@ -354,4 +396,14 @@ hr{
     #calendarThis{
         width: 358px;
     }
+}
+
+/*USER LOGIN AND NEW USER PAGE*/
+
+.login form {
+	padding-bottom: 4%;
+}
+
+.newUserForm form {
+	padding-bottom: 4%;
 }
