@@ -30,6 +30,7 @@
 				<div class="col-sm-1 empty"></div> 
 				<div class="col-sm-4 entries card">
 					<h4 class="text-center">Daily Entries</h4>
+                    <p>Average: {{newAvg}}</p>
 					<div ng-repeat="entry in activeDay track by $index" ng-class=entry.cls class="entry">
 						<h4 class="entry-title">{{entry.date | date }}</h4>
 						<p class="rating-display"><strong>Rating:</strong> {{entry.rating}}</p>
