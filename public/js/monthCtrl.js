@@ -6,20 +6,20 @@ app.controller("monthController", function($scope, happyService, $timeout) {
             happyService.logout();
         }
      $scope.newAvg =0;
-	
+
 	happyService.setDays();
 	$timeout(function() {
-		$scope.days = happyService.getDays();    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+		$scope.days = happyService.getDays();
+
+
+
+
+
+
+
+
+
+
      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
  var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var theDate = new Date();
@@ -34,21 +34,21 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 
 		var currentDate = new DateObject(theDate);
 		function renderCalendar(targetElem){
-				
+
 				// Custom function to make new elements easier:
 				function addElem(elementType, elemClass, appendTarget){
 					appendTarget.innerHTML += "<"+elementType+" class="+elemClass+"> </"+elementType+">";
 				}
-				
+
 				currentDate = new DateObject(theDate);
-				
+
 				// Refreshing Calendar
 				var renderTarget = document.getElementById(targetElem);
 				renderTarget.remove();
 				renderTarget = document.createElement("div");
 				renderTarget.id = targetElem;
             document.getElementById('feelingCal').appendChild(renderTarget);
-				
+
 				// Monday, dayView
 //				addElem("div", "day-view", renderTarget);
 //				var dayView = document.querySelector('.day-view');
@@ -63,7 +63,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 //				var dayNumNode = document.createTextNode('')
 //				dayNumber.appendChild(dayNumNode);
 //				dayView.appendChild(dayNumber);
-				
+
 				addElem("div", "month-view", renderTarget);
 				var monthView = document.querySelector('.month-view');
 
@@ -74,7 +74,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 				prevMonthSpan.classList.add('arrow', 'float-left', 'prev-arrow');
 				var backArrow = document.createTextNode("<");
 				prevMonthSpan.appendChild(backArrow);
-				
+
 				var nextMonthSpan = document.createElement("SPAN");
 				nextMonthSpan.addEventListener('click', function(){
 					goToMonth(currentDate, true); // Go To Next Month
@@ -82,7 +82,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 				nextMonthSpan.classList.add('arrow', 'float-right', 'next-arrow');
 				var nextArrow = document.createTextNode(">");
 				nextMonthSpan.appendChild(nextArrow);
-				
+
 				document.onkeydown = function() {
 					switch (window.event.keyCode) {
 						case 37: //Left key
@@ -93,9 +93,9 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 							break;
 					}
 				};
-				
+
 				var monthSpan = document.createElement("SPAN");
-				monthSpan.className = "month-header"; 
+				monthSpan.className = "month-header";
 				var monthOf = document.createTextNode(
 					currentDate.theMonth +" "+ currentDate.theYear
 				);
@@ -110,7 +110,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 					dayOfWeek.appendChild(charOfDay);
 					monthView.appendChild(dayOfWeek);
 				}
-				
+
 //				 renderTarget.appendChild(document.createElement("ul"));
 				var calendarList = document.createElement("ul");
 				for(i = 0; i < currentDate.daysInMonth; i++){
@@ -121,7 +121,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 					var dayDataDate = new Date(theDate.getFullYear(), theDate.getMonth(), (i+1));
 					calCellTime.setAttribute('datetime', dayDataDate.toISOString());
 					calCellTime.setAttribute('data-dayofweek', dayNames[dayDataDate.getDay()]);
-					
+
 					calendarCell.className = "calendar-cell";
 					if(i === currentDate.theDay-1){
 						calendarCell.className = "today";
@@ -130,10 +130,10 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 					calCellTime.appendChild(dayOfMonth);
 					calendarCell.appendChild(calCellTime);
 					monthView.appendChild(calendarList);
-						
+
 				} // daysInMonth for loop ends
-				
-            
+
+
 				var dayOne = document.getElementById('day_1');
 				if (currentDate.firstDayOfMonth == "Monday"){
 					dayOne.style.marginLeft = "49px";
@@ -148,21 +148,36 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 				} else if (currentDate.firstDayOfMonth == "Saturday"){
 					dayOne.style.marginLeft = "304px";
 				}
-		
+
 				var dayHeader = document.getElementsByClassName('day-header');
 				var dayNumNode = document.getElementsByClassName('day-number');
-  
-                           
-            
+
+  $scope.viewArray = [];
+
     function getDayAvg(selectedDay) {
+      $scope.viewArray= [];
+
         for(i=0; i < $scope.days.length; i++){
             if(selectedDay.substring(0,10) === $scope.days[i].date.substring(0,10)){
                 $scope.newAvg = $scope.days[i].average;
                 $scope.$digest();
-                return $scope.newAvg;
+                // return $scope.newAvg;
+
+                $scope.days[i].forEach(function(post){
+
+                    var postObj = {};
+                    postObj.mood = post.mood;
+                    postObj.comment = post.comment;
+                    postObj.rating = post.rating;
+                    postObj.date = post.date;
+                    $scope.viewArray.push(postObj);
+
+                });
+
             }
+
         }
-        
+// console.log($scope.viewArray);
     }
 
 				var updateDay = function(){
@@ -171,10 +186,10 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 					//onclick text//
 					getDayAvg(selectedDate);
                     console.log(selectedDate)
-                    
-						
-				} 
-				
+
+
+				}
+
 				var calCells = document.getElementsByClassName('calendar-cell');
 				for(i = 0; i < calCells.length; i++){
 					calCells[i].addEventListener('click', updateDay, false);
@@ -182,10 +197,10 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 				var todayCell = document.getElementsByClassName('today');
             todayCell[0].addEventListener('click',updateDay,false);
 		} // renderCalener function ends
-		
-		 
+
+
 		renderCalendar("calendarThis");
-		
+
 		function goToMonth(currentDate, direction) {
 			if (direction == false){
 				theDate = new Date(theDate.getFullYear(), theDate.getMonth()-1, 1);
@@ -194,30 +209,30 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 			}
 			return renderCalendar("calendarThis");
 		}
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
+
+
+
+
+
+
+
+
+
+
     }, 1000);
-	
+
 	//displays entries for specific day on page
 	$scope.showEntry = function(day) {
 		//makes sure that the entries include all recent posts
 		happyService.getPosts();
 		//assigns day clicked as the active day
-		$scope.activeDay = day;        
+		$scope.activeDay = day;
 
 	}
-    
-    
-    
 
-    
-        
+
+
+
+
+
 });
