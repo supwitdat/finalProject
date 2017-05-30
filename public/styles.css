@@ -10,10 +10,13 @@ body {
 	/* makes fotter sticky	*/
 	min-height: calc(100vh - 100px);
 }
-
+/*
 .progress {
 	font-family: 'Fredericka the Great', serif;
-	background-color: transparent;
+}*/
+
+.logo{
+	font-family: 'Fredericka the Great', serif;
 }
 
 .foot {
@@ -44,7 +47,7 @@ body {
 }
 
 .three {
-	background-color: #007772;	
+	background-color: #007772;
 }
 
 .four {
@@ -92,7 +95,7 @@ body {
 	text-decoration: none;
 	color: #BEBEBD;
 }
- 
+
 /*SPLASH PAGE*/
 
 .splashHeader {
@@ -199,7 +202,7 @@ input[type=checkbox] {
 
 .day:hover .day-average {
 	display: inline-block;
-	padding-top: 20%; 
+	padding-top: 20%;
 }
 
 .day:hover .day-date {
@@ -220,5 +223,3 @@ input[type=checkbox] {
 	border: 2px solid #BEBEBD;
 	margin: 2%;
 }
-
-
