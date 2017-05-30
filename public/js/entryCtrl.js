@@ -9,13 +9,6 @@ app.controller("entryController", function($scope, happyService, $location) {
 
 	//set class for number
 	$scope.cls = happyService.getEntryClass();
-
-
-	// Moods
-//  	// Moods
-//  	$scope.moods = [
-//'anxious','angry','confident','content','calm','embarrassed','depressed','excited','grateful','happy','hopeful','indifferent','lonely','pessimistic','restless','satisfied'];
-
 	
 	$scope.moods = [
 		{
@@ -122,26 +115,13 @@ app.controller("entryController", function($scope, happyService, $location) {
 		happyService.setComment(comment);
 		mood = $scope.selection;
 		happyService.setMood(mood);
-<<<<<<< HEAD
-        happyService.postEntry();
-=======
-//		happyService.setDay();
-//		happyService.setDays();
         happyService.postEntry().then(function(){
-
-         $location.path('/month');
-
-
+			$location.path('/month');
         });
-
-
-
-
->>>>>>> 21bb4339d697803542354aff4d621352e7cc6f27
 	};
 
-  $scope.deleteRestart = function() {
-      $scope.selection = [];
-  };
+  	$scope.deleteRestart = function() {
+      	$scope.selection = [];
+  	};
 
 });
