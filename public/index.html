@@ -14,29 +14,34 @@
 	</head>
   <body ng-app="happyMod" class="indexBody">
 	<div id="content">
-		
-		<nav class="navbar navbar-inverse">
+
+		<nav class="navbar navbar-inverse" ng-controller="loginController">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#"><span id="progress">progress.</span></a>
 				</div>
 				<ul class="nav navbar-nav">
-					<li><a href="#!/entry">New Entry</a></li>
-					<li><a href="#!/month">Overview</a></li>
+					<li><a href="#!/entry" ng-click="hasAccess()">New Entry</a></li>
+					<li><a href="#!/month" ng-click="hasAccess()">Overview</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><div id="status"></div></li>
-					<li><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li><a href="#!/login"><span class="glyphicon glyphicon-log-in">
+					</span> Login</a></li>
+					<li><a href="#!/login" ng-click="logout()"><span class="glyphicon glyphicon-log-out">
+					</span> Logout</a></li>
 				</ul>
 			</div>
 		</nav>
-				
-		
+
+
 		<ng-view></ng-view>
-		
+
 	  </div>
 
   	<footer></footer>
+
+
 
      <script src="lib/angular.min.js" charset="utf-8"></script>
      <script src="lib/angular-route.min.js" charset="utf-8"></script>

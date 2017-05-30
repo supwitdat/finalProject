@@ -1,9 +1,26 @@
 var app = angular.module('happyMod');
 
-app.controller("loginController", function($scope, happyService,$location) {
+app.controller("loginController", function($scope, happyService,$location, $window) {
 
     $scope.user ={};
     $scope.existing ={};
+
+//LIMITING NAV ACCESS BASED ON LOGIN
+
+/* This function disables link and redirects user to login page
+if they are not logged in*/
+       $scope.hasAccess = function(){
+
+         var access = happyService.getID();
+
+         if (access === 0){
+            event.preventDefault();
+            $location.path('/login');
+           alert('please login');
+         }
+
+       };
+//------
 
     $scope.addUser = function(user) {
         //adds login form values to an object//
@@ -28,9 +45,9 @@ happyService.userPromise().then(function(data){
                  //this bit here gets the person who we just made, and grabs their ID to be posted to the page.//
             happyService.thisUser(data.config.data.name).then(function(data){
                     happyService.myID(data.data.id);
-            }
-                                                             )
-                   $location.path('/entry');
+                    $location.path('/entry');
+
+            })
 
             });
             }
@@ -43,4 +60,10 @@ happyService.userPromise().then(function(data){
             $location.path('/entry');
         });
     };
+	
+	$scope.logout = function() {
+		$window.location.reload(); 
+	};
+	
+	$scope.isUserLoggedIn = true;
 });

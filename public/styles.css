@@ -14,65 +14,104 @@ body {
 .progress {
 	font-family: 'Fredericka the Great', serif;
 	background-color: transparent;
+	box-shadow: none;
+	background-image: none;
 }
+
+.logo{
+	font-family: 'Fredericka the Great', serif;
+} 
 
 .foot {
 	text-align: center;
-	background-color: #2f302c;
+	background-color: #272727;
 	border: solid gray 2px;
 	height: 100px;
+	border-radius: 10px;
 }
 
-/*
 .card {
-	border: solid 2px black;
-	padding: 2%;
+	border: 2px solid #BEBEBD;
+	box-shadow: 5px 5px 2px grey;
+	padding: 2% auto;
+	margin: 2% auto;
 }
-*/
+
+
+/*color key*/
+.color-key img {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.gradient {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 30px;
+	
+	/* IE10+ */ 
+	background-image: -ms-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
+
+	/* Mozilla Firefox */
+	background-image: -moz-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
+
+	/* Opera */
+	background-image: -o-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
+
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #1006d3), color-stop(10, #1100FA), color-stop(20, #004FF9), color-stop(40, #0085F9), color-stop(50, #00C7F9), color-stop(60, #00E9F9), color-stop(70, #00F9D0), color-stop(80, #00F9B3), color-stop(90, #00F974), color-stop(100, #00F93A));
+
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
+}
+
 /*NAVIGATION*/
 
+navbar-brand {
+	color:
+}
 
 
 /*RATING COLOR SCALE*/
 
 .one {
-	background-color: #113C48;
+	background-color: #1006D3;
 }
 
 .two {
-	background-color: #1A5D70;
+	background-color: #1100FA;
 }
 
 .three {
-	background-color: #007772;	
+	background-color: #004FF9;
 }
 
 .four {
-	background-color: #00AAA3;
+	background-color: #0085F9;
 }
 
 .five {
-	background-color: #0FD6CF;
+	background-color: #00C7F9;
 }
 
 .six {
-	background-color: #0CE889;
+	background-color: #00E9F9;
 }
 
 .seven {
-	background-color: #00FF2D;
+	background-color: #00F9D0;
 }
 
 .eight {
-	background-color: #3BFF00;
+	background-color: #00F9B3;
 }
 
 .nine {
-	background-color: #C2FF0B;
+	background-color: #00F974;
 }
 
 .ten {
-	background-color: #FFE100;
+	background-color: #00F93A;
 }
 
 .none {
@@ -92,7 +131,7 @@ body {
 	text-decoration: none;
 	color: #BEBEBD;
 }
- 
+
 /*SPLASH PAGE*/
 
 .splashHeader {
@@ -113,15 +152,24 @@ body {
 
 /*RATINGS PAGE*/
 
+/*
+.rating-selection {
+	border: 2px solid #BEBEBD;
+	box-shadow: 5px 5px 2px grey;
+	padding: 1%;
+	margin: 1%;
+}
+*/
+
 .rating {
   width: 10%;
   height: 10%;
   border-radius: 15%;
   border: solid 2px #BEBEBD;
-  margin: 10% auto;
+  margin: 15% auto;
   padding: 50px;
   position: relative;
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 5px 5px 2px grey;
 }
 
 .rating:hover {
@@ -137,8 +185,8 @@ body {
   top: 50%;
   margin-left: -18px;
   margin-top: -18px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  color: #BEBEBD;
+  text-shadow: 1px 1px black;
+  color: white;
   font-size: 42px;
 }
 
@@ -172,7 +220,19 @@ input[type=checkbox] {
 
 /*OVERVIEW STYLING*/
 
+.overview {
+/*	border: 2px solid #BEBEBD;*/
+	max-height: 500px;
+	overflow: scroll;
+/*
+    box-shadow: 5px 5px 2px grey;
+	padding: 2%;
+	margin: 2% auto;
+*/
+}
+
 .day {
+	text-shadow: 1px 1px black;
 	color: white;
 	font-size: 16px;
 	border: 1px solid #BEBEBD;
@@ -199,7 +259,7 @@ input[type=checkbox] {
 
 .day:hover .day-average {
 	display: inline-block;
-	padding-top: 20%; 
+	padding-top: 20%;
 }
 
 .day:hover .day-date {
@@ -208,27 +268,34 @@ input[type=checkbox] {
 }
 
 .entries {
-	border: 2px solid #BEBEBD;
+/*	border: 2px solid #BEBEBD;*/
 	max-height: 500px;
 	overflow: scroll;
 	color: black;
-	margin: 2%;
+/*
+	margin: 2% auto;
     box-shadow: 5px 5px 2px grey;
+	padding: 2%;
+*/
+}
+
+
+input[disabled='disabled']{
+	cursor: not-allwed !important;
+
 }
 
 .entry {
 	border: 2px solid #BEBEBD;
 	margin: 2%;
+	padding: 2%;
+  	text-shadow: 1px 1px black;
+	color: white;
 }
-
-
-
 
 hr{
     border: #d89f52 1px solid;
 }
-
-
 
 #calendarThis{
     margin: 3% auto;
@@ -310,9 +377,11 @@ hr{
     margin: 0 0 2px 0;
     font-weight: bold;
 }
+
 .today{
     background: darkslategrey !important;
 }
+
 .arrow{
     width: 45px;
     height: 35px;
@@ -327,4 +396,14 @@ hr{
     #calendarThis{
         width: 358px;
     }
+}
+
+/*USER LOGIN AND NEW USER PAGE*/
+
+.login form {
+	padding-bottom: 4%;
+}
+
+.newUserForm form {
+	padding-bottom: 4%;
 }
