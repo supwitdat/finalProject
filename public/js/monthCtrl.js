@@ -157,7 +157,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
     function getDayAvg(selectedDay) {
 		console.log($scope.days);
         for(i=0; i < $scope.days.length; i++){
-            if(selectedDay === $scope.days[i].date){
+            if(selectedDay.substring(0,10) === $scope.days[i].date.substring(0,10)){
                 $scope.newAvg = $scope.days[i].average;
                 $scope.$digest();
                 return $scope.newAvg;
