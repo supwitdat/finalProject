@@ -109,7 +109,6 @@ app.factory("happyService", function($http) {
 					entry.cls = "none";
 				}
 			});
-      		console.log(allPosts);
 			//return response
 			return allPosts;
 		});
@@ -136,7 +135,6 @@ app.factory("happyService", function($http) {
 
 			//outer forEach using noDuplicate array
 			noDuplicates.forEach(function(i) {
-				console.log(i);
 				var date = i;
 				var oneDay = [];
 				if(i !== date) {
@@ -153,7 +151,6 @@ app.factory("happyService", function($http) {
 
 			});
 
-			console.log(daysSeperate);
 
 			//Get Average of Days
 			var average = 0;
