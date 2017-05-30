@@ -5,6 +5,23 @@ app.controller("loginController", function($scope, happyService,$location) {
     $scope.user ={};
     $scope.existing ={};
 
+//LIMITING NAV ACCESS BASED ON LOGIN
+
+/* This function disables link and redirects user to login page
+if they are not logged in*/
+       $scope.hasAccess = function(){
+
+         var access = happyService.getID();
+
+         if (access === 0){
+            event.preventDefault();
+            $location.path('/login');
+           alert('please login');
+         }
+
+       };
+//------
+
     $scope.addUser = function(user) {
         console.log($scope.user);
         //adds login form values to an object//

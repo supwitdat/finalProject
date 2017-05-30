@@ -46,7 +46,7 @@ app.factory("happyService", function($http) {
 	function getRating() {
 		return entry.rating;
 	};
-	
+
 	//returns entry object, including number class
 	function getEntryClass() {
 		return entry.cls;
@@ -56,7 +56,7 @@ app.factory("happyService", function($http) {
 	function setComment(comment) {
 		entry.comment = comment;
 	};
-	
+
 	//gets entry mood from entry page, adds it as property to entry object
 	function setMood(mood) {
 		entry.mood = [];
@@ -73,7 +73,7 @@ app.factory("happyService", function($http) {
 			return response;
 		})
 	}
-            
+
 	function postEntry(){
         $http({
            method:'POST',
@@ -83,17 +83,17 @@ app.factory("happyService", function($http) {
            console.log(response.data);
        });
         };
-	
+
 	//get posts from database
 	function getPosts(){
     	return $http.get('/api/posts/'+id).then(function(response){
     		allPosts = response.data;
       		console.log(allPosts);
 			//return response
-			return allPosts; 
+			return allPosts;
 		});
     };
-	
+
 	function setDays(){
 
 		getPosts().then(function() {
@@ -116,9 +116,8 @@ app.factory("happyService", function($http) {
 			//outer forEach using noDuplicate array
 			noDuplicates.forEach(function(i) {
 				console.log(i);
-				var date = i; 
+				var date = i;
 				var oneDay = [];
-
 				if(i !== date) {
 					date = i;
 				}
@@ -129,18 +128,19 @@ app.factory("happyService", function($http) {
 						oneDay.push(j);
 					}
 				});
-			daysSeperate.push(oneDay);	
+			daysSeperate.push(oneDay);
 
 			});
 
 			console.log(daysSeperate);
-			
+
 			//Get Average of Days
 			var average = 0;
-			
+
+
 			daysSeperate.forEach(function(day) {
 				var total = 0;
-				
+
 				day.forEach(function(entry) {
 					day.date = entry.date
 					total += entry.rating;
@@ -148,9 +148,9 @@ app.factory("happyService", function($http) {
 				average = (total/day.length).toFixed(2);
 				console.log(average);
 				day.average = average;
-				
+				day.date = day[0].date;
 				//Add Class to each day
-				
+
 				if (day.average < 1.5) {
 					day.cls = "one";
 				} else if (day.average >= 1.5 && day.average < 2.5) {
@@ -178,11 +178,11 @@ app.factory("happyService", function($http) {
 			return daysSeperate;
 		});
 	}
-	
+
 	function getDays() {
 		return daysSeperate;
 	}
-	    
+
 ///////// USER INFORMATION AND LOGIN /////////////
 	function addUser(user) {
 		// POST /api/user
@@ -191,40 +191,40 @@ app.factory("happyService", function($http) {
             console.log(response);
 			return response;
 		})
-	};  
+	};
     function thisUser (username){
         var thisPromise = $http.get('/api/users/username/'+ username).then(function(response){
 return response;
         });
         return thisPromise;
     };
-    
+
      function myID(id){
          var userID = id;
         return userID;
-    }  
-    
+    }
+
     function getID (){
         return id;
-    };  
-    
+    };
+
     function setUser (userObj){
          holder = userObj;
      };
-    
-    
+
+
     function getUser(){
         return holder;
     }
-    
+
     function setLogin(existing){
         loginInfo = existing;
     }
-    
+
     function getLogin(){
         return loginInfo;
     }
-    
+
     function userLogin(username){
         console.log(username);
         return $http.get('/api/users/username/'+username).then(function(response){
@@ -243,7 +243,7 @@ function userPromise (){
 		});
 		return promise;
 	};
-    
+
 	//object to be returned with function properties
 	return {
         getPosts:getPosts,
