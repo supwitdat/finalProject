@@ -169,7 +169,8 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 					var thisCellTime = this.querySelector('time');
                     var selectedDate = thisCellTime.getAttribute('datetime');
 					//onclick text//
-					dayNumNode[0].textContent = 'Average:'+ getDayAvg(selectedDate);
+					getDayAvg(selectedDate);
+                    console.log(selectedDate)
                     
 						
 				} 
@@ -178,7 +179,8 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 				for(i = 0; i < calCells.length; i++){
 					calCells[i].addEventListener('click', updateDay, false);
 				}
-				
+				var todayCell = document.getElementsByClassName('today');
+            todayCell[0].addEventListener('click',updateDay,false);
 		} // renderCalener function ends
 		
 		 
