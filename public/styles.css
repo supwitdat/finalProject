@@ -13,10 +13,14 @@ body {
 
 .progress {
 	font-family: 'Fredericka the Great', serif;
-	background-color: white;
+	background-color: transparent;
 	box-shadow: none;
 	background-image: none;
 }
+
+.logo{
+	font-family: 'Fredericka the Great', serif;
+} 
 
 .foot {
 	text-align: center;
@@ -47,16 +51,16 @@ body {
 	/* IE10+ */ 
 	background-image: -ms-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 
-	/* Mozilla Firefox */ 
+	/* Mozilla Firefox */
 	background-image: -moz-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 
-	/* Opera */ 
+	/* Opera */
 	background-image: -o-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 
-	/* Webkit (Safari/Chrome 10) */ 
+	/* Webkit (Safari/Chrome 10) */
 	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #1006d3), color-stop(10, #1100FA), color-stop(20, #004FF9), color-stop(40, #0085F9), color-stop(50, #00C7F9), color-stop(60, #00E9F9), color-stop(70, #00F9D0), color-stop(80, #00F9B3), color-stop(90, #00F974), color-stop(100, #00F93A));
 
-	/* Webkit (Chrome 11+) */ 
+	/* Webkit (Chrome 11+) */
 	background-image: -webkit-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 }
 
@@ -78,7 +82,7 @@ navbar-brand {
 }
 
 .three {
-	background-color: #004FF9;	
+	background-color: #004FF9;
 }
 
 .four {
@@ -288,14 +292,9 @@ input[disabled='disabled']{
 	color: white;
 }
 
-
-
-
 hr{
     border: #d89f52 1px solid;
 }
-
-
 
 #calendarThis{
     margin: 3% auto;
@@ -377,9 +376,11 @@ hr{
     margin: 0 0 2px 0;
     font-weight: bold;
 }
+
 .today{
     background: darkslategrey !important;
 }
+
 .arrow{
     width: 45px;
     height: 35px;
