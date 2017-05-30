@@ -88,6 +88,31 @@ app.factory("happyService", function($http) {
 	function getPosts(){
     	return $http.get('/api/posts/'+id).then(function(response){
     		allPosts = response.data;
+			allPosts.forEach(function(entry) {
+				if (entry.rating === 1) {
+					entry.cls = "one";
+				} else if (entry.rating === 2) {
+					entry.cls = "two";
+				} else if (entry.rating === 3) {
+					entry.cls = "three";
+				} else if (entry.rating === 4) {
+					entry.cls = "four";
+				} else if (entry.rating === 5) {
+					entry.cls = "five";
+				} else if (entry.rating === 6) {
+					entry.cls = "six";
+				} else if (entry.rating === 7) {
+					entry.cls = "seven";
+				} else if (entry.rating === 8) {
+					entry.cls = "eight";
+				} else if (entry.rating === 9) {
+					entry.cls = "nine";
+				} else if (entry.rating === 10) {
+					entry.cls = "ten";
+				} else {
+					entry.cls = "none";
+				}
+			});
       		console.log(allPosts);
 			//return response
 			return allPosts;
