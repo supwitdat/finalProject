@@ -9,3 +9,12 @@ app.directive('footer',function(){
 
 
 });
+
+app.directive('calendar', function(){
+    return{
+    
+        restrict:'E',
+        templateUrl:'/views/calendarpartial.html',
+        replace:false
+    }
+});
