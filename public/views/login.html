@@ -1,9 +1,9 @@
 <div class="container-fluid">
 <div class="row">
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+<!--    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>-->
 <div class="col-sm-1"></div>
 <div class="newUserForm">
-  <div class="col-sm-4">
+  <div class="col-sm-5 card">
       <h1>New User</h1>
         <form name="newUserLogin" novalidate ng-submit="addUser(user)" >
 
@@ -50,9 +50,7 @@
 
   <!--Right Side -->
 
-  <div class="col-sm-1"></div>
-
-  <div class="col-sm-4">
+  <div class="col-sm-4 card login">
     <h1>Login:</h1>
         <form name="userLogin" novalidate ng-submit="login()">
 
