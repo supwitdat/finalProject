@@ -3,15 +3,15 @@
 	<div class="col-sm-1 empty">
 	</div>
 	<div class="col-sm-10">
-		
+
 	  <div class="row">
 		<div class="col-sm-4">
 			<div class="rating" ng-class="cls">
 				<h2 class="text-center ratingNumber">{{ rating }}</h2>
-			</div>	
+			</div>
 		</div>
 		<div class="col-sm-8 mood" id="moodOptions">
-			
+
 		<h4>What are you feeling?</h4>
 		<div ng-repeat="mood in moods" class="moods">
 			<div class="mood">
@@ -19,29 +19,29 @@
 				<label for={{mood}} class="mood-label">{{mood}}</label>
 			</div>
 		</div>
-	    </div>  
+	    </div>
 	  </div>
-		
+
 	  <div class="row">
 	    <div class="col-sm-12">
 		  <div class="form-group">
 		    <label for="comment">Comment:</label>
 		    <textarea class="form-control" rows="5" id="comment" ng-model="comment"></textarea>
 	      </div>
-		</div>	
+		</div>
 	  </div>
-		
+
 		<a href="#!/entry" id="startOverButton">
 		<button type="submit" class="btn btn-info" ng-click="deleteRestart()"><span class="glyphicon glyphicon-circle-arrow-left"></span>Back</button>
 		</a>
 
-		<a href="#!/month">
+		<!-- <a href="#!/month"> -->
 		<button type="submit" class="btn btn-info" ng-click="setEntry(comment, mood)">Submit</button>
-		</a>
-	  
+		<!-- </a> -->
+
 	</div>
-	  
+
 	<div class="col-sm-1 empty">
 	</div>
-	  
+
 </div>

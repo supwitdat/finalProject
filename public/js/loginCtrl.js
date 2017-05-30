@@ -45,7 +45,7 @@ happyService.userPromise().then(function(data){
         happyService.addUser(user).then(function(data){
                  //this bit here gets the person who we just made, and grabs their ID to be posted to the page.//
             happyService.thisUser(data.config.data.name).then(function(data){
-                    happyService.myID(data.data.id);;})
+                    happyService.myID(data.data.id);})
                    $location.path('/entry');
 
             });
