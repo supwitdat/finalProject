@@ -20,7 +20,7 @@ body {
 }
 
 navbar-brand {
-	color: 
+	color:
 }
 
 .navbar li {
@@ -38,7 +38,7 @@ navbar-brand {
 }
 
 .three {
-	background-color: #007772;	
+	background-color: #007772;
 }
 
 .four {
@@ -86,7 +86,7 @@ navbar-brand {
 	text-decoration: none;
 	color: #BEBEBD;
 }
-7	 
+7
 /*SPLASH PAGE*/
 
 .splashHeader {
@@ -178,3 +178,7 @@ input[type=checkbox] {
 	color: black;
 }
 
+input[disabled='disabled']{
+	cursor: not-allwed !important;
+
+}

@@ -16,7 +16,7 @@
   <body ng-app="happyMod" class="indexBody">
 	<div id="content">
 
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-inverse" ng-controller="loginController">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -28,8 +28,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li><a href="#!/entry">New Entry</a></li>
-						<li><a href="#!/month">Month</a></li>
+						<li><a href="#!/entry" ng-click="hasAccess()">New Entry</a></li>
+						<li><a href="#!/month" ng-click="hasAccess()">Month</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>

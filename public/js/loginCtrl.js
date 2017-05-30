@@ -7,15 +7,18 @@ app.controller("loginController", function($scope, happyService,$location) {
 
 //LIMITING NAV ACCESS BASED ON LOGIN
 
-      $scope.access = happyService.getID();
-       console.log($scope.access + ' access id');
-
+/* This function disables link and redirects user to login page
+if they are not logged in*/
        $scope.hasAccess = function(){
-         if ($scope.access < 1){
-            console.log('access clicked');
-            alert('please login');
+
+         var access = happyService.getID();
+
+         if (access === 0){
+            event.preventDefault();
             $location.path('/login');
+           alert('please login');
          }
+
        };
 //------
 
