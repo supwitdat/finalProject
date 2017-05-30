@@ -1,11 +1,19 @@
+
+
 body {
 	min-height: 100%;
 	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 #content {
 	/* makes fotter sticky	*/
 	min-height: calc(100vh - 100px);
+}
+
+.progress {
+	font-family: 'Fredericka the Great', serif;
+	background-color: transparent;
 }
 
 .foot {
@@ -15,6 +23,12 @@ body {
 	height: 100px;
 }
 
+/*
+.card {
+	border: solid 2px black;
+	padding: 2%;
+}
+*/
 /*NAVIGATION*/
 
 
@@ -78,7 +92,7 @@ body {
 	text-decoration: none;
 	color: #BEBEBD;
 }
-7	 
+ 
 /*SPLASH PAGE*/
 
 .splashHeader {
@@ -91,6 +105,7 @@ body {
 .splashInfo {
   text-align: center;
   background-color: rgba(255,255,255, 0.6);
+/*  background-image: url(images/progressSplash.jpg);*/
   margin: 50px;
   margin-top
 }
@@ -103,9 +118,15 @@ body {
   height: 10%;
   border-radius: 15%;
   border: solid 2px #BEBEBD;
-  margin: auto;
+  margin: 10% auto;
   padding: 50px;
   position: relative;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.rating:hover {
+  box-shadow: none;
+  transition: 1s;
 }
 
 .ratingNumber {
@@ -122,8 +143,8 @@ body {
 }
 
 /*ENTRY DETAIL PAGE*/
-#rating-detail {
-	color: #272824;
+.entry-detail .rating {
+	box-shadow: none;
 }
 
 .moods {
@@ -152,22 +173,52 @@ input[type=checkbox] {
 /*OVERVIEW STYLING*/
 
 .day {
+	color: white;
+	font-size: 16px;
 	border: 1px solid #BEBEBD;
 	width: 14%;
 	height: 50px;
 	border-radius: 10px;
 	display: inline-block;
+	margin: 1%;
+    box-shadow: 5px 5px 2px grey;
 }
 
-.day-average {
-	margin-top: 15%;
+.day:hover {
+    box-shadow: none;
+	transition: 1s;
+}
+
+.day p {
+	padding-top: 20%;
+}
+
+.day .day-average {
+	display: none;
+}
+
+.day:hover .day-average {
+	display: inline-block;
+	padding-top: 20%; 
+}
+
+.day:hover .day-date {
+	display: none;
+	transition: 1s;
 }
 
 .entries {
 	border: 2px solid #BEBEBD;
-	max-height: 300px;
+	max-height: 500px;
 	overflow: scroll;
 	color: black;
+	margin: 2%;
+    box-shadow: 5px 5px 2px grey;
+}
+
+.entry {
+	border: 2px solid #BEBEBD;
+	margin: 2%;
 }
 
 
