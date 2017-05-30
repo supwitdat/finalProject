@@ -1,9 +1,14 @@
-
-
 body {
 	min-height: 100%;
 	font-size: 18px;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	background-color: #2e2e2e;
+/*
+	background-image: url(images/grass.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+*/
 }
 
 #content {
@@ -35,6 +40,12 @@ body {
 	box-shadow: 5px 5px 2px grey;
 	padding: 2% auto;
 	margin: 2% auto;
+	background-color: rgba(255, 255, 255, 0.80);
+}
+
+.btn {
+	margin-bottom: 4%;
+	background-color: #00F93A;
 }
 
 
@@ -68,7 +79,7 @@ body {
 /*NAVIGATION*/
 
 navbar-brand {
-	color:
+
 }
 
 
@@ -141,15 +152,6 @@ navbar-brand {
   margin-top: -10px;
 }
 
-.splashInfo {
-  text-align: center;
-  background-color: rgba(255,255,255, 0.6);
-/*  background-image: url(images/progressSplash.jpg);*/
-  margin: 50px;
-  margin-top
-}
-
-
 /*RATINGS PAGE*/
 
 /*
@@ -199,21 +201,40 @@ navbar-brand {
 	display: inline-block;
 	font-variant: small-caps;
 	padding: 1%;
+	font-size: 20px;
+}
+
+.mood-label {
+	text-decoration: underline;
 }
 
 #moodOptions .mood-checkbox + .mood-label {
 	font-weight: normal;
 }
 
-.mood label:hover {
-	color:  #0CE889;
+.mood.low label:hover {
+	color: #1100FA;
 }
 
-#moodOptions input[type=checkbox]:checked + label {
-	font-weight: bold;
-	color: #0CE889;
+.mood.middle label:hover {
+	color: #00E9F9;
 }
 
+.mood.high label:hover {
+	color: #00F974;
+}
+
+#moodOptions .low input[type=checkbox]:checked + label {
+	color: #1100FA;
+}
+
+#moodOptions .middle input[type=checkbox]:checked + label {
+	color: #00E9F9;
+}
+
+#moodOptions .high input[type=checkbox]:checked + label {
+	color: #00F974;
+}
 input[type=checkbox] {
 	display: none;
 }

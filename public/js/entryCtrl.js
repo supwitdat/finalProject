@@ -9,24 +9,105 @@ app.controller("entryController", function($scope, happyService, $location) {
 
 	//set class for number
 	$scope.cls = happyService.getEntryClass();
+	
+	$scope.moods = [
+		{
+			name: 'anxious',
+			level: 'low',
+			cls: 'low'
+		},
+		{
+			name: 'angry',
+			level: 'low',
+			cls: 'low'
+		},
+		{
+			name: 'confident',
+			level: 'high',
+			cls: 'high'
+		},
+		{
+			name: 'content',
+			level: 'middle',
+			cls: 'middle'
+		},
+		{
+			name: 'calm',
+			level: 'middle',
+			cls: 'middle'
+		},
+		{
+			name: 'embarrassed',
+			level: 'low',
+			cls: 'low'
+		},
+		{
+			name: 'depressed',
+			level: 'low',
+			cls: 'low'
+		},
+		{
+			name: 'excited',
+			level: 'high',
+			cls: 'high'
+		},
+		{
+			name: 'grateful',
+			level: 'high',
+			cls: 'high'
+		},
+		{
+			name: 'happy',
+			level: 'high',
+			cls: 'high'
+		},
+		{
+			name: 'hopeful',
+			level: 'high',
+			cls: 'high'
+		},
+		{
+			name: 'indifferent',
+			level: 'middle',
+			cls: 'middle'
+		},
+		{
+			name: 'lonely',
+			level: 'low',
+			cls: 'low'
+		},
+		{
+			name: 'pessimistic',
+			level: 'low',
+			cls: 'low'
+		},
+		{
+			name: 'restless',
+			level: 'middle',
+			cls: 'middle'
+		},
+		{
+			name: 'satisfied',
+			level: 'high',
+			cls: 'high'
+		}
+	];
 
-
-	// Moods
-  	$scope.moods = ['anxious', 'angry', 'content', 'calm', 'depressed', 'excited', 'grateful', 'hopeful', 'indifferent', 'lonely', 'pessimistic', 'restless'];
 
   	// Selected Moods from list
   	$scope.selection = [];
 
   	// Toggle selection for a given mood
   	$scope.toggleSelection = function toggleSelection(mood) {
-		var idx = $scope.selection.indexOf(mood);
+		var idx = $scope.selection.indexOf(mood.name);
 
 		// Is currently selected
 		if (idx > -1) {
 		  $scope.selection.splice(idx, 1);
 		} else {
-		  $scope.selection.push(mood);
+		  $scope.selection.push(mood.name);
 		}
+		console.log($scope.selection);
   	};
 
 	//sends comment and mood selection info to entry object in factory
@@ -34,22 +115,13 @@ app.controller("entryController", function($scope, happyService, $location) {
 		happyService.setComment(comment);
 		mood = $scope.selection;
 		happyService.setMood(mood);
-//		happyService.setDay();
-//		happyService.setDays();
         happyService.postEntry().then(function(){
-
-         $location.path('/month');
-
-
+			$location.path('/month');
         });
-
-
-
-
 	};
 
-  $scope.deleteRestart = function() {
-      $scope.selection = [];
-  };
+  	$scope.deleteRestart = function() {
+      	$scope.selection = [];
+  	};
 
 });

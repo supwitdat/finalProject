@@ -2,8 +2,7 @@
   <div class="row">
 	<div class="col-sm-1 empty">
 	</div>
-	<div class="col-sm-10">
-
+	  <div class="col-sm-10 card">
 	  <div class="row">
 		<div class="col-sm-4">
 			<div class="rating" ng-class="cls">
@@ -14,12 +13,12 @@
 
 		<h4>What are you feeling?</h4>
 		<div ng-repeat="mood in moods" class="moods">
-			<div class="mood">
+			<div class="mood" ng-class=mood.cls>
 				<input type="checkbox" class="checkbox-inline mood-checkbox" id={{mood}} ng-checked="selection.indexOf(mood) > -1" ng-click="toggleSelection(mood)">
-				<label for={{mood}} class="mood-label">{{mood}}</label>
+				<label for={{mood}} class="mood-label">{{mood.name}}</label>
 			</div>
 		</div>
-	    </div>
+	    </div>  
 	  </div>
 
 	  <div class="row">
