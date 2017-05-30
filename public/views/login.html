@@ -23,14 +23,14 @@
                 <small id="passwordBlurb" class="form-text text-muted">Create Password:</small>
                 <div class="form-group form-inline">
                   <!-- <label for="password1">Password</label> -->
-                  <input type="password" class="form-control" id="password1" placeholder="Password" name="userPassword" ng-minlength="8" ng-model="user.password"  ng-required="true">
+                  <input type="password" class="form-control" id="password1" placeholder="Password" name="userPassword" ng-minlength="4" ng-maxlength="12" ng-pattern="/^(?=.*\d).{4,12}$/" ng-model="user.password"  ng-required="true">
                 </div>
 
                 <div class="form-group form-inline">
                   <!-- <label for="password2">Password</label> -->
-                  <input type="password" class="form-control" id="password2" placeholder=" Confirm Password" name="userPassword2" ng-minlength="8" ng-model="user.password2"   ng-required="true">
+                  <input type="password" class="form-control" id="password2" placeholder=" Confirm Password" name="userPassword2" ng-minlength="4" ng-maxlength="12" ng-pattern="/^(?=.*\d).{4,12}$/" ng-model="user.password2"   ng-required="true">
                 </div>
-                <small id="passwordBlurb" class="form-text text-muted"> Passwords must contain a number, an uppercase letter, and be a minimum of 8 characters in length.</small>
+                <small id="passwordBlurb" class="form-text text-muted"> Passwords must between 4 to 12 characters in length and contain a number.</small>
 
             <p ng-show="signupForm.password.$error.maxlength" class="help-block">Password is too long. Remove characters.</p>
   <p ng-show="signupForm.password.$error.minlength" class="help-block">Password is too short. Add more characters.</p>
@@ -59,13 +59,13 @@
             <small id="usernameBlurb2" class="form-text text-muted">Enter your username:</small>
             <div class="form-group form-inline">
               <!-- <label for="userName">Username:</label> -->
-              <input type="text" class="form-control" id="existingUserName" placeholder="Enter username" name="existingUserName" ng-model="existing.username" required>
+              <input type="text" class="form-control" id="existingUserName" placeholder="Enter username" name="existingUserName" ng-model="existing.username" ng-required="true">
             </div>
 
             <small id="passwordBlurb2" class="form-text text-muted">Enter Password:</small>
             <div class="form-group form-inline">
               <!-- <label for="password1">Password</label> -->
-              <input type="password" class="form-control" id="existingUserPassword" placeholder="Enter Password" name="existingUserPassword" ng-model="existing.password"  required>
+              <input type="password" class="form-control" id="existingUserPassword" placeholder="Enter Password" name="existingUserPassword" ng-model="existing.password"  ng-required="true">
             </div>
 
 
