@@ -50,6 +50,9 @@ body {
 */
 /*NAVIGATION*/
 
+navbar-brand {
+	color:
+}
 
 
 /*RATING COLOR SCALE*/
@@ -111,7 +114,7 @@ body {
 	text-decoration: none;
 	color: #BEBEBD;
 }
- 
+
 /*SPLASH PAGE*/
 
 .splashHeader {
@@ -218,7 +221,7 @@ input[type=checkbox] {
 
 .day:hover .day-average {
 	display: inline-block;
-	padding-top: 20%; 
+	padding-top: 20%;
 }
 
 .day:hover .day-date {
@@ -233,6 +236,12 @@ input[type=checkbox] {
 	color: black;
 	margin: 2%;
     box-shadow: 5px 5px 2px grey;
+}
+
+
+input[disabled='disabled']{
+	cursor: not-allwed !important;
+
 }
 
 .entry {
