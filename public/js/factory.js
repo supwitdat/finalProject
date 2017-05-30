@@ -1,12 +1,11 @@
 var app = angular.module('happyMod');
 
 app.factory("happyService", function($http) {
-	console.log("happyService has loaded");
     var nuUser = {}
 	var entry = {};
     var holder={};
     var loginInfo={};
-    var id =0;
+    var id =1;
 //	var day = [];
 //	var days = [];
     var allPosts=[];
@@ -62,14 +61,12 @@ app.factory("happyService", function($http) {
 		entry.mood = [];
 		entry.mood = mood;
         entry.mood = entry.mood.toString();
-        console.log(entry);
 
 	};
 
 	//returns entry object, including comment, mood, and rating
 	function getEntry(userID) {
         return $http.get('/api/posts/'+userID ).then(function(response) {
-            console.log(response);
 			return response;
 		})
 	}
@@ -80,7 +77,6 @@ app.factory("happyService", function($http) {
            url:'/api/posts/entry/',
            data:{rating:entry.rating, mood:entry.mood, comment:entry.comment, userid:id}
        }).then(function(response){
-           console.log(response.data);
        });
         };
 
@@ -171,7 +167,6 @@ app.factory("happyService", function($http) {
 					total += entry.rating;
 				});
 				average = (total/day.length).toFixed(2);
-				console.log(average);
 				day.average = average;
 				day.date = day[0].date;
 				//Add Class to each day
@@ -213,22 +208,22 @@ app.factory("happyService", function($http) {
 		// POST /api/user
 
 		return $http.post('/api/users/', user).then(function(response) {
-            console.log(response);
 			return response;
 		})
 	};
+
     function thisUser (username){
         var thisPromise = $http.get('/api/users/username/'+ username).then(function(response){
 return response;
         });
         return thisPromise;
     };
-
-     function myID(id){
-         var userID = id;
-        return userID;
-    }
-
+    
+     function myID(newId){
+         id = newId;
+        return id;
+    }  
+    
     function getID (){
         return id;
     };
@@ -251,9 +246,7 @@ return response;
     }
 
     function userLogin(username){
-        console.log(username);
         return $http.get('/api/users/username/'+username).then(function(response){
-            console.log(response);
             if (response.data.username === loginInfo.username && response.data.password === loginInfo.password){
                 alert('Logged in as '+ response.data.username)
                return id = response.data.id;

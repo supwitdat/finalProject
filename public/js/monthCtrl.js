@@ -5,38 +5,18 @@ app.controller("monthController", function($scope, happyService, $timeout) {
      $scope.logout= function logout(){
             happyService.logout();
         }
+     $scope.newAvg =0;
 	
 	happyService.setDays();
 	$timeout(function() {
 		$scope.days = happyService.getDays();
-        console.log($scope.days);
-	
-  
-    
-
-"use strict";
-
-
-
-$scope.createCalendar = function(){	
-    
-    function setInfo(){
-    var zero = "0";
-     for (i=0; i < $scope.days.length; i++) { 
-         console.log($scope.days[i])
-          if(event.target.textContent === $scope.days[i].date.substring(8,10) || zero.concat(event.target.textContent) === $scope.days[i].date.substring(8,10)){
-         return $scope.days[i].average;
-    }   
-     }
-    
-
- }
+	    
+ 
         
     
      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
  var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var theDate = new Date();
-		
 		var DateObject = function DateObject(theDate) {
 				this.theDay = theDate.getDate();
 				this.dayName = dayNames[theDate.getDay()];
@@ -45,9 +25,8 @@ $scope.createCalendar = function(){
 				this.daysInMonth = new Date(theDate.getFullYear(), theDate.getMonth()+1, 0).getDate();
 				this.firstDayOfMonth = dayNames[new Date(theDate.getFullYear(), theDate.getMonth(), 1).getDay()];
 		};
-		
+
 		var currentDate = new DateObject(theDate);
-		
 		function renderCalendar(targetElem){
 				
 				// Custom function to make new elements easier:
@@ -65,19 +44,19 @@ $scope.createCalendar = function(){
 				document.getElementsByTagName('body')[0].appendChild(renderTarget);
 				
 				// Monday, dayView
-				addElem("div", "day-view", renderTarget);
-				var dayView = document.querySelector('.day-view');
-				var dayNameElem = document.createElement("div"); // i.e.: Wednesday
-				dayNameElem.className = "day-header";
-				var dayNameNode = document.createTextNode(currentDate.dayName);
-				dayNameElem.appendChild(dayNameNode);
-				dayView.appendChild(dayNameElem);
-				// 21st, dayNumber
-				addElem("time", "day-number", dayView);
-				var dayNumber = document.querySelector('.day-number');
-				var dayNumNode = document.createTextNode('')
-				dayNumber.appendChild(dayNumNode);
-				dayView.appendChild(dayNumber);
+//				addElem("div", "day-view", renderTarget);
+//				var dayView = document.querySelector('.day-view');
+//				var dayNameElem = document.createElement("div"); // i.e.: Wednesday
+//				dayNameElem.className = "day-header";
+//				var dayNameNode = document.createTextNode(currentDate.dayName);
+//				dayNameElem.appendChild(dayNameNode);
+//				dayView.appendChild(dayNameElem);
+//				// 21st, dayNumber
+//				addElem("time", "day-number", dayView);
+//				var dayNumber = document.querySelector('.day-number');
+//				var dayNumNode = document.createTextNode('')
+//				dayNumber.appendChild(dayNumNode);
+//				dayView.appendChild(dayNumber);
 				
 				addElem("div", "month-view", renderTarget);
 				var monthView = document.querySelector('.month-view');
@@ -114,12 +93,10 @@ $scope.createCalendar = function(){
 				var monthOf = document.createTextNode(
 					currentDate.theMonth +" "+ currentDate.theYear
 				);
-				
 				monthSpan.appendChild(prevMonthSpan);
 				monthSpan.appendChild(monthOf);
 				monthSpan.appendChild(nextMonthSpan);
 				monthView.appendChild(monthSpan);
-				
 				for(var i=0; i < dayNames.length; i++){
 					var dayOfWeek = document.createElement('div');
 					dayOfWeek.className = "day-of-week";
@@ -168,12 +145,27 @@ $scope.createCalendar = function(){
 		
 				var dayHeader = document.getElementsByClassName('day-header');
 				var dayNumNode = document.getElementsByClassName('day-number');
-           
+  
+                           
+            
+    function getDayAvg(selectedDay) {
+        for(i=0; i < $scope.days.length; i++){
+            if(selectedDay === $scope.days[i].date){
+                $scope.newAvg = $scope.days[i].average;
+                $scope.$digest();
+                return $scope.newAvg;
+            }
+        }
+        
+    }
+
 				var updateDay = function(){
 					var thisCellTime = this.querySelector('time');
 					dayHeader[0].textContent = thisCellTime.getAttribute('data-dayofweek');
+                    var selectedDate = thisCellTime.getAttribute('datetime');
 					//onclick text//
-					dayNumNode[0].textContent = 'Average:'+ setInfo();  
+					dayNumNode[0].textContent = 'Average:'+ getDayAvg(selectedDate);
+                    
 						
 				} 
 				
@@ -196,12 +188,12 @@ $scope.createCalendar = function(){
 			return renderCalendar("calendarThis");
 		}
 		
+  
 
-}
+
+
         
         
-    $scope.createCalendar();
-    
     
     
     }, 1000);
@@ -214,4 +206,10 @@ $scope.createCalendar = function(){
 		$scope.activeDay = day;        
 
 	}
+    
+    
+    
+
+    
+        
 });
