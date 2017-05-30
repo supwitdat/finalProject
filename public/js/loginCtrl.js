@@ -1,6 +1,6 @@
 var app = angular.module('happyMod');
 
-app.controller("loginController", function($scope, happyService,$location) {
+app.controller("loginController", function($scope, happyService,$location, $window) {
 
     $scope.user ={};
     $scope.existing ={};
@@ -59,4 +59,10 @@ happyService.userPromise().then(function(data){
             $location.path('/entry');
         });
     };
+	
+	$scope.logout = function() {
+		$window.location.reload(); 
+	};
+	
+	$scope.isUserLoggedIn = true;
 });

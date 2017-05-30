@@ -24,9 +24,10 @@ body {
 
 .foot {
 	text-align: center;
-	background-color: #2f302c;
+	background-color: #272727;
 	border: solid gray 2px;
 	height: 100px;
+	border-radius: 10px;
 }
 
 .card {
