@@ -1,13 +1,16 @@
 var app = angular.module('happyMod');
 
-app.controller("entryController", function($scope, happyService) {
+
+app.controller("entryController", function($scope, happyService, $location) {
+  console.log("entryController has loaded");
+
 	//displays rating for entry page
 	$scope.rating = happyService.getRating();
-	
+
 	//set class for number
 	$scope.cls = happyService.getEntryClass();
-	
-	
+
+
 	// Moods
 //  	// Moods
 //  	$scope.moods = [
@@ -119,7 +122,22 @@ app.controller("entryController", function($scope, happyService) {
 		happyService.setComment(comment);
 		mood = $scope.selection;
 		happyService.setMood(mood);
+<<<<<<< HEAD
         happyService.postEntry();
+=======
+//		happyService.setDay();
+//		happyService.setDays();
+        happyService.postEntry().then(function(){
+
+         $location.path('/month');
+
+
+        });
+
+
+
+
+>>>>>>> 21bb4339d697803542354aff4d621352e7cc6f27
 	};
 
   $scope.deleteRestart = function() {

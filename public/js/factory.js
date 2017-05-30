@@ -72,12 +72,13 @@ app.factory("happyService", function($http) {
 	}
 
 	function postEntry(){
-        $http({
+    var promise =  $http({
            method:'POST',
            url:'/api/posts/entry/',
            data:{rating:entry.rating, mood:entry.mood, comment:entry.comment, userid:id}
        }).then(function(response){
        });
+		return promise;
         };
 
 	//get posts from database
@@ -215,12 +216,14 @@ return response;
         });
         return thisPromise;
     };
-    
+
+
      function myID(newId){
          id = newId;
         return id;
-    }  
-    
+    }
+
+
     function getID (){
         return id;
     };

@@ -1,5 +1,3 @@
-<div id="calendarThis"> </div>
-
 <div ng-init="setDays()">
 	<div class="container">
 	  <!--Color Scale Key-->
@@ -20,6 +18,8 @@
 		<div class="row">
 <!--			<div class="col-sm-1 empty"></div>-->
 			<div class="row col-sm-12">
+                <div id="feelingCal" class="col-sm-7"><div id="calendarThis"></div></div>
+<!--
 				<div class="col-sm-7 overview card">
 					<h4 class="text-center">Daily Averages</h4>
 					<div ng-repeat="day in days track by $index" ng-class=day.cls class="day text-center" ng-click=showEntry(day)>
@@ -27,6 +27,7 @@
 						<p class="day-average">{{day.average}}</p>
 					</div>
 				</div>
+-->
 				<div class="col-sm-1 empty"></div> 
 				<div class="col-sm-4 entries card">
 					<h4 class="text-center">Daily Entries</h4>

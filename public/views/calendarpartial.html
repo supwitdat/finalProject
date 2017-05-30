@@ -1,25 +1,9 @@
-var app = angular.module('happyMod');
+<div id="calendarThis">
 
 
-app.controller("monthController", function($scope, happyService, $timeout) {
-     $scope.logout= function logout(){
-            happyService.logout();
-        }
-     $scope.newAvg =0;
-	
-	happyService.setDays();
-	$timeout(function() {
-		$scope.days = happyService.getDays();    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    </div>
+<script>       
+    
      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
  var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var theDate = new Date();
@@ -47,7 +31,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 				renderTarget.remove();
 				renderTarget = document.createElement("div");
 				renderTarget.id = targetElem;
-            document.getElementById('feelingCal').appendChild(renderTarget);
+				document.getElementsByTagName('body')[0].appendChild(renderTarget);
 				
 				// Monday, dayView
 //				addElem("div", "day-view", renderTarget);
@@ -111,7 +95,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 					monthView.appendChild(dayOfWeek);
 				}
 				
-//				 renderTarget.appendChild(document.createElement("ul"));
+				// renderTarget.appendChild(document.createElement("ul"));
 				var calendarList = document.createElement("ul");
 				for(i = 0; i < currentDate.daysInMonth; i++){
 					var calendarCell = document.createElement("li");
@@ -192,30 +176,4 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 			}
 			return renderCalendar("calendarThis");
 		}
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    }, 1000);
-	
-	//displays entries for specific day on page
-	$scope.showEntry = function(day) {
-		//makes sure that the entries include all recent posts
-		happyService.getPosts();
-		//assigns day clicked as the active day
-		$scope.activeDay = day;        
-
-	}
-    
-    
-    
-
-    
-        
-});
+    </script>
