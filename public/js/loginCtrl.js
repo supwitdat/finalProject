@@ -6,7 +6,6 @@ app.controller("loginController", function($scope, happyService,$location) {
     $scope.existing ={};
 
     $scope.addUser = function(user) {
-        console.log($scope.user);
         //adds login form values to an object//
         happyService.setUser($scope.user);
 
@@ -28,7 +27,9 @@ happyService.userPromise().then(function(data){
         happyService.addUser(user).then(function(data){
                  //this bit here gets the person who we just made, and grabs their ID to be posted to the page.//
             happyService.thisUser(data.config.data.name).then(function(data){
-                    happyService.myID(data.data.id);;})
+                    happyService.myID(data.data.id);
+            }
+                                                             )
                    $location.path('/entry');
 
             });

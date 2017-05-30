@@ -54,6 +54,7 @@ function errorCallback(res) {
 
 app.post('/api/users/', function(req, res) {
     var newUser = req.body;
+    console.log(newUser);
     var sql = 'INSERT INTO users(username, email, password)' + 'values ($1::text, $2::text, $3::text)';
     var values = [ newUser.name, newUser.email, newUser.password];
     pool.query(sql, values).then(function(result) {
