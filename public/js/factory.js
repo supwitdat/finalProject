@@ -118,7 +118,6 @@ app.factory("happyService", function($http) {
 				console.log(i);
 				var date = i;
 				var oneDay = [];
-
 				if(i !== date) {
 					date = i;
 				}
@@ -143,6 +142,7 @@ app.factory("happyService", function($http) {
 				var total = 0;
 
 				day.forEach(function(entry) {
+					day.date = entry.date
 					total += entry.rating;
 				});
 				average = (total/day.length).toFixed(2);

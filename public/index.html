@@ -8,15 +8,15 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Source+Sans+Pro" rel="stylesheet">
 		<!-- Our CSS -->
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
   <body ng-app="happyMod" class="indexBody">
 	<div id="content">
 
-		<nav class="navbar navbar-inverse" ng-controller="loginController">
+
+		<!-- <nav class="navbar navbar-inverse" ng-controller="loginController">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -37,8 +37,23 @@
 						</li>
 						<li><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</ul>
-				</div>
+				</div> -->
 
+
+
+		<nav class="navbar navbar-inverse" ng-controller="loginController">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><span id="progress">progress.</span></a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#!/entry" ng-click="hasAccess()">New Entry</a></li>
+					<li><a href="#!/month" ng-click="hasAccess()">Overview</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><div id="status"></div></li>
+					<li><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
 			</div>
 		</nav>
 

@@ -1,11 +1,19 @@
+
+
 body {
 	min-height: 100%;
 	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 #content {
 	/* makes fotter sticky	*/
 	min-height: calc(100vh - 100px);
+}
+
+.progress {
+	font-family: 'Fredericka the Great', serif;
+	background-color: transparent;
 }
 
 .foot {
@@ -15,17 +23,18 @@ body {
 	height: 100px;
 }
 
-.navbar {
-	background-color: #0FD6CF;
+/*
+.card {
+	border: solid 2px black;
+	padding: 2%;
 }
+*/
+/*NAVIGATION*/
 
 navbar-brand {
 	color:
 }
 
-.navbar li {
-	color: #BEBEBD;
-}
 
 /*RATING COLOR SCALE*/
 
@@ -86,7 +95,7 @@ navbar-brand {
 	text-decoration: none;
 	color: #BEBEBD;
 }
-7
+
 /*SPLASH PAGE*/
 
 .splashHeader {
@@ -99,6 +108,7 @@ navbar-brand {
 .splashInfo {
   text-align: center;
   background-color: rgba(255,255,255, 0.6);
+/*  background-image: url(images/progressSplash.jpg);*/
   margin: 50px;
   margin-top
 }
@@ -111,9 +121,15 @@ navbar-brand {
   height: 10%;
   border-radius: 15%;
   border: solid 2px #BEBEBD;
-  margin: auto;
+  margin: 10% auto;
   padding: 50px;
   position: relative;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.rating:hover {
+  box-shadow: none;
+  transition: 1s;
 }
 
 .ratingNumber {
@@ -130,8 +146,8 @@ navbar-brand {
 }
 
 /*ENTRY DETAIL PAGE*/
-#rating-detail {
-	color: #272824;
+.entry-detail .rating {
+	box-shadow: none;
 }
 
 .moods {
@@ -160,25 +176,164 @@ input[type=checkbox] {
 /*OVERVIEW STYLING*/
 
 .day {
+	color: white;
+	font-size: 16px;
 	border: 1px solid #BEBEBD;
 	width: 14%;
 	height: 50px;
 	border-radius: 10px;
 	display: inline-block;
+	margin: 1%;
+    box-shadow: 5px 5px 2px grey;
 }
 
-.day-average {
-	margin-top: 15%;
+.day:hover {
+    box-shadow: none;
+	transition: 1s;
+}
+
+.day p {
+	padding-top: 20%;
+}
+
+.day .day-average {
+	display: none;
+}
+
+.day:hover .day-average {
+	display: inline-block;
+	padding-top: 20%;
+}
+
+.day:hover .day-date {
+	display: none;
+	transition: 1s;
 }
 
 .entries {
 	border: 2px solid #BEBEBD;
-	max-height: 300px;
+	max-height: 500px;
 	overflow: scroll;
 	color: black;
+	margin: 2%;
+    box-shadow: 5px 5px 2px grey;
 }
+
 
 input[disabled='disabled']{
 	cursor: not-allwed !important;
 
+}
+
+.entry {
+	border: 2px solid #BEBEBD;
+	margin: 2%;
+}
+
+
+
+
+hr{
+    border: #d89f52 1px solid;
+}
+
+
+
+#calendarThis{
+    margin: 3% auto;
+    display: inline-block;
+    transition: box-shadow .25s;
+    border-radius: 2px;
+    padding: 9px 7px 9px 7px;
+    background: #FFFCF9;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    color:black;
+}
+    #calendarThis li, .day-of-week{
+        display: inline-block;
+        padding: 13px 7px;
+        width: 14%;
+        border: #FFF9F2 1px solid;
+        text-align: center;
+        background: navy;
+        cursor: pointer;
+        color:white;
+    }
+        #calendarThis li:hover{
+            border: #F9E0B6 1px solid;
+            background: lightblue;
+        }
+.float-left, .day-view{
+    float: left;
+}
+.float-right, .month-view{
+    float: right;
+}
+.month-view ul{
+    padding: 0;
+    margin: 0 0 0 8px;
+    text-align: left;
+}
+
+.day-view{
+    text-align: center;
+    font-weight: bold;
+}
+    .day-header{
+        padding: 13px 0;
+        border: antiquewhite 2px solid;
+        background: #fff;
+    }
+    .day-number{
+        display:block;
+        margin: 10% auto;
+        font-size: 32px;
+        background: navy;
+        width: 83%;
+        border-radius: 2px;
+        border: #FFE2BB 1px dotted;
+        position: relative;
+        top: 64%;
+        transform: translateY(12%);
+    }
+
+.day-view, .month-view{
+    width: 357px;
+    display: block;
+}
+.day-of-week{
+    background: #FFFCF9 !important;
+    font-weight: bold;
+    border: #fff 1px solid;
+    color: #D89F52;
+    width:14%;
+}
+
+.month-header{
+    width: 99%;
+    display: block;
+    text-align: center;
+    padding: 13px 0;
+    border: antiquewhite 2px solid;
+    background: #fff;
+    margin: 0 0 2px 0;
+    font-weight: bold;
+}
+.today{
+    background: darkslategrey !important;
+}
+.arrow{
+    width: 45px;
+    height: 35px;
+    margin: auto 0 auto 0;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Portrait and Landscape */
+@media (max-width: 767px) {
+    #calendarThis{
+        width: 358px;
+    }
 }
