@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 
 // GET /api/posts/ - retrieves an array of all post objects in the database.
-app.get('/api/posts/', function(req, res) {
+app.get('/db/posts/', function(req, res) {
     pool.query("SELECT * FROM posts").then(function(result) {
     res.send(result.rows);
 }).catch(function(err){
@@ -17,7 +17,7 @@ app.get('/api/posts/', function(req, res) {
     });
 });
 // POST /api/posts/ - adds posts to the database. 
-app.post('/api/posts/entry/', function(req, res) {
+app.post('/db/posts/entry/', function(req, res) {
     var newPost = req.body;
     var sql = 'INSERT INTO posts(rating, mood, comment, userid)' + 'values ($1::int, $2::text, $3::text, $4::int)';
     var values = [newPost.rating, newPost.mood, newPost.comment, newPost.userid ];
@@ -27,7 +27,7 @@ app.post('/api/posts/entry/', function(req, res) {
     });
 });
 //get posts by id//
-app.get('/api/posts/:userid', function(req, res) {
+app.get('/db/posts/:userid', function(req, res) {
     var id = req.params.userid;
     pool.query("SELECT * FROM posts WHERE userid = $1::int ORDER BY date DESC", [id]).then(function(result) {
         if (result.rowCount === 0) {
@@ -52,7 +52,7 @@ function errorCallback(res) {
 
 // add user to database//
 
-app.post('/api/users/', function(req, res) {
+app.post('/db/users/', function(req, res) {
     var newUser = req.body;
     console.log(newUser);
     var sql = 'INSERT INTO users(username, email, password)' + 'values ($1::text, $2::text, $3::text)';
@@ -63,7 +63,7 @@ app.post('/api/users/', function(req, res) {
     });
 });
 //get all users//
-app.get('/api/users/', function(req, res) {
+app.get('/db/users/', function(req, res) {
   pool.query("SELECT * FROM users").then(function(result) {
     res.send(result.rows);
 }).catch(function(err){
@@ -72,7 +72,7 @@ app.get('/api/users/', function(req, res) {
 });
 
 //get id from user where the username is what was just typed in//
-app.get('/api/users/username/:username', function(req, res) {
+app.get('/db/users/username/:username', function(req, res) {
     var  name = req.params.username;
     pool.query("SELECT * FROM users WHERE username = $1::text", [name]).then(function(result) {
         if (result.rowCount === 0) {
@@ -85,7 +85,7 @@ app.get('/api/users/username/:username', function(req, res) {
     
 });
 
-app.get('/api/users/password/:password', function(req,res){
+app.get('/db/users/password/:password', function(req,res){
     var password = req.params.password;
     pool.query("SELECT password FROM users WHERE password = $1::text",[password]).then(function(result){
         if(result.rowCount === 0){
