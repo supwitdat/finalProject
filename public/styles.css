@@ -51,12 +51,18 @@ body {
 	margin-bottom: 10px;
 }
 
+
+
+
+
+
+
 .gradient {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 30px;
 	
-	/* IE10+ */ 
+	/* IE10+ */
 	background-image: -ms-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 
 	/* Mozilla Firefox */
@@ -276,7 +282,7 @@ input[type=checkbox] {
 #calendarThis{
     display: inline-block;
 	border: 2px solid #BEBEBD;
-	background-color: rgba(255, 255, 255, 0.80);
+	background-color: #343434;
     box-shadow: 5px 5px 2px grey;
     color:black;
    	margin: 2% auto;
@@ -287,7 +293,7 @@ input[type=checkbox] {
 	display: inline-block;
 	padding: 13px 7px;
 	width: 14%;
-	border: #BEBEBD 2px solid;
+/*	border: #BEBEBD 2px solid;*/
 	text-align: center;
 /*	background: darkgray;*/
 	cursor: pointer;
@@ -296,7 +302,7 @@ input[type=checkbox] {
 }
 
 #calendarThis li:hover{
-	border: #F9E0B6 1px solid;
+/*	border: #F9E0B6 1px solid;*/
 	background: lightblue;
 }
 
@@ -317,23 +323,24 @@ input[type=checkbox] {
     display: block;
 }
 .day-of-week{
-    background: #FFFCF9 !important;
-	border: #FFFCF9 1px solid;
+    background: #B1BEBD !important;
+/*	border: #343434 1px solid;*/
 /*    font-weight: bold;*/
 /*    border: #fff 1px solid;*/
-    color: black;
-    width:14%;
+    color: #343434;
+    width:14.25%;
 }
 
 .month-header{
-    width: 99%;
+    width:100%;
     display: block;
     text-align: center;
     padding: 13px 0;
     border: #BEBEBD 2px solid;
-    background-color: darkgray;
+    background-color: #343434;
     margin: 0 0 2px 0;
     font-weight: bold;
+    color:#B1BEBD;
 }
 
 .today{
