@@ -1,77 +1,72 @@
 <div class="container-fluid">
-<div class="row">
-<div class="col-sm-1"></div>
-<div class="newUserForm">
-  <div class="col-sm-5 card">
-      <h1>New User</h1>
-        <form name="newUserLogin" novalidate ng-submit="addUser(user)" >
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="newUserForm">
+			<div class="col-sm-4 col-xs-12 card">
+				<h1>New User</h1>
+				<form name="newUserLogin" novalidate ng-submit="addUser(user)" >
 
-                <small id="usernameBlurb" class="form-text text-muted">Please create username:</small>
-                <div class="form-group form-inline">
-                  <input type="text" class="form-control stretchInput" id="userName" placeholder="Enter username" name="userName" ng-maxlength="20" ng-model="user.name" ng-required="true" ng-focus="getUsers()">
-                </div>
-
-
-                <small id="emailBlurb" class="form-text text-muted">Please enter your email:</small>
-                <div class="form-group form-inline">
-                  <input type="email" class="form-control" id="userEmail" placeholder="Enter email" name="userEmail" ng-model="user.email"  ng-required="true">
-                </div>
-
-                <small id="passwordBlurb" class="form-text text-muted">Create Password:</small>
-                <div class="form-group form-inline">
-                  <!-- <label for="password1">Password</label> -->
-                  <input type="password" class="form-control" id="password1" placeholder="Password" name="userPassword" ng-minlength="4" ng-maxlength="12" ng-pattern="/^(?=.*\d).{4,12}$/" ng-model="user.password"  ng-required="true">
-                </div>
-
-                <div class="form-group form-inline">
-                  <!-- <label for="password2">Password</label> -->
-                  <input type="password" class="form-control" id="password2" placeholder=" Confirm Password" name="userPassword2" ng-minlength="4" ng-maxlength="12" ng-pattern="/^(?=.*\d).{4,12}$/" ng-model="user.password2"   ng-required="true">
-                </div>
-                <small id="passwordBlurb" class="form-text text-muted"> Passwords must between 4 to 12 characters in length and contain a number.</small>
-
-            <p ng-show="signupForm.password.$error.maxlength" class="help-block">Password is too long. Remove characters.</p>
-  <p ng-show="signupForm.password.$error.minlength" class="help-block">Password is too short. Add more characters.</p>
-  <p ng-show="signupForm.password.$error.pattern">Your password must be between 4 and 12 characters and needs to include at least 1 number</p>
-  <p ng-show="user.password !== user.password2" class="help-block">The passwords do not match.</p>
-
-              <br/>
-                <button type="submit" class="btn btn-info" ng-disabled="newUserLogin.userName.$invalid
-                || newUserLogin.userEmail.$invalid
-                || newUserLogin.userPassword.$invalid
-                || newUserLogin.userPassword2.$invalid">Create Account</button>
-        </form>
-    </div>
-  </div>
-
-  <div class="col-sm-1"></div>
-
-  <!--Right Side -->
-
-  <div class="col-sm-4 card login">
-    <h1>Login:</h1>
-        <form name="userLogin" novalidate ng-submit="login()">
-
-            <small id="usernameBlurb2" class="form-text text-muted">Enter your username:</small>
-            <div class="form-group form-inline">
-              <!-- <label for="userName">Username:</label> -->
-              <input type="text" class="form-control" id="existingUserName" placeholder="Enter username" name="existingUserName" ng-model="existing.username" ng-required="true">
-            </div>
-
-            <small id="passwordBlurb2" class="form-text text-muted">Enter Password:</small>
-            <div class="form-group form-inline">
-              <!-- <label for="password1">Password</label> -->
-              <input type="password" class="form-control" id="existingUserPassword" placeholder="Enter Password" name="existingUserPassword" ng-model="existing.password"  ng-required="true">
-            </div>
+					<small id="usernameBlurb" class="form-text text-muted">Please create username:</small>
+					<div class="form-group form-inline">
+						<input type="text" class="form-control stretchInput" id="userName" placeholder="Enter username" name="userName" ng-maxlength="20" ng-model="user.name" ng-required="true" ng-focus="getUsers()">
+					</div>
 
 
-            <button type="submit" class="btn btn-info" ng-disabled="userLogin.existingUserName.$invalid
-            || userLogin.existingUserPassword.$invalid">Login</button>
+					<small id="emailBlurb" class="form-text text-muted">Please enter your email:</small>
+					<div class="form-group form-inline">
+						<input type="email" class="form-control" id="userEmail" placeholder="Enter email" name="userEmail" ng-model="user.email"  ng-required="true">
+					</div>
 
-      </form>
-  </div>
+					<small id="passwordBlurb" class="form-text text-muted">Create Password:</small>
+					<div class="form-group form-inline">
+					<!-- <label for="password1">Password</label> -->
+						<input type="password" class="form-control" id="password1" placeholder="Password" name="userPassword" ng-minlength="4" ng-maxlength="12" ng-pattern="/^(?=.*\d).{4,12}$/" ng-model="user.password"  ng-required="true">
+					</div>
 
-  <div class="col-sm-1"></div>
+					<div class="form-group form-inline">
+					<!-- <label for="password2">Password</label> -->
+						<input type="password" class="form-control" id="password2" placeholder=" Confirm Password" name="userPassword2" ng-minlength="4" ng-maxlength="12" ng-pattern="/^(?=.*\d).{4,12}$/" ng-model="user.password2"   ng-required="true">
+					</div>
+					<small id="passwordBlurb" class="form-text text-muted"> Passwords must between 4 to 12 characters in length and contain a number.</small>
 
-</div>
+					<p ng-show="signupForm.password.$error.maxlength" class="help-block">Password is too long. Remove characters.</p>
+					<p ng-show="signupForm.password.$error.minlength" class="help-block">Password is too short. Add more characters.</p>
+					<p ng-show="signupForm.password.$error.pattern">Your password must be between 4 and 12 characters and needs to include at least 1 number</p>
+					<p ng-show="user.password !== user.password2" class="help-block">The passwords do not match.</p>
 
+					<br/>
+					<button type="submit" class="btn btn-info" ng-disabled="newUserLogin.userName.$invalid
+					|| newUserLogin.userEmail.$invalid
+					|| newUserLogin.userPassword.$invalid
+					|| newUserLogin.userPassword2.$invalid">Create Account</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-sm-1"></div>
+		<div class="col-sm-1"></div>
+
+		  <!--Right Side -->
+		<div class="col-sm-4 col-xs-12 card login">
+			<h1>Login:</h1>
+			<form name="userLogin" novalidate ng-submit="login()">
+
+				<small id="usernameBlurb2" class="form-text text-muted">Enter your username:</small>
+				<div class="form-group form-inline">
+					<input type="text" class="form-control" id="existingUserName" placeholder="Enter username" name="existingUserName" ng-model="existing.username" ng-required="true">
+				</div>
+
+				<small id="passwordBlurb2" class="form-text text-muted">Enter Password:</small>
+				<div class="form-group form-inline">
+					<input type="password" class="form-control" id="existingUserPassword" placeholder="Enter Password" name="existingUserPassword" ng-model="existing.password"  ng-required="true">
+				</div>
+
+
+				<button type="submit" class="btn btn-info" ng-disabled="userLogin.existingUserName.$invalid
+				|| userLogin.existingUserPassword.$invalid">Login</button>
+
+			</form>
+		</div>
+		<div class="col-sm-1 col-xs-1"></div>
+	</div>
 </div>

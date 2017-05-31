@@ -273,6 +273,10 @@ input[type=checkbox] {
 
 /*calender styling*/
 
+#feelingsCal {
+	margin: 0 auto;
+}
+
 #calendarThis{
     display: inline-block;
 	border: 2px solid #BEBEBD;
