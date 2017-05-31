@@ -1,13 +1,10 @@
 var app = angular.module('happyMod');
 
 app.factory("happyService", function($http) {
-    var nuUser = {}
 	var entry = {};
     var holder={};
     var loginInfo={};
     var id =1;
-//	var day = [];
-//	var days = [];
     var allPosts=[];
     var today = [];
 	var daysSeperate = [];
@@ -207,14 +204,61 @@ app.factory("happyService", function($http) {
 		for(i=0; i < days.length; i++){
 			if(selectedDay.substring(0,10) === days[i].date.substring(0,10)){
 				day.newAvg = days[i].average;
+				//ADDS CLASS TO DISPLAY COLOR ON CALENDER DAY BASED ON DAY AVERAGE
+				if (day.newAvg < 1.5) {
+					day.cls = "one";
+				} else if (day.newAvg >= 1.5 && day.newAvg < 2.5) {
+					day.cls = "two";
+				} else if (day.newAvg >= 2.5 && day.newAvg < 3.5) {
+					day.cls = "three";
+				} else if (day.newAvg >= 3.5 && day.newAvg < 4.5) {
+					day.cls = "four";
+				} else if (day.newAvg >= 4.5 && day.newAvg < 5.5) {
+					day.cls = "five";
+				} else if (day.newAvg >= 5.5 && day.newAvg < 6.5) {
+					day.cls = "six";
+				} else if (day.newAvg >= 6.5 && day.newAvg < 7.5) {
+					day.cls = "seven";
+				} else if (day.newAvg >= 7.5 && day.newAvg < 8.5) {
+					day.cls = "eight";
+				} else if (day.newAvg >= 8.5 && day.newAvg < 9.5) {
+					day.cls = "nine";
+				} else if (day.newAvg >= 9.5) {
+					day.cls = "ten";
+				} else {
+					day.cls = "none";
+				}
 
 				days[i].forEach(function(post){
-
 					var postObj = {};
 					postObj.mood = post.mood;
 					postObj.comment = post.comment;
 					postObj.rating = post.rating;
 					postObj.date = post.date;
+					//ADDS CLASS TO DISPLAY COLOR ON ENTRY DAY BASED ON ENTRY RATING
+					if (post.rating === 1) {
+						postObj.cls = "one";
+					} else if (post.rating === 2) {
+						postObj.cls = "two";
+					} else if (post.rating === 3) {
+						postObj.cls = "three";
+					} else if (post.rating === 4) {
+						postObj.cls = "four";
+					} else if (post.rating === 5) {
+						postObj.cls = "five";
+					} else if (post.rating === 6) {
+						postObj.cls = "six";
+					} else if (post.rating === 7) {
+						postObj.cls = "seven";
+					} else if (post.rating === 8) {
+						postObj.cls = "eight";
+					} else if (post.rating === 9) {
+						postObj.cls = "nine";
+					} else if (post.rating === 10) {
+						postObj.cls = "ten";
+					} else {
+						postObj.cls = "none";
+					}
 					day.posts.push(postObj);
 
 				});
