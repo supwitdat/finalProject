@@ -63,7 +63,7 @@ app.factory("happyService", function($http) {
 
 	//returns entry object, including comment, mood, and rating
 	function getEntry(userID) {
-        return $http.get('/api/posts/'+userID ).then(function(response) {
+        return $http.get('/db/posts/'+userID ).then(function(response) {
 			return response;
 		})
 	}
@@ -71,7 +71,7 @@ app.factory("happyService", function($http) {
 	function postEntry(){
     var promise =  $http({
            method:'POST',
-           url:'/api/posts/entry/',
+           url:'/db/posts/entry/',
            data:{rating:entry.rating, mood:entry.mood, comment:entry.comment, userid:id}
        }).then(function(response){
        });
@@ -80,7 +80,7 @@ app.factory("happyService", function($http) {
 
 	//get posts from database
 	function getPosts(){
-    	return $http.get('/api/posts/'+id).then(function(response){
+    	return $http.get('/db/posts/'+id).then(function(response){
     		allPosts = response.data;
 			allPosts.forEach(function(entry) {
 				if (entry.rating === 1) {
@@ -271,15 +271,14 @@ app.factory("happyService", function($http) {
 
 ///////// USER INFORMATION AND LOGIN /////////////
 	function addUser(user) {
-		// POST /api/user
 
-		return $http.post('/api/users/', user).then(function(response) {
+		return $http.post('/db/users/', user).then(function(response) {
 			return response;
 		})
 	};
 
     function thisUser (username){
-        var thisPromise = $http.get('/api/users/username/'+ username).then(function(response){
+        var thisPromise = $http.get('/db/users/username/'+ username).then(function(response){
 return response;
         });
         return thisPromise;
@@ -314,7 +313,7 @@ return response;
     }
 
     function userLogin(username){
-        return $http.get('/api/users/username/'+username).then(function(response){
+        return $http.get('/db/users/username/'+username).then(function(response){
             if (response.data.username === loginInfo.username && response.data.password === loginInfo.password){
                 alert('Logged in as '+ response.data.username)
                return id = response.data.id;
@@ -324,7 +323,7 @@ return response;
         })
     }
 function userPromise (){
-		var promise = $http.get('/api/users/').then(function(response){
+		var promise = $http.get('/db/users/').then(function(response){
 			return response.data;
 		});
 		return promise;
