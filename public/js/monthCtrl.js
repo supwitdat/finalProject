@@ -66,9 +66,11 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 			switch (window.event.keyCode) {
 				case 37: //Left key
 					goToMonth(currentDate, false);
+                    $scope.changeCls();
 					break;
 				case 39: //Right key
 					goToMonth(currentDate, true);
+                    $scope.changeCls();
 					break;
 			}
 		};
