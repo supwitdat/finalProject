@@ -225,44 +225,6 @@ input[type=checkbox] {
 
 /*OVERVIEW STYLING*/
 
-/*
-.day {
-	text-shadow: 1px 1px black;
-	color: white;
-	font-size: 16px;
-	border: 1px solid #BEBEBD;
-	width: 14%;
-	height: 50px;
-	border-radius: 10px;
-	display: inline-block;
-	margin: 1%;
-    box-shadow: 5px 5px 2px grey;
-}
-
-.day:hover {
-    box-shadow: none;
-	transition: 1s;
-}
-
-.day p {
-	padding-top: 20%;
-}
-
-.day .day-average {
-	display: none;
-}
-
-.day:hover .day-average {
-	display: inline-block;
-	padding-top: 20%;
-}
-
-.day:hover .day-date {
-	display: none;
-	transition: 1s;
-}
-*/
-
 .entries {
 	max-height: 500px;
 	overflow: scroll;
@@ -278,6 +240,10 @@ input[type=checkbox] {
 }
 
 /*calender styling*/
+
+#feelingsCal {
+	margin: 0 auto;
+}
 
 #calendarThis{
     display: inline-block;

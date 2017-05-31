@@ -2,47 +2,34 @@
 	<div class="container">
 	  <!--Color Scale Key-->
 		<div class="row text-center">
-			<div class="col-xs-1 empty"></div>
-			<div class="col-xs-10 color-key card">
-				<div class="col-xs-2">
+			<div class="col-sm-1 empty"></div>
+			<div class="col-sm-10 col-xs-12 color-key card">
+				<div class="col-sm-2 col-xs-2">
 					<img src="../images/sad.png">
 				</div>
-				<div class="col-xs-8 gradient"></div>
-				<div class="col-xs-2">
+				<div class="col-sm-8 col-xs-8 gradient"></div>
+				<div class="col-sm-2 col-xs-2">
 					<img src="../images/smile.png">
 				</div>
 			</div>
-			<div class="col-xs-1 empty"></div>
+			<div class="col-sm-1 empty"></div>
 		</div>
-<!--Daily average overview-->
 		<div class="row">
-<!--			<div class="col-sm-1 empty"></div>-->
-			<div class="row col-sm-12">
-                <div id="feelingCal" class="col-sm-8"><div id="calendarThis"></div></div>
-<!--
-				<div class="col-sm-7 overview card">
-					<h4 class="text-center">Daily Averages</h4>
-					<div ng-repeat="day in days track by $index" ng-class=day.cls class="day text-center" ng-click=showEntry(day)>
-						<p class="day-date">{{day.date | date:'MM/dd'}}</p>
-						<p class="day-average">{{day.average}}</p>
-					</div>
-				</div>
--->
-				<div class="col-sm-1 empty"></div>
-				<div class="col-sm-4 entries card">
-					<h4 class="text-center">Daily Entries</h4>
-                    <p>Average: {{displayDay.newAvg}}</p>
-					<!--<div>{{displayDay}}</div>-->
-					<div ng-repeat="entry in displayDay.posts track by $index" class="entry" ng-class="entry.cls">
-						<h4 class="entry-title">{{entry.date | date }}</h4>
-						<p class="rating-display"><strong>Rating:</strong> {{entry.rating}}</p>
-						<p class="comment-display"><strong>Comment:</strong> {{entry.comment}}</p>
-						<p class="moods-display"><strong>Moods:</strong> {{entry.mood}}</p>
-					</div>
+			<div id="feelingCal" class="col-sm-8 col-xs-12">
+				<div class="col-sm-12" id="calendarThis"></div>
+			</div>
+			<div class="col-sm-1 empty"></div>
+			<div class="col-sm-4 col-xs-12 entries card">
+				<h4 class="text-center">Daily Entries</h4>
+				<p class="text-center">Average: {{displayDay.newAvg}}</p>
+				<!--<div>{{displayDay}}</div>-->
+				<div ng-repeat="entry in displayDay.posts track by $index" class="entry" ng-class="entry.cls">
+					<h4 class="entry-title">{{entry.date | date }}</h4>
+					<p class="rating-display"><strong>Rating:</strong> {{entry.rating}}</p>
+					<p class="comment-display"><strong>Comment:</strong> {{entry.comment}}</p>
+					<p class="moods-display"><strong>Moods:</strong> {{entry.mood}}</p>
 				</div>
 			</div>
-<!--			<div class="col-sm-1 empty"></div>-->
 		</div>
-
 	</div>
 </div>
