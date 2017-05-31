@@ -1,13 +1,10 @@
 var app = angular.module('happyMod');
 
 app.factory("happyService", function($http) {
-    var nuUser = {}
 	var entry = {};
     var holder={};
     var loginInfo={};
-    var id =1;
-//	var day = [];
-//	var days = [];
+    var id =0;
     var allPosts=[];
     var today = [];
 	var daysSeperate = [];

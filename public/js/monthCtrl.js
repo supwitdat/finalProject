@@ -2,12 +2,14 @@ var app = angular.module('happyMod');
 
 
 app.controller("monthController", function($scope, happyService, $timeout) {
-     $scope.logout= function logout(){
-            happyService.logout();
-        }
-     $scope.newAvg =0;
-	$scope.viewArray=[];
+   
+     $scope.newAvg = 0;
+	$scope.viewArray = [];
 
+    
+    
+    
+    
 	happyService.setDays();
 	$timeout(function() {
 		$scope.days = happyService.getDays();
@@ -169,7 +171,15 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		return renderCalendar("calendarThis");
 		}
 
-
+        $scope.changeCls = function(){
+            
+       
+$scope.days.forEach(function(day){
+    if(day.date.substring(0,10) === calendarCell.firstChild.getAttribute('datetime').substring(0,10)){
+        calendarCell.addClass(day.cls);
+    }
+});
+             };
 
 
 

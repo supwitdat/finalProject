@@ -189,10 +189,6 @@ body {
 	text-decoration: underline;
 }
 
-#moodOptions .mood-checkbox + .mood-label {
-	font-weight: normal;
-}
-
 .mood.low label:hover {
 	color: #1100FA;
 }
