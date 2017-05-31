@@ -134,8 +134,12 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 
 		function displayDayPosts(selectedDay) {
 			$scope.displayDay = happyService.setDisplayPosts(selectedDay);
+      $scope.$apply();
+      // $scope.$digest();
 			console.log($scope.displayDay);
 		}
+
+// displayDay
 
 		var updateDay = function(){
 			var thisCellTime = this.querySelector('time');

@@ -200,7 +200,7 @@ app.factory("happyService", function($http) {
 	function getDays() {
 		return daysSeperate;
 	}
-	
+
 	function setDisplayPosts(selectedDay) {
 		var days = getDays();
 		var day = {posts: []};
@@ -221,6 +221,7 @@ app.factory("happyService", function($http) {
 
 			}
 		}
+    
 		return day;
 	}
 
