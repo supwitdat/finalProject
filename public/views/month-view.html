@@ -33,7 +33,7 @@
 					<h4 class="text-center">Daily Entries</h4>
                     <p>Average: {{displayDay.newAvg}}</p>
 					<!--<div>{{displayDay}}</div>-->
-					<div ng-repeat="entry in displayDay.posts track by $index" class="entry">
+					<div ng-repeat="entry in displayDay.posts track by $index" class="entry" ng-class="entry.cls">
 						<h4 class="entry-title">{{entry.date | date }}</h4>
 						<p class="rating-display"><strong>Rating:</strong> {{entry.rating}}</p>
 						<p class="comment-display"><strong>Comment:</strong> {{entry.comment}}</p>
