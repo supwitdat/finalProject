@@ -46,6 +46,8 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		var prevMonthSpan = document.createElement("SPAN");
 		prevMonthSpan.addEventListener('click', function(){
 			goToMonth(currentDate, false); // Go To Previous Month
+            $scope.changeCls();
+
 		});
 		prevMonthSpan.classList.add('arrow', 'float-left', 'prev-arrow');
 		var backArrow = document.createTextNode("<");
@@ -54,6 +56,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		var nextMonthSpan = document.createElement("SPAN");
 		nextMonthSpan.addEventListener('click', function(){
 			goToMonth(currentDate, true); // Go To Next Month
+            $scope.changeCls();
 		});
 		nextMonthSpan.classList.add('arrow', 'float-right', 'next-arrow');
 		var nextArrow = document.createTextNode(">");
@@ -62,7 +65,6 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		document.onkeydown = function() {
 			switch (window.event.keyCode) {
 				case 37: //Left key
-                    $scope.changeCls();
 					goToMonth(currentDate, false);
 					break;
 				case 39: //Right key
