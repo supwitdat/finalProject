@@ -4,7 +4,8 @@ var app = angular.module('happyMod');
 app.controller("monthController", function($scope, happyService, $timeout) {
   $scope.newAvg =0;
 	$scope.viewArray=[];
-
+   $scope.calList = [];
+    $scope.calCell =[];
 	happyService.setDays();
 	$timeout(function() {
 		$scope.days = happyService.getDays();
@@ -61,6 +62,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		document.onkeydown = function() {
 			switch (window.event.keyCode) {
 				case 37: //Left key
+                    $scope.changeCls();
 					goToMonth(currentDate, false);
 					break;
 				case 39: //Right key
@@ -96,7 +98,8 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		var dayDataDate = new Date(theDate.getFullYear(), theDate.getMonth(), (i+1));
 		calCellTime.setAttribute('datetime', dayDataDate.toISOString());
 		calCellTime.setAttribute('data-dayofweek', dayNames[dayDataDate.getDay()]);
-
+$scope.calList = calendarList;
+$scope.calCell = calendarCell;
 		calendarCell.className = "calendar-cell";
 		if(i === currentDate.theDay-1){
 			calendarCell.className = "today";
@@ -137,7 +140,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		}
 
 // displayDay
-
+console.log(calendarList)
 		var updateDay = function(){
 			var thisCellTime = this.querySelector('time');
 			var selectedDate = thisCellTime.getAttribute('datetime');
@@ -157,24 +160,37 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 
 		renderCalendar("calendarThis");
 
-		function goToMonth(currentDate, direction) {
+		
+
+$scope.changeCls = function(){
+            
+       
+$scope.days.forEach(function(day){
+    
+    var calendarDay = $scope.calList.childNodes;
+   calendarDay.forEach(function(cell){
+       
+ console.log(cell)
+    if(day.date.substring(0,10) === cell.firstChild.getAttribute('datetime').substring(0,10)){     
+
+       cell.className +=' ' + day.cls;
+ $scope.$digest();
+    }  
+   });
+});
+             };
+        
+        
+        function goToMonth(currentDate, direction) {
 		if (direction == false){
 		theDate = new Date(theDate.getFullYear(), theDate.getMonth()-1, 1);
 		} else{
 		theDate = new Date(theDate.getFullYear(), theDate.getMonth()+1, 1);
 		}
 		return renderCalendar("calendarThis");
+        
 		}
-
-        $scope.changeCls = function(){
-            
-       
-$scope.days.forEach(function(day){
-    if(day.date.substring(0,10) === calendarCell.firstChild.getAttribute('datetime').substring(0,10)){
-        calendarCell.addClass(day.cls);
-    }
-});
-             };
+            $scope.changeCls();
 
 
 		}, 1000);

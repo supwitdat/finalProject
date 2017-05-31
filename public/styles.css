@@ -289,7 +289,7 @@ input[type=checkbox] {
 	width: 14%;
 	border: #BEBEBD 2px solid;
 	text-align: center;
-	background: darkgray;
+/*	background: darkgray;*/
 	cursor: pointer;
 	text-shadow: 1px 1px black;
 	color: white;
