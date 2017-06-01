@@ -221,9 +221,8 @@ input[type=checkbox] {
 /*OVERVIEW STYLING*/
 
 .entries {
-	height: 357px;
-	overflow-y: auto;
-    overflow-x: hidden;
+	height: 400px;
+    overflow:hidden;
 	color: black;
 }
 
@@ -232,7 +231,7 @@ input[type=checkbox] {
 }
 
 .entry-section {
-	overflow: scroll;
+	overflow: auto;
 	max-height: 400px;
 }
 
