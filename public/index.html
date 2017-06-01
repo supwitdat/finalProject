@@ -4,13 +4,16 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>progress.</title>
+		<title>pro-gress</title>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Roboto" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans+Condensed:300,700" rel="stylesheet">
 		<!-- Our CSS -->
 		<link rel="stylesheet" type="text/css" href="styles.css">
+
+   <link rel="shortcut icon" type="image/x-icon" href="progress.ico"/>
+<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 	</head>
   <body ng-app="happyMod" class="indexBody">
 	<div id="content">
@@ -18,14 +21,16 @@
 		<nav class="navbar navbar-inverse" ng-controller="loginController">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#"><span id="progress">progress.</span></a>
+					<a class="navbar-brand" href="#"><span id="progress">pro-gress</span></a>
 				</div>
 				<ul class="nav navbar-nav">
 					<li><a href="#!/entry" ng-click="hasAccess()">New Entry</a></li>
 					<li><a href="#!/month" ng-click="hasAccess()">Overview</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+
 					<li id="logAlert">{{loginObj.message}}</li>
+
 					<li><div id="status"></div></li>
 					<li><a href="#!/login"><span class="glyphicon glyphicon-log-in">
 					</span> Login</a></li>
