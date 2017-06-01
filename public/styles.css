@@ -41,10 +41,57 @@ body {
 	background-color: rgba(255, 255, 255, 0.80);
 }
 
-.btn {
-	margin-bottom: 4%;
-	background-color: #00F93A;
+/*BUTTON*/
+
+.button {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #00C7F9;
+  border: 2px lightgray solid;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 1%;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00BB';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.back span:after {
+  content: '\00AB';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 
 .loginAlert {
 	color: white;
