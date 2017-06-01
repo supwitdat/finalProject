@@ -114,7 +114,7 @@ app.factory("happyService", function($http) {
 
 	function setDays(){
 
-		getPosts().then(function() {
+		var promise = getPosts().then(function() {
 			daysSeperate = [];
 			var duplicates = [];
 //			var daysSeperate = [];
@@ -192,6 +192,7 @@ app.factory("happyService", function($http) {
 			});
 			return daysSeperate;
 		});
+		return promise;
 	}
 
 	function getDays() {

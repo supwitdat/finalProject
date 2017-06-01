@@ -241,6 +241,11 @@ input[type=checkbox] {
 	max-height: 400px;
 }
 
+#select-text {
+	text-align: center;
+	font-style: italic;
+}
+
 .entry {
 	border: 2px solid #BEBEBD;
 	margin: 2%;
@@ -320,10 +325,6 @@ input[type=checkbox] {
     margin: 0 0 2px 0;
     font-weight: bold;
     color:#B1BEBD;
-}
-
-.today{
-    border: black 2px solid;
 }
 
 .arrow{

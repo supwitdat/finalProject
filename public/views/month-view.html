@@ -15,13 +15,16 @@
 			<div class="col-sm-1 empty"></div>
 		</div>
 		<div class="row">
-			<div id="feelingCal" class="col-sm-8 col-xs-12">
-				<div class="col-sm-12" id="calendarThis"></div>
+			<div class="col-sm-1 empty"></div>
+			<div id="feelingCal" class="col-sm-5 col-xs-12">
+				<div class="col-sm-12" id="calendarThis" ng-click="entryDisplay()"></div>
 			</div>
-			<div class="col-sm-4 col-xs-12 entries card">
+<!--			<div class="col-sm-1 empty"></div>-->
+			<div class="col-sm-5 col-xs-12 entries card">
 				<div class="entry-heading">
 					<h4 class="text-center">Daily Entries</h4>
-					<p class="text-center">Average: {{displayDay.newAvg}}</p>
+					<p class="text-center" ng-show=entryFull>Average: {{displayDay.newAvg}}</p>
+					<p id="select-text" ng-show=!entryFull>Please Select a Day with Entries</p>
 				</div>
 				<div class="entry-section">
 					<div ng-repeat="entry in displayDay.posts track by $index" class="entry" ng-class="entry.cls">
@@ -32,6 +35,7 @@
 					</div> 
 				</div>
 			</div>
+			<div class="col-sm-1 empty"></div>
 		</div>
 	</div>
 </div>
