@@ -221,19 +221,15 @@ input[type=checkbox] {
 /*OVERVIEW STYLING*/
 
 .entries {
-	height: 357px;
-	overflow-y: auto;
-    overflow-x: hidden;
+	height: 418px;
 	color: black;
-}
-
-.entry-header {
-	height: 100px;
 }
 
 .entry-section {
 	overflow: scroll;
-	max-height: 400px;
+	max-height: 318px;
+	overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #select-text {
