@@ -8,6 +8,30 @@ app.factory("happyService", function($http) {
     var allPosts=[];
     var today = [];
 	var daysSeperate = [];
+   var loginObj = {message: 'Please login'};
+
+
+	 function setLoginObj(message){
+
+			 loginObj.message = message;
+			 return loginObj.message;
+
+	 }
+
+	 function getLoginObj(){
+		 return loginObj;
+	 }
+
+//checks to see if someone is loggedin to alert them.
+
+	function getIdValue(){
+		console.log(id);
+		if (id === 0){
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	//sets number selected on rating page, adds it as property to entry object
 	function setRating(rating) {
@@ -265,7 +289,7 @@ app.factory("happyService", function($http) {
 
 			}
 		}
-    
+
 		return day;
 	}
 
@@ -351,6 +375,9 @@ function userPromise (){
 		getEntry: getEntry,
 		setDays: setDays,
 		getDays: getDays,
-		setDisplayPosts: setDisplayPosts
+		setDisplayPosts: setDisplayPosts,
+		getIdValue: getIdValue,
+		setLoginObj: setLoginObj,
+		getLoginObj: getLoginObj
 	}
 });

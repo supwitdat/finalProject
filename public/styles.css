@@ -4,12 +4,12 @@ body {
 	font-family: 'Roboto', sans-serif;
 	background-color: #2e2e2e;
 	/* If we want a background image */
-	
+
 	background-image: url(images/grass.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	
+
 }
 
 #content {
@@ -55,8 +55,8 @@ body {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 30px;
-	
-	/* IE10+ */ 
+
+	/* IE10+ */
 	background-image: -ms-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 
 	/* Mozilla Firefox */
@@ -338,4 +338,8 @@ input[disabled='disabled']{
 
 hr{
     border: #d89f52 1px solid;
+}
+
+#logAlert {
+	color: white;
 }
