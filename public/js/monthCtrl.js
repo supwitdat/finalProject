@@ -3,8 +3,8 @@ var app = angular.module('happyMod');
 
 app.controller("monthController", function($scope, happyService, $timeout) {
   $scope.newAvg =0;
-	$scope.viewArray=[];
-   $scope.calList = [];
+	$scope.viewArray =[];
+    $scope.calList =[];
     $scope.calCell =[];
 	happyService.setDays();
 	$timeout(function() {
