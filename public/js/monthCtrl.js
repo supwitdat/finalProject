@@ -6,10 +6,9 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 	$scope.viewArray =[];
     $scope.calList =[];
     $scope.calCell =[];
-	happyService.setDays();
-	$timeout(function() {
+	happyService.setDays().then(function(){
 		$scope.days = happyService.getDays();
-
+            
 
 		var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -24,6 +23,7 @@ app.controller("monthController", function($scope, happyService, $timeout) {
 		};
 
 		var currentDate = new DateObject(theDate);
+        console.log(currentDate);
 		function renderCalendar(targetElem){
 
 		// Custom function to make new elements easier:
@@ -138,27 +138,23 @@ $scope.calCell = calendarCell;
 
 		function displayDayPosts(selectedDay) {
 			$scope.displayDay = happyService.setDisplayPosts(selectedDay);
-      $scope.$apply();
-      // $scope.$digest();
-			console.log($scope.displayDay);
+            $scope.$apply();
 		}
 
 // displayDay
-console.log(calendarList)
 		var updateDay = function(){
 			var thisCellTime = this.querySelector('time');
 			var selectedDate = thisCellTime.getAttribute('datetime');
 			//onclick text//
 			displayDayPosts(selectedDate);
-			console.log(selectedDate)
 		}
 
 		var calCells = document.getElementsByClassName('calendar-cell');
 		for(i = 0; i < calCells.length; i++){
-			calCells[i].addEventListener('click', updateDay, false);
+        calCells[i].addEventListener('click', updateDay, false);
 		}
-		var todayCell = document.getElementsByClassName('today');
-		todayCell[0].addEventListener('click',updateDay,false);
+      var todayCell = document.getElementsByClassName('today');
+        todayCell[0].addEventListener('click',updateDay,false);
 		} // renderCalener function ends
 
 
@@ -196,10 +192,8 @@ $scope.days.forEach(function(day){
 		}
             $scope.changeCls();
 
-
-		}, 1000);
-
-
+        
+});
 
 
 

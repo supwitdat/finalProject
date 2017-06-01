@@ -226,8 +226,9 @@ input[type=checkbox] {
 /*OVERVIEW STYLING*/
 
 .entries {
-	max-height: 500px;
-	overflow: scroll;
+	height: 357px;
+	overflow-y: auto;
+    overflow-x: hidden;
 	color: black;
 }
 
@@ -253,6 +254,7 @@ input[type=checkbox] {
     color:black;
    	margin: 2% auto;
 	padding: 2% auto;
+    height:418px
 }
 
 #calendarThis li, .day-of-week {
@@ -309,9 +311,6 @@ input[type=checkbox] {
     color:#B1BEBD;
 }
 
-.today{
-    border: black 2px solid;
-}
 
 .arrow{
     width: 45px;
