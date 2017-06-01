@@ -22,7 +22,6 @@ if they are not logged in*/
          if (access === 0){
             event.preventDefault();
             $location.path('/login');
-           alert('please login');
          }
 
        };
