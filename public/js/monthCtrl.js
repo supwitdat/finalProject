@@ -138,9 +138,19 @@ $scope.calCell = calendarCell;
 
 		function displayDayPosts(selectedDay) {
 			$scope.displayDay = happyService.setDisplayPosts(selectedDay);
-			$scope.$apply();
-      		// $scope.$digest();
+			$scope.entryFull = function() {
+				if ($scope.displayDay == []) {
+					false;
+				} else {
+					true;
+				}
+			}
+			
+//			$scope.$apply();
+      		$scope.$digest();
 			console.log($scope.displayDay);
+			
+
 		
 		}
 			
@@ -153,13 +163,7 @@ console.log(calendarList)
 			displayDayPosts(selectedDate);
 			console.log(selectedDate)
 			
-			$scope.entryDisplay = function() {
-				if (selectedDate === undefined) {
-					false;
-				} else {
-					true;
-				}
-			}
+
 			
 		}
 
