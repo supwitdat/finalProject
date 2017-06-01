@@ -15,21 +15,27 @@
 			<div class="col-sm-1 empty"></div>
 		</div>
 		<div class="row">
-			<div id="feelingCal" class="col-sm-8 col-xs-12">
-				<div class="col-sm-12" id="calendarThis"></div>
-			</div>
 			<div class="col-sm-1 empty"></div>
-			<div class="col-sm-4 col-xs-12 entries card">
-				<h4 class="text-center">Daily Entries</h4>
-				<p class="text-center">Average: {{displayDay.newAvg}}</p>
-				<!--<div>{{displayDay}}</div>-->
-				<div ng-repeat="entry in displayDay.posts track by $index" class="entry" ng-class="entry.cls">
-					<h4 class="entry-title">{{entry.date | date }}</h4>
-					<p class="rating-display"><strong>Rating:</strong> {{entry.rating}}</p>
-					<p class="comment-display"><strong>Comment:</strong> {{entry.comment}}</p>
-					<p class="moods-display"><strong>Moods:</strong> {{entry.mood}}</p>
+			<div id="feelingCal" class="col-sm-5 col-xs-12">
+				<div class="col-sm-12" id="calendarThis" ng-click="entryDisplay()"></div>
+			</div>
+<!--			<div class="col-sm-1 empty"></div>-->
+			<div class="col-sm-5 col-xs-12 entries card">
+				<div class="entry-heading">
+					<h4 class="text-center">Daily Entries</h4>
+					<p class="text-center" ng-show=entryFull>Average: {{displayDay.newAvg}}</p>
+					<p id="select-text" ng-show=!entryFull>Please Select a Day with Entries</p>
+				</div>
+				<div class="entry-section">
+					<div ng-repeat="entry in displayDay.posts track by $index" class="entry" ng-class="entry.cls">
+						<h4 class="entry-title">{{entry.date | date }}</h4>
+						<p class="rating-display">Rating: {{entry.rating}}</p>
+						<p class="comment-display">Comment: {{entry.comment}}</p>
+						<p class="moods-display">Moods: {{entry.mood}}</p>
+					</div> 
 				</div>
 			</div>
+			<div class="col-sm-1 empty"></div>
 		</div>
 	</div>
 </div>

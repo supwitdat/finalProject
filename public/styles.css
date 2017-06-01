@@ -1,7 +1,7 @@
 body {
 	min-height: 100%;
 	font-size: 18px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 	background-color: #2e2e2e;
 	/* If we want a background image */
 	
@@ -50,12 +50,6 @@ body {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
-
-
-
-
-
 
 .gradient {
 	margin-top: 10px;
@@ -177,6 +171,7 @@ body {
   text-shadow: 1px 1px black;
   color: white;
   font-size: 42px;
+  font-weight: bold;
 }
 
 /*ENTRY DETAIL PAGE*/
@@ -232,12 +227,29 @@ input[type=checkbox] {
 	color: black;
 }
 
+.entry-header {
+	height: 100px;
+}
+
+.entry-section {
+	overflow: scroll;
+	max-height: 400px;
+}
+
+#select-text {
+	text-align: center;
+	font-style: italic;
+}
+
 .entry {
 	border: 2px solid #BEBEBD;
 	margin: 2%;
 	padding: 2%;
-  	text-shadow: 1px 1px black;
-	color: white;
+	color: black;
+}
+
+.entry p {
+	background-color: rgba(255, 255, 255, 0.75);
 }
 
 /*calender styling*/
@@ -310,7 +322,6 @@ input[type=checkbox] {
     font-weight: bold;
     color:#B1BEBD;
 }
-
 
 .arrow{
     width: 45px;

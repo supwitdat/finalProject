@@ -4,7 +4,7 @@ app.factory("happyService", function($http) {
 	var entry = {};
     var holder={};
     var loginInfo={};
-    var id =0;
+    var id =498;
     var allPosts=[];
     var today = [];
 	var daysSeperate = [];
@@ -192,7 +192,8 @@ app.factory("happyService", function($http) {
 			});
 			return daysSeperate;
 		});
-        return promise;
+
+		return promise;
 	}
 
 	function getDays() {

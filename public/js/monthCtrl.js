@@ -1,15 +1,15 @@
 var app = angular.module('happyMod');
 
 
-app.controller("monthController", function($scope, happyService, $timeout) {
+app.controller("monthController", function($scope, happyService) {
   $scope.newAvg =0;
 	$scope.viewArray =[];
     $scope.calList =[];
     $scope.calCell =[];
-	happyService.setDays().then(function(){
-		$scope.days = happyService.getDays();
-            
+	happyService.setDays().then(function() {
 
+		$scope.days = happyService.getDays();
+		
 		var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var theDate = new Date();
@@ -140,13 +140,20 @@ $scope.calCell = calendarCell;
 			$scope.displayDay = happyService.setDisplayPosts(selectedDay);
             $scope.$apply();
 		}
-
+			
 // displayDay
 		var updateDay = function(){
 			var thisCellTime = this.querySelector('time');
 			var selectedDate = thisCellTime.getAttribute('datetime');
 			//onclick text//
-			displayDayPosts(selectedDate);
+			displayDayPosts(selectedDate);			
+			$scope.entryDisplay = function() {
+				if (selectedDate === undefined) {
+					false;
+				} else {
+					true;
+				}
+			}
 		}
 
 		var calCells = document.getElementsByClassName('calendar-cell');
@@ -156,29 +163,30 @@ $scope.calCell = calendarCell;
       var todayCell = document.getElementsByClassName('today');
         todayCell[0].addEventListener('click',updateDay,false);
 		} // renderCalener function ends
+		
 
 
 		renderCalendar("calendarThis");
 
 		
 
-$scope.changeCls = function(){
+		$scope.changeCls = function(){
             
-       
-$scope.days.forEach(function(day){
-    
-    var calendarDay = $scope.calList.childNodes;
-   calendarDay.forEach(function(cell){
-       
- console.log(cell)
-    if(day.date.substring(0,10) === cell.firstChild.getAttribute('datetime').substring(0,10)){     
+			$scope.days.forEach(function(day){
 
-       cell.className +=' ' + day.cls;
- $scope.$digest();
-    }  
-   });
-});
-             };
+				var calendarDay = $scope.calList.childNodes;
+				calendarDay.forEach(function(cell){
+
+					console.log(cell)
+					if(day.date.substring(0,10) === cell.firstChild.getAttribute('datetime').substring(0,10)){     
+
+						cell.className +=' ' + day.cls;
+//						$scope.$digest();
+					}  
+				});
+			});
+			
+		};
         
         
         function goToMonth(currentDate, direction) {
@@ -191,7 +199,6 @@ $scope.days.forEach(function(day){
         
 		}
             $scope.changeCls();
-
         
 });
 
