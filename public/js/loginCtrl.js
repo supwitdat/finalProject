@@ -4,7 +4,6 @@ app.controller("loginController", function($scope, happyService,$location, $wind
 
     $scope.user ={};
     $scope.existing ={};
-
 //LIMITING NAV ACCESS BASED ON LOGIN
 
 /* This function disables link and redirects user to login page
@@ -57,7 +56,10 @@ happyService.userPromise().then(function(data){
     $scope.login = function(){
         happyService.setLogin($scope.existing);
         happyService.userLogin($scope.existing.username).then(function(){
-            $location.path('/entry');
+            if (happyService.getID() > 0){
+                $scope.loginInfo = $scope.user.username;
+             $location.path('/entry');
+            }
         });
     };
 	

@@ -6,7 +6,6 @@ app.controller("monthController", function($scope, happyService) {
 	$scope.viewArray =[];
     $scope.calList =[];
     $scope.calCell =[];
-	
 	happyService.setDays().then(function() {
 
 		$scope.days = happyService.getDays();
@@ -24,6 +23,7 @@ app.controller("monthController", function($scope, happyService) {
 		};
 
 		var currentDate = new DateObject(theDate);
+        console.log(currentDate);
 		function renderCalendar(targetElem){
 
 		// Custom function to make new elements easier:
@@ -149,30 +149,23 @@ $scope.calCell = calendarCell;
 //			$scope.$apply();
       		$scope.$digest();
 			console.log($scope.displayDay);
-			
-
-		
 		}
 			
 // displayDay
-console.log(calendarList)
 		var updateDay = function(){
 			var thisCellTime = this.querySelector('time');
 			var selectedDate = thisCellTime.getAttribute('datetime');
 			//onclick text//
 			displayDayPosts(selectedDate);
 			console.log(selectedDate)
-			
-
-			
 		}
 
 		var calCells = document.getElementsByClassName('calendar-cell');
 		for(i = 0; i < calCells.length; i++){
-			calCells[i].addEventListener('click', updateDay, false);
+        calCells[i].addEventListener('click', updateDay, false);
 		}
-		var todayCell = document.getElementsByClassName('today');
-		todayCell[0].addEventListener('click',updateDay,false);
+      var todayCell = document.getElementsByClassName('today');
+        todayCell[0].addEventListener('click',updateDay,false);
 		} // renderCalener function ends
 		
 
@@ -210,11 +203,9 @@ console.log(calendarList)
         
 		}
             $scope.changeCls();
-		
+        
+});
 
-
-
-	});
 
 
 

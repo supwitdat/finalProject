@@ -192,12 +192,13 @@ app.factory("happyService", function($http) {
 			});
 			return daysSeperate;
 		});
+
 		return promise;
 	}
 
 	function getDays() {
-		return daysSeperate;
-	}
+        return daysSeperate;
+    }
 
 	function setDisplayPosts(selectedDay) {
 		var days = getDays();
@@ -314,12 +315,11 @@ return response;
     }
 
     function userLogin(username){
-        return $http.get('/db/users/username/'+username).then(function(response){
+        return $http.get('/db/users/username/'+username).then(function(response){ var match;
             if (response.data.username === loginInfo.username && response.data.password === loginInfo.password){
-                alert('Logged in as '+ response.data.username)
                return id = response.data.id;
             } else {
-                alert('Login credentials do not match')
+                alert('Login credentials do not match');
             }
         })
     }
