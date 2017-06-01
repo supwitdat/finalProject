@@ -1,9 +1,16 @@
 var app = angular.module('happyMod');
 
-app.controller("loginController", function($scope, happyService,$location, $window) {
+app.controller("loginController", function($scope, happyService,$location, $window,$timeout) {
 
     $scope.user ={};
     $scope.existing ={};
+
+$scope.loginObj = happyService.getLoginObj();
+
+//login message code
+
+  var loginNumber = happyService.getID();
+
 //LIMITING NAV ACCESS BASED ON LOGIN
 
 /* This function disables link and redirects user to login page
@@ -54,18 +61,34 @@ happyService.userPromise().then(function(data){
     };
 
     $scope.login = function(){
+
+
         happyService.setLogin($scope.existing);
         happyService.userLogin($scope.existing.username).then(function(){
+
+            $location.path('/entry');
+            loginNumber = happyService.getID();
+
+            // To get navbar login message
+              if (loginNumber !== 0){
+
+                happyService.setLoginObj('Logged in')
+
+                $scope.loginObj = happyService.getLoginObj();
+
+              }
+
+
             if (happyService.getID() > 0){
-                $scope.loginInfo = $scope.user.username;
              $location.path('/entry');
             }
+
         });
     };
-	
+
 	$scope.logout = function() {
-		$window.location.reload(); 
+		$window.location.reload();
 	};
-	
+
 	$scope.isUserLoggedIn = true;
 });

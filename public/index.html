@@ -11,7 +11,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans+Condensed:300,700" rel="stylesheet">
 		<!-- Our CSS -->
 		<link rel="stylesheet" type="text/css" href="styles.css">
-        
+
    <link rel="shortcut icon" type="image/x-icon" href="progress.ico"/>
 <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 	</head>
@@ -28,7 +28,9 @@
 					<li><a href="#!/month" ng-click="hasAccess()">Overview</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-                    <li>{{loginInfo}}</li>
+
+					<li id="logAlert">{{loginObj.message}}</li>
+
 					<li><div id="status"></div></li>
 					<li><a href="#!/login"><span class="glyphicon glyphicon-log-in">
 					</span> Login</a></li>
