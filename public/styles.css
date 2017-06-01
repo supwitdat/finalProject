@@ -46,6 +46,10 @@ body {
 	background-color: #00F93A;
 }
 
+.loginAlert {
+	color: white;
+}
+
 /*color key*/
 .color-key img {
 	margin-top: 10px;
