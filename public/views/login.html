@@ -35,10 +35,10 @@
 					<p ng-show="user.password !== user.password2" class="help-block">The passwords do not match.</p>
 
 					<br/>
-					<button type="submit" class="btn btn-info" ng-disabled="newUserLogin.userName.$invalid
+					<button type="submit" class="button" ng-click="testAlert()"  ng-disabled="newUserLogin.userName.$invalid
 					|| newUserLogin.userEmail.$invalid
 					|| newUserLogin.userPassword.$invalid
-					|| newUserLogin.userPassword2.$invalid">Create Account</button>
+					|| newUserLogin.userPassword2.$invalid"><span>Create Account</span></button>
 				</form>
 			</div>
 		</div>
@@ -62,8 +62,8 @@
 				</div>
 
 
-				<button type="submit" class="btn btn-info" ng-disabled="userLogin.existingUserName.$invalid
-				|| userLogin.existingUserPassword.$invalid">Login</button>
+				<button type="submit" class="button" ng-disabled="userLogin.existingUserName.$invalid
+				|| userLogin.existingUserPassword.$invalid" ng-click="testAlert()"><span>Login</span></button>
 
 			</form>
 		</div>

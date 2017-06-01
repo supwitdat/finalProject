@@ -4,12 +4,12 @@ body {
 	font-family: 'Open Sans Condensed', sans-serif;
 	background-color: #2e2e2e;
 	/* If we want a background image */
-
+	
 	background-image: url(images/grass.jpg);
 	background-repeat: no-repeat;
 	background-position: bottom;
 	background-size: cover;
-
+	
 }
 
 #content {
@@ -36,65 +36,13 @@ body {
 	border: 2px solid #BEBEBD;
 	box-shadow: 5px 5px 2px grey;
 	padding: 2% auto;
-	margin: 2% auto;
-	margin-bottom: 5%;
+	margin: 5% auto;
 	background-color: rgba(255, 255, 255, 0.80);
 }
 
-/*BUTTON*/
-
-.button {
-  display: inline-block;
-  border-radius: 15px;
-  background-color: #00C7F9;
-  border: 2px lightgray solid;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 20px;
-  padding: 1%;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00BB';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.back span:after {
-  content: '\00AB';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-.loginAlert {
-	color: white;
+.btn {
+	margin-bottom: 4%;
+	background-color: #00F93A;
 }
 
 /*color key*/
@@ -107,7 +55,7 @@ body {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 30px;
-
+	
 	/* IE10+ */
 	background-image: -ms-linear-gradient(left, #1006d3 0%, #1100FA 10%, #004FF9 20%, #0085F9 40%, #00C7F9 50%, #00E9F9 60%, #00F9D0 70%, #00F9B3 80%, #00F974 90%, #00F93A 100%);
 
@@ -272,14 +220,15 @@ input[type=checkbox] {
 /*OVERVIEW STYLING*/
 
 .entries {
-    overflow:hidden;
 	height: 418px;
 	color: black;
 }
 
 .entry-section {
-	overflow: auto;
-	max-height: 400px;
+	overflow: scroll;
+	max-height: 318px;
+	overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #select-text {
@@ -310,7 +259,7 @@ input[type=checkbox] {
 	background-color: #343434;
     box-shadow: 5px 5px 2px grey;
     color:black;
-   	margin: 2% 2% 0% 2%;
+   	margin: 2% auto;
 	padding: 2% auto;
     height:418px
 }
@@ -401,8 +350,4 @@ input[disabled='disabled']{
 
 hr{
     border: #d89f52 1px solid;
-}
-
-#logAlert {
-	color: white;
 }
