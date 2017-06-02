@@ -64,8 +64,6 @@ happyService.userPromise().then(function(data){
 
         happyService.setLogin($scope.existing);
         happyService.userLogin($scope.existing.username).then(function(){
-
-            $location.path('/entry');
             loginNumber = happyService.getID();
 
             // To get navbar login message
